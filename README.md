@@ -27,5 +27,5 @@ git commit -m "Mensaje que describa el commit"
 git push origin main
 
 ```
-
+Nota: se han excluido algunos ficheros de la carpeta que no son de interes ya que son documentos o archivos con descargas como keycloack.
 
