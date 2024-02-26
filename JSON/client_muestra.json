@@ -1,0 +1,272 @@
+[
+  {
+    "msisdn": "+34654789231",
+    "imsi": "214013456789012",
+    "mcc": 214,
+    "mnc": 1,
+    "cell_id": 123,
+    "titular": true,
+    "titular_data": {
+      "name": "María",
+      "givenName": "María",
+      "familyName": "García",
+      "idDocument": "12345678A",
+      "email": "maria@example.com",
+      "gender": "Femenino",
+      "birthdate": "1990-05-15",
+      "address": {
+        "streetName": "Calle Mayor",
+        "streetNumber": "10",
+        "postalCode": "28001",
+        "region": "Madrid",
+        "locality": "Madrid",
+        "country": "España",
+        "houseNumberExtension": "A"
+      }
+    },
+    "latestSimChange": "2024-02-10T20:00:00.000Z"
+  },
+  {
+    "msisdn": "+34635874210",
+    "imsi": "214022345678901",
+    "mcc": 214,
+    "mnc": 2,
+    "cell_id": 234,
+    "titular": false,
+    "titular_data": {
+      "name": "David",
+      "givenName": "David",
+      "familyName": "Martínez",
+      "idDocument": "87654321B",
+      "email": "david@example.com",
+      "gender": "Masculino",
+      "birthdate": "1985-08-20",
+      "address": {
+        "streetName": "Calle San Francisco",
+        "streetNumber": "25",
+        "postalCode": "08001",
+        "region": "Barcelona",
+        "locality": "Barcelona",
+        "country": "España",
+        "houseNumberExtension": "B"
+      }
+    },
+    "latestSimChange": "2024-02-10T19:00:00.000Z"
+  },
+  {
+    "msisdn": "+34612345678",
+    "imsi": "214031234567890",
+    "mcc": 214,
+    "mnc": 3,
+    "cell_id": 345,
+    "titular": true,
+    "titular_data": {
+      "name": "Ana",
+      "givenName": "Ana",
+      "familyName": "Fernández",
+      "idDocument": "98765432C",
+      "email": "ana@example.com",
+      "gender": "Femenino",
+      "birthdate": "1988-12-10",
+      "address": {
+        "streetName": "Calle Gran Vía",
+        "streetNumber": "50",
+        "postalCode": "28013",
+        "region": "Madrid",
+        "locality": "Madrid",
+        "country": "España",
+        "houseNumberExtension": "C"
+      }
+    },
+    "latestSimChange": "2024-02-10T18:00:00.000Z"
+  },
+  {
+    "msisdn": "+34623456789",
+    "imsi": "214041234567891",
+    "mcc": 214,
+    "mnc": 4,
+    "cell_id": 456,
+    "titular": false,
+    "titular_data": {
+      "name": "Carlos",
+      "givenName": "Carlos",
+      "familyName": "López",
+      "idDocument": "54321678D",
+      "email": "carlos@example.com",
+      "gender": "Masculino",
+      "birthdate": "1976-06-25",
+      "address": {
+        "streetName": "Avenida Diagonal",
+        "streetNumber": "100",
+        "postalCode": "08019",
+        "region": "Barcelona",
+        "locality": "Barcelona",
+        "country": "España",
+        "houseNumberExtension": "D"
+      }
+    },
+    "latestSimChange": "2024-02-10T17:00:00.000Z"
+  },
+  {
+    "msisdn": "+34634567890",
+    "imsi": "214051234567892",
+    "mcc": 214,
+    "mnc": 5,
+    "cell_id": 567,
+    "titular": true,
+    "titular_data": {
+      "name": "Elena",
+      "givenName": "Elena",
+      "familyName": "Rodríguez",
+      "idDocument": "43218765E",
+      "email": "elena@example.com",
+      "gender": "Femenino",
+      "birthdate": "1995-03-18",
+      "address": {
+        "streetName": "Calle de Serrano",
+        "streetNumber": "75",
+        "postalCode": "28006",
+        "region": "Madrid",
+        "locality": "Madrid",
+        "country": "España",
+        "houseNumberExtension": "E"
+      }
+    },
+    "latestSimChange": "2024-02-10T14:00:00.000Z"
+  },
+  {
+    "msisdn": "+34645678901",
+    "imsi": "214061234567893",
+    "mcc": 214,
+    "mnc": 6,
+    "cell_id": 678,
+    "titular": false,
+    "titular_data": {
+      "name": "Juan",
+      "givenName": "Juan",
+      "familyName": "Gómez",
+      "idDocument": "87654321F",
+      "email": "juan@example.com",
+      "gender": "Masculino",
+      "birthdate": "1982-09-30",
+      "address": {
+        "streetName": "Calle de Alcalá",
+        "streetNumber": "150",
+        "postalCode": "28009",
+        "region": "Madrid",
+        "locality": "Madrid",
+        "country": "España",
+        "houseNumberExtension": "F"
+      }
+    },
+    "latestSimChange": "2024-02-10T13:00:00.000Z"
+  },
+  {
+    "msisdn": "+34656789012",
+    "imsi": "214071234567894",
+    "mcc": 214,
+    "mnc": 7,
+    "cell_id": 789,
+    "titular": true,
+    "titular_data": {
+      "name": "Laura",
+      "givenName": "Laura",
+      "familyName": "Pérez",
+      "idDocument": "98765432G",
+      "email": "laura@example.com",
+      "gender": "Femenino",
+      "birthdate": "1979-11-05",
+      "address": {
+        "streetName": "Calle del Paseo",
+        "streetNumber": "200",
+        "postalCode": "08004",
+        "region": "Barcelona",
+        "locality": "Barcelona",
+        "country": "España",
+        "houseNumberExtension": "G"
+      }
+    },
+    "latestSimChange": "2024-02-10T12:50:00.000Z"
+  },
+  {
+    "msisdn": "+34667890123",
+    "imsi": "214081234567895",
+    "mcc": 214,
+    "mnc": 8,
+    "cell_id": 890,
+    "titular": false,
+    "titular_data": {
+      "name": "Pedro",
+      "givenName": "Pedro",
+      "familyName": "Sánchez",
+      "idDocument": "12345678H",
+      "email": "pedro@example.com",
+      "gender": "Masculino",
+      "birthdate": "1970-02-12",
+      "address": {
+        "streetName": "Passeig de Gràcia",
+        "streetNumber": "175",
+        "postalCode": "08008",
+        "region": "Barcelona",
+        "locality": "Barcelona",
+        "country": "España",
+        "houseNumberExtension": "H"
+      }
+    },
+    "latestSimChange": "2024-02-10T12:03:00.000Z"
+  },
+  {
+    "msisdn": "+34678901234",
+    "imsi": "214091234567896",
+    "mcc": 214,
+    "mnc": 9,
+    "cell_id": 901,
+    "titular": true,
+    "titular_data": {
+      "name": "Sofía",
+      "givenName": "Sofía",
+      "familyName": "Hernández",
+      "idDocument": "87654321I",
+      "email": "sofia@example.com",
+      "gender": "Femenino",
+      "birthdate": "1984-07-25",
+      "address": {
+        "streetName": "Carrer de Mallorca",
+        "streetNumber": "100",
+        "postalCode": "08029",
+        "region": "Barcelona",
+        "locality": "Barcelona",
+        "country": "España",
+        "houseNumberExtension": "I"
+      }
+    },
+    "latestSimChange": "2024-02-10T12:10:00.000Z"
+  },
+  {
+    "msisdn": "+34689012345",
+    "imsi": "214101234567897",
+    "mcc": 214,
+    "mnc": 10,
+    "cell_id": 1010,
+    "titular": false,
+    "titular_data": {
+      "name": "Ana",
+      "givenName": "Ana",
+      "familyName": "Fernández",
+      "idDocument": "54321678J",
+      "email": "ana@example.com",
+      "gender": "Femenino",
+      "birthdate": "1993-04-30",
+      "address": {
+        "streetName": "Calle de Valencia",
+        "streetNumber": "75",
+        "postalCode": "28012",
+        "region": "Madrid",
+        "locality": "Madrid",
+        "country": "España",
+        "houseNumberExtension": "J"
+      }
+    },
+    "latestSimChange": "2024-02-10T12:14:00.000Z"
+  }
+]

@@ -1,0 +1,33 @@
+{
+    "msisdn": "String",
+    "imsi": "String",
+    "mcc": "Int",
+    "mnc": "Int",
+    "cell_id": "Int",
+    "titular": "Boolean",
+    "titular_data":{
+        "name": "String",
+        "givenName": "String",
+        "familyName": "String",
+        "idDocument":"String",
+        "email": "String",
+        "gender": "string",
+        "birthdate":"String",
+        "address":{
+            "streetName":"String",
+            "streetNumber":"String",
+            "postalCode":"String",
+            "region":"String",
+            "locality":"String",
+            "country":"String",
+            "houseNumberExtension":"String"
+
+        },
+        
+        
+    "latestSimChange": "String"
+
+    }
+
+
+}
