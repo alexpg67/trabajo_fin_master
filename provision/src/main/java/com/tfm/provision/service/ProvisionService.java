@@ -43,15 +43,15 @@ public class ProvisionService {
 
     public Client saveClient(Client cliente) throws CustomException{
 
-        String imsi = cliente.getImsi();
-        int mcc = cliente.getMcc();
-        String mnc = cliente.getMnc();
-
-        String mccStr = String.valueOf(mcc);
-        String mncStr = String.valueOf(mnc);
-
-        String imsiMcc = imsi.substring(0, 3); // Obtener los primeros 3 dígitos del IMSI
-        String imsiMnc = imsi.substring(3);    // Obtener los siguientes dígitos del IMSI
+//        String imsi = cliente.getImsi();
+//        int mcc = cliente.getMcc();
+//        String mnc = cliente.getMnc();
+//
+//        String mccStr = String.valueOf(mcc);
+//        String mncStr = String.valueOf(mnc);
+//
+//        String imsiMcc = imsi.substring(0, 3); // Obtener los primeros 3 dígitos del IMSI
+//        String imsiMnc = imsi.substring(3);    // Obtener los siguientes dígitos del IMSI
 
         boolean titular = cliente.isTitular();
 
@@ -73,7 +73,7 @@ public class ProvisionService {
         }
 //        Client savedClient = provisionService.saveClient(cliente);
 //        return ResponseEntity.ok(savedClient);
-        if (imsiMcc.equals(mccStr) && imsiMnc.startsWith(mncStr)) {
+//        if (imsiMcc.equals(mccStr) && imsiMnc.startsWith(mncStr)) {
             ZonedDateTime now = ZonedDateTime.now();
             String formattedDate = now.format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSXXX"));
 
@@ -88,11 +88,11 @@ public class ProvisionService {
 
 //            return ResponseEntity.ok(savedClient);
             return provisionRepository.save(cliente);
-        } else {
-            // No hay coincidencia
-            //return new ResponseEntity<>("Los primeros 3 dígitos del IMSI no coinciden con MCC o los siguientes no coinciden con MNC.", HttpStatus.BAD_REQUEST);
-            throw new CustomException(HttpStatus.BAD_REQUEST, "INVALID_ARGUMENT", "Client specified an invalid argument, request body or query param");
-        }
+//        } else {
+//            // No hay coincidencia
+//            //return new ResponseEntity<>("Los primeros 3 dígitos del IMSI no coinciden con MCC o los siguientes no coinciden con MNC.", HttpStatus.BAD_REQUEST);
+//            throw new CustomException(HttpStatus.BAD_REQUEST, "INVALID_ARGUMENT", "Client specified an invalid argument, request body or query param");
+//        }
 
     }
     public Optional<Client> deleteMsisdnClient(String msisdn){

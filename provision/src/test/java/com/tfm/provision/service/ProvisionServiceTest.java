@@ -146,42 +146,42 @@ public class ProvisionServiceTest {
 
     }
 
-    @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
-    public void testProvisionServiceInvalidImsiFormat() throws Exception {
-
-
-        Address address = new Address();
-        address.setStreetName("Calle Ejemplo");
-        address.setStreetNumber("123");
-        address.setPostalCode("12345");
-        address.setRegion("Región Ejemplo");
-        address.setLocality("Localidad Ejemplo");
-        address.setCountry("País Ejemplo");
-        address.setHouseNumberExtension("A");
-
-        TitularData titularData = new TitularData();
-        titularData.setName("Nombre");
-        titularData.setGivenName("NombreCompleto");
-        titularData.setFamilyName("Apellido");
-        titularData.setIdDocument("12345678Z");
-        titularData.setEmail("email@example.com");
-        titularData.setGender("Masculino");
-        titularData.setBirthdate("2000-01-01");
-        titularData.setAddress(address);
-
-        Client cliente = new Client("+34668", "124070000", 125, "0", 120, true, titularData, "2024-02-11T12:30:10.360+01:00");
-
-
-        Mockito.when(provisionService.getDniClient(anyString())).thenReturn(List.of());
-        Mockito.when(provisionRepository.save(Mockito.any())).thenReturn(cliente);
-
-//        Client savedClient = provisionService.saveClient(cliente);
-
-        Assertions.assertThrows(CustomException.class, () -> provisionService.saveClient(cliente));
-
-
-    }
+//    @Test
+//    @WithMockUser(username = "testuser", roles = {"USER"})
+//    public void testProvisionServiceInvalidImsiFormat() throws Exception {
+//
+//
+//        Address address = new Address();
+//        address.setStreetName("Calle Ejemplo");
+//        address.setStreetNumber("123");
+//        address.setPostalCode("12345");
+//        address.setRegion("Región Ejemplo");
+//        address.setLocality("Localidad Ejemplo");
+//        address.setCountry("País Ejemplo");
+//        address.setHouseNumberExtension("A");
+//
+//        TitularData titularData = new TitularData();
+//        titularData.setName("Nombre");
+//        titularData.setGivenName("NombreCompleto");
+//        titularData.setFamilyName("Apellido");
+//        titularData.setIdDocument("12345678Z");
+//        titularData.setEmail("email@example.com");
+//        titularData.setGender("Masculino");
+//        titularData.setBirthdate("2000-01-01");
+//        titularData.setAddress(address);
+//
+//        Client cliente = new Client("+34668", "124070000", 125, "0", 120, true, titularData, "2024-02-11T12:30:10.360+01:00");
+//
+//
+//        Mockito.when(provisionService.getDniClient(anyString())).thenReturn(List.of());
+//        Mockito.when(provisionRepository.save(Mockito.any())).thenReturn(cliente);
+//
+////        Client savedClient = provisionService.saveClient(cliente);
+//
+//        Assertions.assertThrows(CustomException.class, () -> provisionService.saveClient(cliente));
+//
+//
+//    }
 
     @Test
     @WithMockUser(username = "testuser", roles = {"USER"})
