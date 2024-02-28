@@ -4,6 +4,8 @@ El token de acceso es
 
 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
 
+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
+
 ## Git
 
 Cada vez que se hacen cambios en local, se debe actualizar el repositorio. Para ello, es muy comodo utilizar la herramienta de git. Las instrucciones para actualizarlo son (Importante hacerlo dentro de la carpeta que contiene todos los ficheros):
