@@ -40,3 +40,7 @@ OJO al introducir ELK. Elastic esta configurado para ocupar 2 GB, pero el limite
 
 https://github.com/10up/wp-local-docker/issues/6
 
+Hay que especificar que no se necesita cluster, sino da un error 78 por falta de memoria
+
+https://github.com/laradock/laradock/issues/1699
+
