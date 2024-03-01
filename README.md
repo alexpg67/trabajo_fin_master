@@ -36,5 +36,7 @@ Problema con la version 2.50.0 de prometheus. Fixed en la 2.50.1, actualizar doc
 
 https://github.com/grafana/grafana/issues/83515
 
+OJO al introducir ELK. Elastic esta configurado para ocupar 2 GB, pero el limite máximo permitido por docker suele ser ya 2 GB por lo que salta un error 137. Para solucionarlo, se limita el tamño de Elastic tal y como se explica en este foro
 
+https://github.com/10up/wp-local-docker/issues/6
 
