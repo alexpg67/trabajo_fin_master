@@ -31,3 +31,10 @@ git push origin main
 ```
 Nota: se han excluido algunos ficheros de la carpeta que no son de interes ya que son documentos o archivos con descargas como keycloack.
 
+
+Problema con la version 2.50.0 de prometheus. Fixed en la 2.50.1, actualizar docker
+
+https://github.com/grafana/grafana/issues/83515
+
+
+
