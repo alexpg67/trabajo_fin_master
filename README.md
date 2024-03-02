@@ -44,3 +44,9 @@ Hay que especificar que no se necesita cluster, sino da un error 78 por falta de
 
 https://github.com/laradock/laradock/issues/1699
 
+Un ejemplo de configuracion de logs ELK
+
+https://codesoapbox.dev/how-to-browse-spring-boot-logs-in-kibana-configuring-the-elastic-stack/
+
+
+
