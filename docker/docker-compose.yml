@@ -1,6 +1,6 @@
 services:
   prometheus:
-    image: bitnami/prometheus:latest
+    image: bitnami/prometheus:2.50.1
     container_name: prometheus
     ports:
       - 9090:9090
@@ -20,7 +20,53 @@ services:
       - GF_SECURITY_ADMIN_USER=admin
       - GF_SECURITY_ADMIN_PASSWORD=grafana
     volumes:
-      - ./grafana:/etc/grafana/provisioning/datasources
+      - ./grafana/datasource.yml:/etc/grafana/provisioning/datasources/datasource.yml
+      - ./grafana/grafana-storage:/var/lib/grafana
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.12.2
+    container_name: elasticsearch
+    environment:
+          ES_JAVA_OPTS: "-Xms1000m -Xmx1000m"
+          discovery.type: "single-node"
+          ELASTIC_PASSWORD: "changeme"
+          xpack.security.enabled: "false"
+          xpack.security.enrollment.enabled: "false" # Desactiva el modo de inscripción p
+    ports:
+      - 9200:9200
+      - 9300:9300
+    volumes:
+      - ./elasticsearch/data:/usr/share/elasticsearch/data
+
+
+  logstash:
+    image: docker.elastic.co/logstash/logstash:8.12.2
+    container_name: logstash
+    ports:
+      - 5000:5000
+    volumes:
+      # - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml
+      - ./logstash/pipeline:/usr/share/logstash/pipeline
+      - ./logstash/logs:/usr/share/logstash/logs
+      - ./logstash/sincedb:/usr/share/logstash/data/sincedb 
+    depends_on:
+      - elasticsearch
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:8.12.2
+    container_name: kibana
+    # environment:
+    #   ELASTICSEARCH_USERNAME: "elastic"
+    #   ELASTICSEARCH_PASSWORD: "changeme"
+    ports:
+      - 5601:5601
+    depends_on:
+      - elasticsearch
+    # volumes:
+    #   - ./kibana/data:/usr/share/kibana/config
+
+
+      
     # networks:
     #   - prometheus_network
 # networks:

@@ -4,6 +4,8 @@ import com.tfm.provision.model.Client;
 import com.tfm.provision.exception.CustomException;
 import com.tfm.provision.service.ProvisionService;
 import jakarta.validation.Valid;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,11 +20,13 @@ import java.util.Optional;
 @RequestMapping(path = "/provision/v0")
 public class ProvisionController {
 
+    private static final Logger log = LoggerFactory.getLogger(ProvisionController.class);
     @Autowired
     private ProvisionService provisionService;
     @GetMapping(path = "/getall")
     public List<Client> getClients(){
 
+        log.info("Se devuelven todos los clientes");
         return provisionService.getAllClients();
 
     }
@@ -32,9 +36,10 @@ public class ProvisionController {
         Optional<Client> cliente = provisionService.getMsisdnClient(msisdn);
 
         if (cliente.isEmpty()){
+            log.info("No se ha encontrado el cliente con MSISDN: {}", msisdn); // Log informativo cuando no se encuentra el MSISDN
             throw new CustomException(HttpStatus.NOT_FOUND, "UNKNOWN_MSISDN", "Can't be checked because the msisdn is unknown");
         }else{
-
+            log.info("Se devuelve el cliente con MSISDN: {}", msisdn); // Log informativo cuando no se encuentra el MSISDN
             return cliente;
 
         }
@@ -50,9 +55,10 @@ public class ProvisionController {
         List<Client> cliente = provisionService.getEmailClient(email);
 
         if (cliente.isEmpty()){
+            log.info("No se ha encontrado el cliente con email: {}", email);
             throw new CustomException(HttpStatus.NOT_FOUND, "UNKNOWN_EMAIL", "Can't be checked because the email is unknown");
         }else{
-
+            log.info("Se devuelve el cliente con email: {}", email);
             return cliente;
 
         }
@@ -64,9 +70,10 @@ public class ProvisionController {
         List<Client> cliente = provisionService.getDniClient(dni);
 
         if (cliente.isEmpty()){
+            log.info("No se ha encontrado el cliente con DNI: {}", dni);
             throw new CustomException(HttpStatus.NOT_FOUND, "UNKNOWN_DNI", "Can't be checked because the dni is unknown");
         }else{
-
+            log.info("Se devuelve el cliente con DNI: {}", dni);
             return cliente;
 
         }
@@ -140,7 +147,7 @@ public class ProvisionController {
     public ResponseEntity<Client> setData(@RequestBody @Valid Client cliente) throws CustomException {
 
         Client savedClient = provisionService.saveClient(cliente);
-
+        log.info("Se añade el nuevo cliente con MSISDN : {}", cliente.getMsisdn());
         return ResponseEntity.ok(savedClient);
 
 
@@ -168,6 +175,7 @@ public class ProvisionController {
 
         try {
             Client savedClient = provisionService.saveClient(existingClient);
+            log.info("Se ha modifcado el cliente con MSISDN: {}", savedClient.getMsisdn());
             return ResponseEntity.ok(savedClient);
         } catch (CustomException e) {
 
@@ -184,9 +192,10 @@ public class ProvisionController {
         Optional<Client> clienteBorrado = provisionService.deleteMsisdnClient(msisdn);
 
         if (clienteBorrado.isEmpty()){
+            log.info("No se ha encontrado el cliente con MSISDN: {}", msisdn);
             throw new CustomException(HttpStatus.NOT_FOUND, "UNKNOWN_MSISDN", "Can't be deleted because the msisdn is unknown");
         }else{
-
+            log.info("Se ha eliminado el cliente con MSISDN: {}", msisdn);
             return clienteBorrado;
 
         }
@@ -199,9 +208,10 @@ public class ProvisionController {
     public List<Client> deleteEmailClient(@PathVariable String email) throws CustomException {
         List<Client> clientesBorrados = provisionService.deleteEmailClient(email);
         if (clientesBorrados.isEmpty()){
+            log.info("No se ha encontrado el cliente con correo: {}", email);
             throw new CustomException(HttpStatus.NOT_FOUND, "UNKNOWN_MSISDN", "Can't be deleted because the email is unknown");
         }else{
-
+            log.info("Se ha eliminado el cliente con correo: {}", email);
             return clientesBorrados;
 
         }
@@ -216,9 +226,10 @@ public class ProvisionController {
 
         List<Client> clientesBorrados = provisionService.deleteDniClient(dni);
         if (clientesBorrados.isEmpty()){
+            log.info("No se ha encontrado el cliente con DNI: {}", dni);
             throw new CustomException(HttpStatus.NOT_FOUND, "UNKNOWN_MSISDN", "Can't be deleted because the dni is unknown");
         }else{
-
+            log.info("Se ha eliminado el cliente con DNI: {}", dni);
             return clientesBorrados;
 
         }
@@ -229,6 +240,7 @@ public class ProvisionController {
     @GetMapping("/error")
     public String generateInternalServerError() {
         // Simulamos un error interno lanzando una excepción
+        log.info("Se ha simula error interno del servidor");
         throw new RuntimeException("Simulación de error interno");
     }
 

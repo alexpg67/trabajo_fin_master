@@ -1,0 +1,51 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    margin-top: 60px; /* Ajusta este valor según la altura de tu menú */
+}
+
+.form-container {
+    flex-basis: 50%;
+}
+
+.response-container {
+    flex-basis: 45%;
+    background-color: #f0f0f0;
+    padding: 20px;
+    height: 80%; /* Ajusta según necesidad */
+    overflow-y: auto; /* Permite desplazamiento vertical si el contenido excede la altura */
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+input {
+    margin: 10px 0;
+    display: block;
+}
+
+label {
+    font-weight: bold;
+}
+
+.home-button {
+    position: fixed; /* Posicionamiento fijo en la pantalla */
+    top: 30px; /* Espacio desde la parte superior */
+    right: 30px; /* Espacio desde la parte derecha */
+    display: flex; /* Usamos flex para centrar el ícono dentro del botón */
+    justify-content: center;
+    align-items: center;
+    width: 45px; /* Tamaño del botón */
+    height: 45px;
+    background-color: #0066ff; /* Color de fondo */
+    color: white; /* Color del ícono */
+    border-radius: 50%; /* Hace el botón circular */
+    text-decoration: none; /* Elimina el subrayado del enlace */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Sombra para el botón */
+}
+
+.home-button i {
+    font-size: 24px; /* Tamaño del ícono de FontAwesome */
+}

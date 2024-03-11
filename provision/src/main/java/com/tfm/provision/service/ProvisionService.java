@@ -1,8 +1,11 @@
 package com.tfm.provision.service;
 
+import com.tfm.provision.controller.ProvisionController;
 import com.tfm.provision.exception.CustomException;
 import com.tfm.provision.model.Client;
 import com.tfm.provision.repository.ProvisionRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +19,7 @@ import java.util.Optional;
 @Service
 public class ProvisionService {
 
+    private static final Logger log = LoggerFactory.getLogger(ProvisionService.class);
     @Autowired
     private ProvisionRepository provisionRepository;
 
@@ -58,12 +62,13 @@ public class ProvisionService {
         if(titular){
             List<Client> document = getDniClient(cliente.getTitularData().getIdDocument());
             if (!document.isEmpty()){
-                System.out.println("No esta vacio");
+//                System.out.println("No esta vacio");
+                log.info("Ya existe un cliente titular con los mismos datos");
                 //return ResponseEntity.badRequest().build();
                 // CustomException excepcion = new CustomException(HttpStatus.BAD_REQUEST, "INVALID_ARGUMENT", "Client specified an invalid argument, request body or query param");
 
 //                try {
-                System.out.println("Salta la excepcion");
+//                System.out.println("Salta la excepcion");
                 throw new CustomException(HttpStatus.BAD_REQUEST, "INVALID_ARGUMENT", "Client specified an invalid argument, request body or query param");
 //                } catch (CustomException ex) {
 //                    System.out.println("No puede haber dos titulares con los mismos datos");
@@ -77,12 +82,14 @@ public class ProvisionService {
             ZonedDateTime now = ZonedDateTime.now();
             String formattedDate = now.format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSXXX"));
 
-            System.out.println(now);
-            System.out.println(formattedDate);
+//            System.out.println(now);
+//            System.out.println(formattedDate);
 
 
             cliente.setLatestSimChange(formattedDate);
-            System.out.println(cliente);
+//            System.out.println(cliente);
+
+
 //            Client savedClient = saveClient(cliente);
 //            System.out.println(savedClient);
 

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página principal</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="header">
+    <img src="/images/LOGO_TELEFONICA.png" alt="Logo Telefónica" class="logo-telefonica">
+    <img src="/images/LOGO_ESCUELA.png" alt="Logo Escuela" class="logo-escuela">
+    <div class="title-container">
+        <h2>Máster Universitario en Ingeniería de Telecomunicación - Trabajo fin de máster</h2>
+        <div class="title-bar-black"></div>
+    </div>
+    <button class="menu-toggle">&#9776;</button>
+</div>
+<nav class="sidebar">
+    <ul>
+        <li><a href="/index.html">Principal</a></li>
+        <li><a href="/html/provision.html">Provision</a></li>
+        <li><a href="/html/sandbox.html">Sandbox</a></li>
+    </ul>
+</nav>
+<div class="main-content">
+    <p>El objetivo de este TFM es simular el funcionamiento de las API de <a href="https://opengateway.telefonica.com/que-es-open-gateway">Open Gateway</a> en un entorno controlado.
+        Esta web permite gestionar la base de clientes del proyecto así como probar las API disponibles.</p>
+    <img src="/images/opengw-telefonica.png" alt="Open Gateway Telefónica" class="center-image">
+    <p>Por favor, para gestionar la base de clientes haga click en el botón de provision.</p>
+    <p>Para probar las API disponibles, haga click en el botón de sandbox.</p>
+    <div class="buttons">
+        <button onclick="location.href='/html/provision.html'">Provision</button>
+        <button onclick="location.href='/html/sandbox.html'">Sandbox</button>
+    </div>
+</div>
+<script src="/js/script.js"></script>
+</body>
+</html>
