@@ -1,10 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Crear Cliente</title>
+    <link rel="stylesheet" href="../css/postclient.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
+<div class="buttons-container">
+    <a href="./getclient.html" class="action-button">GET</a>
+    <a href="./postclient.html" class="action-button">POST</a>
+    <a href="./updateclient.html" class="action-button">PUT</a>
+    <a href="./deleteclient.html" class="action-button">DELETE</a>
 
+    <a href="../index.html" class="home-button">
+        <i class="fa fa-home"></i>
+    </a>
+</div>
+<div class="container">
+    <form id="createClientForm">
+        <input type="text" id="msisdn" placeholder="MSISDN">
+        <input type="text" id="imsi" placeholder="IMSI">
+        <input type="number" id="mcc" placeholder="MCC">
+        <input type="number" id="mnc" placeholder="MNC">
+        <input type="number" id="cell_id" placeholder="Cell ID">
+        <input type="checkbox" id="titular"> Titular<br>
+        <input type="text" id="name" placeholder="Name">
+        <input type="text" id="givenName" placeholder="Given Name">
+        <input type="text" id="familyName" placeholder="Family Name">
+        <input type="text" id="idDocument" placeholder="ID Document">
+        <input type="email" id="email" placeholder="Email">
+        <input type="text" id="gender" placeholder="Gender">
+        <input type="date" id="birthdate" placeholder="Birthdate">
+        <input type="text" id="streetName" placeholder="Street Name">
+        <input type="text" id="streetNumber" placeholder="Street Number">
+        <input type="text" id="postalCode" placeholder="Postal Code">
+        <input type="text" id="region" placeholder="Region">
+        <input type="text" id="locality" placeholder="Locality">
+        <input type="text" id="country" placeholder="Country">
+        <input type="text" id="houseNumberExtension" placeholder="House Number Extension">
+
+        <button type="button" onclick="createClient()">Crear Cliente</button>
+    </form>
+    <div class="response-container" id="apiResponse">
+    </div>
+</div>
+<script src="../js/postclient.js"></script>
 </body>
 </html>
