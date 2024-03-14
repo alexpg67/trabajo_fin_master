@@ -82,5 +82,5 @@ sudo docker tag alejandropalmier/redis_mcc_database:1.0 alejandropalmier/redis_m
 sudo docker push alejandropalmier/redis_mcc_database:v1
 
 
-
+OJO, cuidado con la configuración de Prometheus. Aunque expongas las metricas de tus MS con la dependecia de microemter y actuator, le tienes que decir a Prometheus que haga queries a esas direcciones.
 
