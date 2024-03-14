@@ -47,13 +47,13 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
         responseBody.put("code", "INVALID_ARGUMENT");
        // responseBody.put("status", status.value());
 
-        List<String> errors = ex.getBindingResult().getFieldErrors()
-                .stream()
-                .map(x -> x.getDefaultMessage())
-                .collect(Collectors.toList());
+//        List<String> errors = ex.getBindingResult().getFieldErrors()
+//                .stream()
+//                .map(x -> x.getDefaultMessage())
+//                .collect(Collectors.toList());
 
         responseBody.put("message", "Client specified an invalid argument, request body or query param");
-        responseBody.put("errors", errors); //No es CAMARA, borrar para el API OGW
+//        responseBody.put("errors", errors); //No es CAMARA, borrar para el API OGW
 
         return new ResponseEntity<>(responseBody, headers, status);
     }

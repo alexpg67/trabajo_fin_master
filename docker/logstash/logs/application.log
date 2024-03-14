@@ -3072,3 +3072,117 @@
 13-03-2024 23:32:05.844 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
 13-03-2024 23:32:05.846 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 1 ms
 13-03-2024 23:32:05.866 [main] INFO  c.t.s.c.SimswapControllerTest.logStarted - Started SimswapControllerTest in 1.245 seconds (process running for 1.824)
+14-03-2024 10:35:24.000 [background-preinit] INFO  o.h.validator.internal.util.Version.<clinit> - HV000001: Hibernate Validator 8.0.1.Final
+14-03-2024 10:35:24.021 [main] INFO  com.tfm.simswap.SimswapApplication.logStarting - Starting SimswapApplication using Java 17.0.10 with PID 307463 (/home/alejandro/TFM/simswap/target/classes started by alejandro in /home/alejandro/TFM/simswap)
+14-03-2024 10:35:24.022 [main] INFO  com.tfm.simswap.SimswapApplication.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+14-03-2024 10:35:24.528 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+14-03-2024 10:35:24.556 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Finished Spring Data repository scanning in 26 ms. Found 1 MongoDB repository interface.
+14-03-2024 10:35:24.755 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer.initialize - Tomcat initialized with port 8083 (http)
+14-03-2024 10:35:24.761 [main] INFO  o.a.coyote.http11.Http11NioProtocol.log - Initializing ProtocolHandler ["http-nio-0.0.0.0-8083"]
+14-03-2024 10:35:24.763 [main] INFO  o.a.catalina.core.StandardService.log - Starting service [Tomcat]
+14-03-2024 10:35:24.763 [main] INFO  o.a.catalina.core.StandardEngine.log - Starting Servlet engine: [Apache Tomcat/10.1.18]
+14-03-2024 10:35:24.800 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/].log - Initializing Spring embedded WebApplicationContext
+14-03-2024 10:35:24.801 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext - Root WebApplicationContext: initialization completed in 756 ms
+14-03-2024 10:35:24.948 [main] INFO  org.mongodb.driver.client.info - MongoClient with metadata {"driver": {"name": "mongo-java-driver|sync|spring-boot", "version": "4.11.1"}, "os": {"type": "Linux", "name": "Linux", "architecture": "amd64", "version": "6.5.0-18-generic"}, "platform": "Java/Private Build/17.0.10+7-Ubuntu-122.04.1"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=null, transportSettings=null, streamFactoryFactory=null, commandListeners=[io.micrometer.core.instrument.binder.mongodb.MongoMetricsCommandListener@3757e8e2], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@1653b84e, com.mongodb.Jep395RecordCodecProvider@7f8a9454, com.mongodb.KotlinCodecProvider@6f85ee02]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[localhost:27017], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='15 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[io.micrometer.core.instrument.binder.mongodb.MongoMetricsConnectionPoolListener@679d0be8], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=JAVA_LEGACY, serverApi=null, autoEncryptionSettings=null, dnsClient=null, inetAddressResolver=null, contextProvider=null}
+14-03-2024 10:35:24.954 [cluster-ClusterId{value='65f2c4dc5e787b1f43fcf501', description='null'}-localhost:27017] INFO  org.mongodb.driver.cluster.info - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=17, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=7663179}
+14-03-2024 10:35:25.380 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver.<init> - Exposing 15 endpoint(s) beneath base path '/actuator'
+14-03-2024 10:35:25.408 [main] INFO  o.a.coyote.http11.Http11NioProtocol.log - Starting ProtocolHandler ["http-nio-0.0.0.0-8083"]
+14-03-2024 10:35:25.415 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer.start - Tomcat started on port 8083 (http) with context path ''
+14-03-2024 10:35:25.429 [main] INFO  com.tfm.simswap.SimswapApplication.logStarted - Started SimswapApplication in 1.678 seconds (process running for 1.897)
+14-03-2024 10:35:34.906 [http-nio-0.0.0.0-8083-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/].log - Initializing Spring DispatcherServlet 'dispatcherServlet'
+14-03-2024 10:35:34.907 [http-nio-0.0.0.0-8083-exec-1] INFO  o.s.web.servlet.DispatcherServlet.initServletBean - Initializing Servlet 'dispatcherServlet'
+14-03-2024 10:35:34.908 [http-nio-0.0.0.0-8083-exec-1] INFO  o.s.web.servlet.DispatcherServlet.initServletBean - Completed initialization in 1 ms
+14-03-2024 10:37:30.945 [http-nio-0.0.0.0-8083-exec-3] INFO  c.tfm.simswap.service.SimswapService.checkSwap - No se ha encontrado el cliente con MSISDN, no se puede devolver el swapped: +34623456781
+14-03-2024 10:38:41.490 [background-preinit] INFO  o.h.validator.internal.util.Version.<clinit> - HV000001: Hibernate Validator 8.0.1.Final
+14-03-2024 10:38:41.513 [main] INFO  com.tfm.simswap.SimswapApplication.logStarting - Starting SimswapApplication using Java 17.0.10 with PID 307659 (/home/alejandro/TFM/simswap/target/classes started by alejandro in /home/alejandro/TFM/simswap)
+14-03-2024 10:38:41.514 [main] INFO  com.tfm.simswap.SimswapApplication.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+14-03-2024 10:38:41.989 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+14-03-2024 10:38:42.012 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Finished Spring Data repository scanning in 20 ms. Found 1 MongoDB repository interface.
+14-03-2024 10:38:42.232 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer.initialize - Tomcat initialized with port 8083 (http)
+14-03-2024 10:38:42.238 [main] INFO  o.a.coyote.http11.Http11NioProtocol.log - Initializing ProtocolHandler ["http-nio-0.0.0.0-8083"]
+14-03-2024 10:38:42.240 [main] INFO  o.a.catalina.core.StandardService.log - Starting service [Tomcat]
+14-03-2024 10:38:42.240 [main] INFO  o.a.catalina.core.StandardEngine.log - Starting Servlet engine: [Apache Tomcat/10.1.18]
+14-03-2024 10:38:42.274 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/].log - Initializing Spring embedded WebApplicationContext
+14-03-2024 10:38:42.275 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext - Root WebApplicationContext: initialization completed in 738 ms
+14-03-2024 10:38:42.435 [main] INFO  org.mongodb.driver.client.info - MongoClient with metadata {"driver": {"name": "mongo-java-driver|sync|spring-boot", "version": "4.11.1"}, "os": {"type": "Linux", "name": "Linux", "architecture": "amd64", "version": "6.5.0-18-generic"}, "platform": "Java/Private Build/17.0.10+7-Ubuntu-122.04.1"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=null, transportSettings=null, streamFactoryFactory=null, commandListeners=[io.micrometer.core.instrument.binder.mongodb.MongoMetricsCommandListener@7f8a9454], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@6f85ee02, com.mongodb.Jep395RecordCodecProvider@679d0be8, com.mongodb.KotlinCodecProvider@6c075e9d]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[localhost:27017], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='15 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[io.micrometer.core.instrument.binder.mongodb.MongoMetricsConnectionPoolListener@47044f7d], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=JAVA_LEGACY, serverApi=null, autoEncryptionSettings=null, dnsClient=null, inetAddressResolver=null, contextProvider=null}
+14-03-2024 10:38:42.440 [cluster-ClusterId{value='65f2c5a220320003fcd5b5b3', description='null'}-localhost:27017] INFO  org.mongodb.driver.cluster.info - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=17, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=7664397}
+14-03-2024 10:38:42.890 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver.<init> - Exposing 15 endpoint(s) beneath base path '/actuator'
+14-03-2024 10:38:42.919 [main] INFO  o.a.coyote.http11.Http11NioProtocol.log - Starting ProtocolHandler ["http-nio-0.0.0.0-8083"]
+14-03-2024 10:38:42.926 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer.start - Tomcat started on port 8083 (http) with context path ''
+14-03-2024 10:38:42.939 [main] INFO  com.tfm.simswap.SimswapApplication.logStarted - Started SimswapApplication in 1.692 seconds (process running for 1.919)
+14-03-2024 10:38:49.248 [http-nio-0.0.0.0-8083-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/].log - Initializing Spring DispatcherServlet 'dispatcherServlet'
+14-03-2024 10:38:49.249 [http-nio-0.0.0.0-8083-exec-1] INFO  o.s.web.servlet.DispatcherServlet.initServletBean - Initializing Servlet 'dispatcherServlet'
+14-03-2024 10:38:49.251 [http-nio-0.0.0.0-8083-exec-1] INFO  o.s.web.servlet.DispatcherServlet.initServletBean - Completed initialization in 2 ms
+14-03-2024 10:51:35.046 [background-preinit] INFO  o.h.validator.internal.util.Version.<clinit> - HV000001: Hibernate Validator 8.0.1.Final
+14-03-2024 10:51:35.062 [main] INFO  c.t.s.c.SimswapControllerTest.logStarting - Starting SimswapControllerTest using Java 17.0.10 with PID 308007 (started by alejandro in /home/alejandro/TFM/simswap)
+14-03-2024 10:51:35.063 [main] INFO  c.t.s.c.SimswapControllerTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+14-03-2024 10:51:36.113 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+14-03-2024 10:51:36.114 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+14-03-2024 10:51:36.117 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 1 ms
+14-03-2024 10:51:36.137 [main] INFO  c.t.s.c.SimswapControllerTest.logStarted - Started SimswapControllerTest in 1.275 seconds (process running for 1.796)
+14-03-2024 10:51:36.216 [main] INFO  c.t.s.controller.SimswapController.checkData - El msisdn  no cumple con las reglas definidas
+14-03-2024 10:52:40.261 [background-preinit] INFO  o.h.validator.internal.util.Version.<clinit> - HV000001: Hibernate Validator 8.0.1.Final
+14-03-2024 10:52:40.278 [main] INFO  c.t.s.c.SimswapControllerTest.logStarting - Starting SimswapControllerTest using Java 17.0.10 with PID 308144 (started by alejandro in /home/alejandro/TFM/simswap)
+14-03-2024 10:52:40.279 [main] INFO  c.t.s.c.SimswapControllerTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+14-03-2024 10:52:41.248 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+14-03-2024 10:52:41.249 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+14-03-2024 10:52:41.250 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 1 ms
+14-03-2024 10:52:41.269 [main] INFO  c.t.s.c.SimswapControllerTest.logStarted - Started SimswapControllerTest in 1.197 seconds (process running for 1.743)
+14-03-2024 10:52:41.345 [main] INFO  c.t.s.controller.SimswapController.checkData - El msisdn +3462345678h no cumple con las reglas definidas
+14-03-2024 20:54:06.485 [background-preinit] INFO  o.h.validator.internal.util.Version.<clinit> - HV000001: Hibernate Validator 8.0.1.Final
+14-03-2024 20:54:06.500 [main] INFO  c.t.s.c.SimswapControllerTest.logStarting - Starting SimswapControllerTest using Java 17.0.10 with PID 309140 (started by alejandro in /home/alejandro/TFM/simswap)
+14-03-2024 20:54:06.501 [main] INFO  c.t.s.c.SimswapControllerTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+14-03-2024 20:54:07.474 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+14-03-2024 20:54:07.475 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+14-03-2024 20:54:07.477 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 1 ms
+14-03-2024 20:54:07.494 [main] INFO  c.t.s.c.SimswapControllerTest.logStarted - Started SimswapControllerTest in 1.194 seconds (process running for 1.738)
+14-03-2024 20:57:09.450 [background-preinit] INFO  o.h.validator.internal.util.Version.<clinit> - HV000001: Hibernate Validator 8.0.1.Final
+14-03-2024 20:57:09.466 [main] INFO  c.t.s.c.SimswapControllerTest.logStarting - Starting SimswapControllerTest using Java 17.0.10 with PID 309296 (started by alejandro in /home/alejandro/TFM/simswap)
+14-03-2024 20:57:09.467 [main] INFO  c.t.s.c.SimswapControllerTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+14-03-2024 20:57:10.420 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+14-03-2024 20:57:10.421 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+14-03-2024 20:57:10.424 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 2 ms
+14-03-2024 20:57:10.441 [main] INFO  c.t.s.c.SimswapControllerTest.logStarted - Started SimswapControllerTest in 1.182 seconds (process running for 1.702)
+14-03-2024 20:58:33.030 [background-preinit] INFO  o.h.validator.internal.util.Version.<clinit> - HV000001: Hibernate Validator 8.0.1.Final
+14-03-2024 20:58:33.045 [main] INFO  c.t.s.c.SimswapControllerTest.logStarting - Starting SimswapControllerTest using Java 17.0.10 with PID 309415 (started by alejandro in /home/alejandro/TFM/simswap)
+14-03-2024 20:58:33.045 [main] INFO  c.t.s.c.SimswapControllerTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+14-03-2024 20:58:34.039 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+14-03-2024 20:58:34.040 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+14-03-2024 20:58:34.043 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 0 ms
+14-03-2024 20:58:34.063 [main] INFO  c.t.s.c.SimswapControllerTest.logStarted - Started SimswapControllerTest in 1.215 seconds (process running for 1.735)
+14-03-2024 20:58:34.147 [main] INFO  c.t.s.controller.SimswapController.checkData - El parametro-2 no está entre 1 y 2400
+14-03-2024 20:58:55.183 [background-preinit] INFO  o.h.validator.internal.util.Version.<clinit> - HV000001: Hibernate Validator 8.0.1.Final
+14-03-2024 20:58:55.198 [main] INFO  c.t.s.c.SimswapControllerTest.logStarting - Starting SimswapControllerTest using Java 17.0.10 with PID 309529 (started by alejandro in /home/alejandro/TFM/simswap)
+14-03-2024 20:58:55.199 [main] INFO  c.t.s.c.SimswapControllerTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+14-03-2024 20:58:56.200 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+14-03-2024 20:58:56.201 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+14-03-2024 20:58:56.203 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 1 ms
+14-03-2024 20:58:56.220 [main] INFO  c.t.s.c.SimswapControllerTest.logStarted - Started SimswapControllerTest in 1.224 seconds (process running for 1.78)
+14-03-2024 20:58:56.310 [main] INFO  c.t.s.controller.SimswapController.checkData - El parametro2401 no está entre 1 y 2400
+14-03-2024 21:02:11.903 [background-preinit] INFO  o.h.validator.internal.util.Version.<clinit> - HV000001: Hibernate Validator 8.0.1.Final
+14-03-2024 21:02:11.922 [main] INFO  c.t.s.c.SimswapControllerTest.logStarting - Starting SimswapControllerTest using Java 17.0.10 with PID 309683 (started by alejandro in /home/alejandro/TFM/simswap)
+14-03-2024 21:02:11.923 [main] INFO  c.t.s.c.SimswapControllerTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+14-03-2024 21:02:12.925 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+14-03-2024 21:02:12.926 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+14-03-2024 21:02:12.929 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 1 ms
+14-03-2024 21:02:12.948 [main] INFO  c.t.s.c.SimswapControllerTest.logStarted - Started SimswapControllerTest in 1.239 seconds (process running for 1.78)
+14-03-2024 21:02:54.110 [background-preinit] INFO  o.h.validator.internal.util.Version.<clinit> - HV000001: Hibernate Validator 8.0.1.Final
+14-03-2024 21:02:54.124 [main] INFO  c.t.s.c.SimswapControllerTest.logStarting - Starting SimswapControllerTest using Java 17.0.10 with PID 309791 (started by alejandro in /home/alejandro/TFM/simswap)
+14-03-2024 21:02:54.125 [main] INFO  c.t.s.c.SimswapControllerTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+14-03-2024 21:02:55.115 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+14-03-2024 21:02:55.115 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+14-03-2024 21:02:55.118 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 0 ms
+14-03-2024 21:02:55.136 [main] INFO  c.t.s.c.SimswapControllerTest.logStarted - Started SimswapControllerTest in 1.209 seconds (process running for 1.772)
+14-03-2024 21:03:01.536 [background-preinit] INFO  o.h.validator.internal.util.Version.<clinit> - HV000001: Hibernate Validator 8.0.1.Final
+14-03-2024 21:03:01.553 [main] INFO  c.t.s.c.SimswapControllerTest.logStarting - Starting SimswapControllerTest using Java 17.0.10 with PID 309890 (started by alejandro in /home/alejandro/TFM/simswap)
+14-03-2024 21:03:01.554 [main] INFO  c.t.s.c.SimswapControllerTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+14-03-2024 21:03:02.547 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+14-03-2024 21:03:02.547 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+14-03-2024 21:03:02.550 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 1 ms
+14-03-2024 21:03:02.569 [main] INFO  c.t.s.c.SimswapControllerTest.logStarted - Started SimswapControllerTest in 1.226 seconds (process running for 1.792)
+14-03-2024 21:03:02.669 [main] INFO  c.t.s.controller.SimswapController.retrieveData - No se ha encontrado el cliente con MSISDN, no se puede devolver timestamp: +34623456789
+14-03-2024 21:03:02.719 [main] INFO  c.t.s.controller.SimswapController.checkData - El msisdn  no cumple con las reglas definidas
+14-03-2024 21:03:02.731 [main] INFO  c.t.s.controller.SimswapController.retrieveData - Se devuelve el timestamp del cliente con MSISDN: +34623456789
+14-03-2024 21:03:02.743 [main] INFO  c.t.s.controller.SimswapController.checkData - El parametro2401 no está entre 1 y 2400
+14-03-2024 21:03:02.748 [main] INFO  c.t.s.controller.SimswapController.checkData - El parametro-2 no está entre 1 y 2400
+14-03-2024 21:03:02.763 [main] INFO  c.t.s.controller.SimswapController.checkData - El msisdn +3462345678h no cumple con las reglas definidas

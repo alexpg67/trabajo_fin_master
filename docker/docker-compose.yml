@@ -65,6 +65,12 @@ services:
     # volumes:
     #   - ./kibana/data:/usr/share/kibana/config
 
+  redis_mcc_database:
+    image: alejandropalmier/redis_mcc_database:v1
+    container_name: redis_mcc_database
+    ports:
+      - "6379:6379" 
+
 
       
     # networks:

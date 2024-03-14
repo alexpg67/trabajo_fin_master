@@ -1,6 +1,7 @@
 package com.tfm.simswap.controller;
 
 import com.tfm.simswap.exception.CustomException;
+import com.tfm.simswap.model.CheckDTO;
 import com.tfm.simswap.model.Client;
 import com.tfm.simswap.model.MsisdnDTO;
 import com.tfm.simswap.service.SimswapService;
@@ -16,6 +17,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.regex.Pattern;
 
 @RestController
 @RequestMapping(path = "/sim-swap/v0")
@@ -44,6 +46,38 @@ public class SimswapController {
 
         }
     }
+
+    @PostMapping(path = "/check")
+    public ResponseEntity<?> checkData(@RequestBody CheckDTO checkDTO) throws CustomException {
+
+
+        String msisdn = checkDTO.getPhoneNumber();
+
+        int maxAge = checkDTO.getMaxAge();
+
+        if (!Pattern.matches("^\\+?[0-9]{5,15}$", msisdn)) {
+            log.info("El msisdn " + msisdn + " no cumple con las reglas definidas");
+            throw new CustomException(HttpStatus.BAD_REQUEST, "INVALID_ARGUMENT","Client specified an invalid argument, request body or query param");
+        }
+
+        if (maxAge == 0) {
+            maxAge = 240; // Valor por defecto
+        } else if (maxAge < 1 || maxAge > 2400) {
+            log.info("El parametro" + maxAge + " no está entre 1 y 2400");
+            throw new CustomException(HttpStatus.BAD_REQUEST, "INVALID_ARGUMENT","Client specified an invalid argument, request body or query param");
+        }
+
+        CheckDTO check = new CheckDTO(msisdn, maxAge);
+
+
+        Boolean result = simswapService.checkSwap(check);
+
+        Map<String, Object> response = Collections.singletonMap("swapped", result);
+
+            return ResponseEntity.ok(response);
+
+        }
+
 
 
     @GetMapping("/error")
