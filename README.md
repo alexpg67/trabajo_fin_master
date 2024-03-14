@@ -86,3 +86,4 @@ Test unitarios del servicio de check de sim swap?? Echarle un ojo
 
 OJO, cuidado con la configuración de Prometheus. Aunque expongas las metricas de tus MS con la dependecia de microemter y actuator, le tienes que decir a Prometheus que haga queries a esas direcciones.
 
+Cuando cambies todo a contenedores, tienes que cambiar los localhost a los nombres de contenedor. Cuidado.
