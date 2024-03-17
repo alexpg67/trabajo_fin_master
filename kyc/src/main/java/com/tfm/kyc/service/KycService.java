@@ -29,9 +29,14 @@ public class KycService {
         String msisdn = apiInputDTO.getPhoneNumber();
         Optional<Client> cliente = kycRepository.findClientByMsisdn(msisdn);
 
+
+        if (cliente.isEmpty()) {
+            log.info("No se ha encontrado el cliente con MSISDN, no se puede devolver el match de: {}", msisdn); // Log informativo cuando no se encuentra el MSISDN
+            throw new CustomException(HttpStatus.NOT_FOUND, "NOT_FOUND", "not_found_contractor/not_found");
+        }
+
         if (apiInputDTO.getIdDocument().isEmpty() || !(matchIdDocument(apiInputDTO.getIdDocument(),cliente.get().getTitularData().getIdDocument()))){
-            System.out.println(apiInputDTO.getIdDocument());
-            System.out.println(cliente.get().getTitularData().getIdDocument());
+            log.info("El cliente no tiene acceso porque no ha introducido el DNI o el DNI no hace match con el que tenemos guardado para ese número: " + apiInputDTO.getIdDocument());
 
             throw new CustomException(HttpStatus.UNAUTHORIZED, "PERMISSION_DENIED", "Client does not have sufficient permissions to perform this action");
 
@@ -46,13 +51,11 @@ public class KycService {
         String streetNumber = apiInputDTO.getStreetNumber();
 
         if (!matchName(name, givenName + familyName) || !(matchStreetName(address, streetName + streetNumber))){
+            log.info("El nombre completo no coincide con el nombre + apellido o la dirección completa no coincide con la calle + el número");
             throw new CustomException(HttpStatus.BAD_REQUEST, "INVALID_ARGUMENT", "Client specified an invalid argument, request body or query param");
+
         }
 
-        if (cliente.isEmpty()) {
-            log.info("No se ha encontrado el cliente con MSISDN, no se puede devolver el match de: {}", msisdn); // Log informativo cuando no se encuentra el MSISDN
-            throw new CustomException(HttpStatus.NOT_FOUND, "NOT_FOUND", "not_found_contractor/not_found");
-        }
 
         String idDocumentMatchedAsString = Boolean.toString(matchIdDocument(apiInputDTO.getIdDocument(), cliente.get().getTitularData().getIdDocument()));
 
@@ -97,11 +100,14 @@ public class KycService {
 
 
         ResponseDTO response = new ResponseDTO(idDocumentMatchedAsString,nameMatchAsString, givenNameMatchedAsString,familyNameMatchedAsString,nameKanaHankakuMatch, nameKanaZenkakuMatch,middleNamesMatch,familyNameAtBirthMatch,addressMatch,streetNameMatch,streetNumberMatch,postalCodeMatch,regionMatch,localityMatch,countryMatch,houseNumberExtensionMatch,birthdateMatch,emailMatch,genderMatch);
-
+        log.info("Se devuelve correctamente el match");
         return response;
     }
 
     public boolean matchIdDocument(String inputIdDocument, String storedIdDocument) throws CustomException {
+
+        inputIdDocument = inputIdDocument.replaceAll("\\s+", "");
+        storedIdDocument = storedIdDocument.replaceAll("\\s+", "");
 
         String truncatedInputId = inputIdDocument.length() > 20 ? inputIdDocument.substring(0, 20) : inputIdDocument;
         String truncatedStoredId = storedIdDocument.length() > 20 ? storedIdDocument.substring(0, 20) : storedIdDocument;
@@ -136,7 +142,15 @@ public class KycService {
 
     public boolean matchName(String inputName, String storedName) throws CustomException {
 
-        //OJO, el especaio cuenta como elemento. Es posible que si hay diferentes espcacios entre los String se cojan subsecuencias distintas
+        //OJO, el especaio cuenta como elemento. Es posible que si hay diferentes espcacios entre los String se cojan subsecuencias distintas. Me parece
+        //más correcto añadir al principio eliminar espacios antes que truncar. Posible mejora.
+
+        //Mejora incorporada
+
+        inputName = inputName.replaceAll("\\s+", "");
+        storedName = storedName.replaceAll("\\s+", "");
+
+
         String truncatedInputId = inputName.length() > 40 ? inputName.substring(0, 40) : inputName;
         String truncatedStoredId = storedName.length() > 40 ? storedName.substring(0, 40) : storedName;
 
@@ -160,7 +174,7 @@ public class KycService {
             normalizedStoredId = normalizedStoredId.replace(pair[0], pair[1]);
         }
 
-        // Se elimina cualquier carácter que no sea alfanumerico
+//        // Se elimina cualquier carácter que no sea alfanumerico
         normalizedInputId = normalizedInputId.replaceAll("[^a-z0-9]", "");
         normalizedStoredId = normalizedStoredId.replaceAll("[^a-z0-9]", "");
 
@@ -170,6 +184,9 @@ public class KycService {
 
     public boolean matchStreetName(String inputStreetName, String storedStreetName) throws CustomException {
 
+        //Aqui no puede ser porque se tienen que eliminar las palabras que hemos especificado y si quitas los espacios no lo detecta
+//        inputStreetName = inputStreetName.replaceAll("\\s+", "");
+//        storedStreetName = storedStreetName.replaceAll("\\s+", "");
 
         String truncatedInputId = inputStreetName.length() > 40 ? inputStreetName.substring(0, 40) : inputStreetName;
         String truncatedStoredId = storedStreetName.length() > 40 ? storedStreetName.substring(0, 40) : storedStreetName;
@@ -200,13 +217,15 @@ public class KycService {
         }
 
 
-        normalizedInputId = normalizedInputId.replaceAll("[^a-z0-9]", "").replaceAll("\\s+", "");
-        normalizedStoredId = normalizedStoredId.replaceAll("[^a-z0-9]", "").replaceAll("\\s+", "");
+        normalizedInputId = normalizedInputId.replaceAll("[^a-z0-9\\s]", "").replaceAll("\\s+", "");
+        normalizedStoredId = normalizedStoredId.replaceAll("[^a-z0-9\\s]", "").replaceAll("\\s+", "");
 
         return normalizedInputId.equals(normalizedStoredId);
     }
 
     public boolean matchGender(String inputGender, String storedGender) throws CustomException {
+        inputGender= inputGender.replaceAll("[^a-zA-Z0-9]", "").replaceAll("\\s+", "");
+        storedGender = storedGender.replaceAll("[^a-zA-Z0-9]", "").replaceAll("\\s+", "");
 
         if ("Masculino".equalsIgnoreCase(storedGender)) {
             storedGender = "Male";
@@ -216,6 +235,8 @@ public class KycService {
 
         inputGender = inputGender.toLowerCase();
         storedGender = storedGender.toLowerCase();
+
+
 
 
         return inputGender.equals(storedGender);

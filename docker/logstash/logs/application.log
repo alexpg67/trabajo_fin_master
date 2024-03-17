@@ -4418,3 +4418,268 @@ Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No q
 17-03-2024 00:16:48.037 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
 17-03-2024 00:16:48.039 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 0 ms
 17-03-2024 00:16:48.058 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarted - Started KycServiceTest in 1.363 seconds (process running for 1.953)
+17-03-2024 00:30:35.255 [background-preinit] INFO  o.h.validator.internal.util.Version.<clinit> - HV000001: Hibernate Validator 8.0.1.Final
+17-03-2024 00:30:35.274 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarting - Starting KycServiceTest using Java 17.0.10 with PID 4213 (started by alejandro in /home/alejandro/TFM/kyc)
+17-03-2024 00:30:35.275 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+17-03-2024 00:30:36.425 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+17-03-2024 00:30:36.425 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+17-03-2024 00:30:36.427 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 1 ms
+17-03-2024 00:30:36.444 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarted - Started KycServiceTest in 1.418 seconds (process running for 2.115)
+17-03-2024 00:31:24.025 [background-preinit] INFO  o.h.validator.internal.util.Version.<clinit> - HV000001: Hibernate Validator 8.0.1.Final
+17-03-2024 00:31:24.041 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarting - Starting KycServiceTest using Java 17.0.10 with PID 4585 (started by alejandro in /home/alejandro/TFM/kyc)
+17-03-2024 00:31:24.042 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+17-03-2024 00:31:25.060 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+17-03-2024 00:31:25.060 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+17-03-2024 00:31:25.062 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 0 ms
+17-03-2024 00:31:25.083 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarted - Started KycServiceTest in 1.25 seconds (process running for 1.777)
+17-03-2024 00:32:36.897 [background-preinit] INFO  o.h.validator.internal.util.Version.<clinit> - HV000001: Hibernate Validator 8.0.1.Final
+17-03-2024 00:32:36.912 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarting - Starting KycServiceTest using Java 17.0.10 with PID 4720 (started by alejandro in /home/alejandro/TFM/kyc)
+17-03-2024 00:32:36.912 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+17-03-2024 00:32:37.918 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+17-03-2024 00:32:37.918 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+17-03-2024 00:32:37.920 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 0 ms
+17-03-2024 00:32:37.941 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarted - Started KycServiceTest in 1.239 seconds (process running for 1.798)
+17-03-2024 00:33:38.741 [background-preinit] INFO  o.h.validator.internal.util.Version.<clinit> - HV000001: Hibernate Validator 8.0.1.Final
+17-03-2024 00:33:38.755 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarting - Starting KycServiceTest using Java 17.0.10 with PID 4857 (started by alejandro in /home/alejandro/TFM/kyc)
+17-03-2024 00:33:38.756 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+17-03-2024 00:33:39.783 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+17-03-2024 00:33:39.784 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+17-03-2024 00:33:39.786 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 1 ms
+17-03-2024 00:33:39.803 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarted - Started KycServiceTest in 1.248 seconds (process running for 1.802)
+17-03-2024 00:34:35.546 [background-preinit] INFO  o.h.validator.internal.util.Version.<clinit> - HV000001: Hibernate Validator 8.0.1.Final
+17-03-2024 00:34:35.560 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarting - Starting KycServiceTest using Java 17.0.10 with PID 5040 (started by alejandro in /home/alejandro/TFM/kyc)
+17-03-2024 00:34:35.561 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+17-03-2024 00:34:36.609 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+17-03-2024 00:34:36.610 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+17-03-2024 00:34:36.612 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 1 ms
+17-03-2024 00:34:36.629 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarted - Started KycServiceTest in 1.283 seconds (process running for 1.822)
+17-03-2024 00:36:14.830 [background-preinit] INFO  o.h.validator.internal.util.Version.<clinit> - HV000001: Hibernate Validator 8.0.1.Final
+17-03-2024 00:36:14.845 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarting - Starting KycServiceTest using Java 17.0.10 with PID 5271 (started by alejandro in /home/alejandro/TFM/kyc)
+17-03-2024 00:36:14.846 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+17-03-2024 00:36:15.867 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+17-03-2024 00:36:15.868 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+17-03-2024 00:36:15.870 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 1 ms
+17-03-2024 00:36:15.886 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarted - Started KycServiceTest in 1.234 seconds (process running for 1.782)
+17-03-2024 00:36:55.749 [background-preinit] INFO  o.h.validator.internal.util.Version.<clinit> - HV000001: Hibernate Validator 8.0.1.Final
+17-03-2024 00:36:55.764 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarting - Starting KycServiceTest using Java 17.0.10 with PID 5400 (started by alejandro in /home/alejandro/TFM/kyc)
+17-03-2024 00:36:55.764 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+17-03-2024 00:36:56.786 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+17-03-2024 00:36:56.787 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+17-03-2024 00:36:56.789 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 1 ms
+17-03-2024 00:36:56.806 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarted - Started KycServiceTest in 1.24 seconds (process running for 1.791)
+17-03-2024 00:37:28.981 [background-preinit] INFO  o.h.validator.internal.util.Version.<clinit> - HV000001: Hibernate Validator 8.0.1.Final
+17-03-2024 00:37:28.994 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarting - Starting KycServiceTest using Java 17.0.10 with PID 5514 (started by alejandro in /home/alejandro/TFM/kyc)
+17-03-2024 00:37:28.995 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+17-03-2024 00:37:30.002 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+17-03-2024 00:37:30.003 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+17-03-2024 00:37:30.005 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 1 ms
+17-03-2024 00:37:30.020 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarted - Started KycServiceTest in 1.229 seconds (process running for 1.772)
+17-03-2024 00:37:45.430 [background-preinit] INFO  o.h.validator.internal.util.Version.<clinit> - HV000001: Hibernate Validator 8.0.1.Final
+17-03-2024 00:37:45.444 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarting - Starting KycServiceTest using Java 17.0.10 with PID 5632 (started by alejandro in /home/alejandro/TFM/kyc)
+17-03-2024 00:37:45.445 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+17-03-2024 00:37:46.501 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+17-03-2024 00:37:46.502 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+17-03-2024 00:37:46.504 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 1 ms
+17-03-2024 00:37:46.523 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarted - Started KycServiceTest in 1.293 seconds (process running for 1.827)
+17-03-2024 00:38:06.608 [background-preinit] INFO  o.h.validator.internal.util.Version.<clinit> - HV000001: Hibernate Validator 8.0.1.Final
+17-03-2024 00:38:06.623 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarting - Starting KycServiceTest using Java 17.0.10 with PID 5746 (started by alejandro in /home/alejandro/TFM/kyc)
+17-03-2024 00:38:06.624 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+17-03-2024 00:38:07.663 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+17-03-2024 00:38:07.663 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+17-03-2024 00:38:07.665 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 1 ms
+17-03-2024 00:38:07.683 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarted - Started KycServiceTest in 1.269 seconds (process running for 1.815)
+17-03-2024 00:38:21.837 [background-preinit] INFO  o.h.validator.internal.util.Version.<clinit> - HV000001: Hibernate Validator 8.0.1.Final
+17-03-2024 00:38:21.852 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarting - Starting KycServiceTest using Java 17.0.10 with PID 5862 (started by alejandro in /home/alejandro/TFM/kyc)
+17-03-2024 00:38:21.853 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+17-03-2024 00:38:22.886 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+17-03-2024 00:38:22.886 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+17-03-2024 00:38:22.888 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 1 ms
+17-03-2024 00:38:22.905 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarted - Started KycServiceTest in 1.26 seconds (process running for 1.81)
+17-03-2024 00:38:48.834 [background-preinit] INFO  o.h.validator.internal.util.Version.<clinit> - HV000001: Hibernate Validator 8.0.1.Final
+17-03-2024 00:38:48.848 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarting - Starting KycServiceTest using Java 17.0.10 with PID 5978 (started by alejandro in /home/alejandro/TFM/kyc)
+17-03-2024 00:38:48.849 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+17-03-2024 00:38:49.864 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+17-03-2024 00:38:49.865 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+17-03-2024 00:38:49.867 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 1 ms
+17-03-2024 00:38:49.884 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarted - Started KycServiceTest in 1.26 seconds (process running for 1.804)
+17-03-2024 00:40:15.008 [background-preinit] INFO  o.h.validator.internal.util.Version.<clinit> - HV000001: Hibernate Validator 8.0.1.Final
+17-03-2024 00:40:15.028 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarting - Starting KycServiceTest using Java 17.0.10 with PID 6860 (started by alejandro in /home/alejandro/TFM/kyc)
+17-03-2024 00:40:15.029 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+17-03-2024 00:40:16.075 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+17-03-2024 00:40:16.076 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+17-03-2024 00:40:16.078 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 1 ms
+17-03-2024 00:40:16.102 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarted - Started KycServiceTest in 1.307 seconds (process running for 1.9)
+17-03-2024 00:40:52.243 [background-preinit] INFO  o.h.validator.internal.util.Version.<clinit> - HV000001: Hibernate Validator 8.0.1.Final
+17-03-2024 00:40:52.258 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarting - Starting KycServiceTest using Java 17.0.10 with PID 7032 (started by alejandro in /home/alejandro/TFM/kyc)
+17-03-2024 00:40:52.259 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+17-03-2024 00:40:53.324 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+17-03-2024 00:40:53.325 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+17-03-2024 00:40:53.327 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 1 ms
+17-03-2024 00:40:53.345 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarted - Started KycServiceTest in 1.319 seconds (process running for 1.917)
+17-03-2024 11:43:16.330 [background-preinit] INFO  o.h.validator.internal.util.Version.<clinit> - HV000001: Hibernate Validator 8.0.1.Final
+17-03-2024 11:43:16.345 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarting - Starting KycServiceTest using Java 17.0.10 with PID 7322 (started by alejandro in /home/alejandro/TFM/kyc)
+17-03-2024 11:43:16.346 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+17-03-2024 11:43:17.368 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+17-03-2024 11:43:17.368 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+17-03-2024 11:43:17.371 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 1 ms
+17-03-2024 11:43:17.397 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarted - Started KycServiceTest in 1.243 seconds (process running for 1.785)
+17-03-2024 11:45:40.806 [background-preinit] INFO  o.h.validator.internal.util.Version.<clinit> - HV000001: Hibernate Validator 8.0.1.Final
+17-03-2024 11:45:40.822 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarting - Starting KycServiceTest using Java 17.0.10 with PID 7482 (started by alejandro in /home/alejandro/TFM/kyc)
+17-03-2024 11:45:40.822 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+17-03-2024 11:45:41.839 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+17-03-2024 11:45:41.840 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+17-03-2024 11:45:41.841 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 1 ms
+17-03-2024 11:45:41.859 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarted - Started KycServiceTest in 1.233 seconds (process running for 1.764)
+17-03-2024 11:46:44.434 [background-preinit] INFO  o.h.validator.internal.util.Version.<clinit> - HV000001: Hibernate Validator 8.0.1.Final
+17-03-2024 11:46:44.453 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarting - Starting KycServiceTest using Java 17.0.10 with PID 7607 (started by alejandro in /home/alejandro/TFM/kyc)
+17-03-2024 11:46:44.454 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+17-03-2024 11:46:45.479 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+17-03-2024 11:46:45.480 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+17-03-2024 11:46:45.482 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 1 ms
+17-03-2024 11:46:45.499 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarted - Started KycServiceTest in 1.254 seconds (process running for 1.841)
+17-03-2024 11:47:40.026 [background-preinit] INFO  o.h.validator.internal.util.Version.<clinit> - HV000001: Hibernate Validator 8.0.1.Final
+17-03-2024 11:47:40.043 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarting - Starting KycServiceTest using Java 17.0.10 with PID 7732 (started by alejandro in /home/alejandro/TFM/kyc)
+17-03-2024 11:47:40.044 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+17-03-2024 11:47:41.064 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+17-03-2024 11:47:41.065 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+17-03-2024 11:47:41.067 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 1 ms
+17-03-2024 11:47:41.086 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarted - Started KycServiceTest in 1.275 seconds (process running for 1.836)
+17-03-2024 12:00:19.718 [background-preinit] INFO  o.h.validator.internal.util.Version.<clinit> - HV000001: Hibernate Validator 8.0.1.Final
+17-03-2024 12:00:19.732 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarting - Starting KycServiceTest using Java 17.0.10 with PID 8158 (started by alejandro in /home/alejandro/TFM/kyc)
+17-03-2024 12:00:19.733 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+17-03-2024 12:00:20.765 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+17-03-2024 12:00:20.765 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+17-03-2024 12:00:20.767 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 1 ms
+17-03-2024 12:00:20.787 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarted - Started KycServiceTest in 1.249 seconds (process running for 1.826)
+17-03-2024 12:00:20.811 [main] INFO  com.tfm.kyc.service.KycService.matchData - No se ha encontrado el cliente con MSISDN, no se puede devolver el match de: +34678901234
+17-03-2024 12:03:09.573 [background-preinit] INFO  o.h.validator.internal.util.Version.<clinit> - HV000001: Hibernate Validator 8.0.1.Final
+17-03-2024 12:03:09.588 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarting - Starting KycServiceTest using Java 17.0.10 with PID 8321 (started by alejandro in /home/alejandro/TFM/kyc)
+17-03-2024 12:03:09.589 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+17-03-2024 12:03:10.573 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+17-03-2024 12:03:10.574 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+17-03-2024 12:03:10.576 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 1 ms
+17-03-2024 12:03:10.592 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarted - Started KycServiceTest in 1.208 seconds (process running for 1.821)
+17-03-2024 12:03:10.619 [main] INFO  com.tfm.kyc.service.KycService.matchData - No se ha encontrado el cliente con MSISDN, no se puede devolver el match de: +34678901234
+17-03-2024 12:03:40.782 [background-preinit] INFO  o.h.validator.internal.util.Version.<clinit> - HV000001: Hibernate Validator 8.0.1.Final
+17-03-2024 12:03:40.797 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarting - Starting KycServiceTest using Java 17.0.10 with PID 8437 (started by alejandro in /home/alejandro/TFM/kyc)
+17-03-2024 12:03:40.798 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+17-03-2024 12:03:41.816 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+17-03-2024 12:03:41.817 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+17-03-2024 12:03:41.818 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 1 ms
+17-03-2024 12:03:41.834 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarted - Started KycServiceTest in 1.243 seconds (process running for 1.767)
+17-03-2024 12:04:29.096 [background-preinit] INFO  o.h.validator.internal.util.Version.<clinit> - HV000001: Hibernate Validator 8.0.1.Final
+17-03-2024 12:04:29.111 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarting - Starting KycServiceTest using Java 17.0.10 with PID 8567 (started by alejandro in /home/alejandro/TFM/kyc)
+17-03-2024 12:04:29.112 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+17-03-2024 12:04:30.146 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+17-03-2024 12:04:30.146 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+17-03-2024 12:04:30.148 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 1 ms
+17-03-2024 12:04:30.167 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarted - Started KycServiceTest in 1.256 seconds (process running for 1.859)
+17-03-2024 12:07:27.073 [background-preinit] INFO  o.h.validator.internal.util.Version.<clinit> - HV000001: Hibernate Validator 8.0.1.Final
+17-03-2024 12:07:27.089 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarting - Starting KycServiceTest using Java 17.0.10 with PID 8726 (started by alejandro in /home/alejandro/TFM/kyc)
+17-03-2024 12:07:27.089 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+17-03-2024 12:07:28.121 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+17-03-2024 12:07:28.122 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+17-03-2024 12:07:28.124 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 1 ms
+17-03-2024 12:07:28.142 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarted - Started KycServiceTest in 1.254 seconds (process running for 1.861)
+17-03-2024 12:07:59.376 [background-preinit] INFO  o.h.validator.internal.util.Version.<clinit> - HV000001: Hibernate Validator 8.0.1.Final
+17-03-2024 12:07:59.390 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarting - Starting KycServiceTest using Java 17.0.10 with PID 8847 (started by alejandro in /home/alejandro/TFM/kyc)
+17-03-2024 12:07:59.391 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+17-03-2024 12:08:00.403 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+17-03-2024 12:08:00.404 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+17-03-2024 12:08:00.406 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 1 ms
+17-03-2024 12:08:00.423 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarted - Started KycServiceTest in 1.246 seconds (process running for 1.775)
+17-03-2024 12:13:57.959 [background-preinit] INFO  o.h.validator.internal.util.Version.<clinit> - HV000001: Hibernate Validator 8.0.1.Final
+17-03-2024 12:13:57.974 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarting - Starting KycServiceTest using Java 17.0.10 with PID 9011 (started by alejandro in /home/alejandro/TFM/kyc)
+17-03-2024 12:13:57.975 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+17-03-2024 12:13:59.018 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+17-03-2024 12:13:59.018 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+17-03-2024 12:13:59.020 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 1 ms
+17-03-2024 12:13:59.037 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarted - Started KycServiceTest in 1.255 seconds (process running for 1.883)
+17-03-2024 12:20:39.598 [background-preinit] INFO  o.h.validator.internal.util.Version.<clinit> - HV000001: Hibernate Validator 8.0.1.Final
+17-03-2024 12:20:39.613 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarting - Starting KycServiceTest using Java 17.0.10 with PID 9203 (started by alejandro in /home/alejandro/TFM/kyc)
+17-03-2024 12:20:39.614 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+17-03-2024 12:20:40.632 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+17-03-2024 12:20:40.632 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+17-03-2024 12:20:40.634 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 0 ms
+17-03-2024 12:20:40.654 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarted - Started KycServiceTest in 1.25 seconds (process running for 1.837)
+17-03-2024 12:21:04.683 [background-preinit] INFO  o.h.validator.internal.util.Version.<clinit> - HV000001: Hibernate Validator 8.0.1.Final
+17-03-2024 12:21:04.699 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarting - Starting KycServiceTest using Java 17.0.10 with PID 9323 (started by alejandro in /home/alejandro/TFM/kyc)
+17-03-2024 12:21:04.700 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+17-03-2024 12:21:05.692 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+17-03-2024 12:21:05.693 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+17-03-2024 12:21:05.695 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 1 ms
+17-03-2024 12:21:05.715 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarted - Started KycServiceTest in 1.218 seconds (process running for 1.747)
+17-03-2024 12:21:23.074 [background-preinit] INFO  o.h.validator.internal.util.Version.<clinit> - HV000001: Hibernate Validator 8.0.1.Final
+17-03-2024 12:21:23.090 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarting - Starting KycServiceTest using Java 17.0.10 with PID 9441 (started by alejandro in /home/alejandro/TFM/kyc)
+17-03-2024 12:21:23.091 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+17-03-2024 12:21:24.091 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+17-03-2024 12:21:24.092 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+17-03-2024 12:21:24.093 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 1 ms
+17-03-2024 12:21:24.111 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarted - Started KycServiceTest in 1.216 seconds (process running for 1.769)
+17-03-2024 12:26:22.263 [background-preinit] INFO  o.h.validator.internal.util.Version.<clinit> - HV000001: Hibernate Validator 8.0.1.Final
+17-03-2024 12:26:22.278 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarting - Starting KycServiceTest using Java 17.0.10 with PID 10196 (started by alejandro in /home/alejandro/TFM/kyc)
+17-03-2024 12:26:22.279 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+17-03-2024 12:26:23.310 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+17-03-2024 12:26:23.311 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+17-03-2024 12:26:23.313 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 1 ms
+17-03-2024 12:26:23.329 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarted - Started KycServiceTest in 1.261 seconds (process running for 1.883)
+17-03-2024 12:27:44.711 [background-preinit] INFO  o.h.validator.internal.util.Version.<clinit> - HV000001: Hibernate Validator 8.0.1.Final
+17-03-2024 12:27:44.726 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarting - Starting KycServiceTest using Java 17.0.10 with PID 10476 (started by alejandro in /home/alejandro/TFM/kyc)
+17-03-2024 12:27:44.726 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+17-03-2024 12:27:45.753 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+17-03-2024 12:27:45.754 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+17-03-2024 12:27:45.755 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 0 ms
+17-03-2024 12:27:45.777 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarted - Started KycServiceTest in 1.261 seconds (process running for 1.802)
+17-03-2024 12:27:45.817 [main] INFO  com.tfm.kyc.service.KycService.matchData - No se ha encontrado el cliente con MSISDN, no se puede devolver el match de: +34678901234
+17-03-2024 12:28:06.564 [background-preinit] INFO  o.h.validator.internal.util.Version.<clinit> - HV000001: Hibernate Validator 8.0.1.Final
+17-03-2024 12:28:06.578 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarting - Starting KycServiceTest using Java 17.0.10 with PID 10589 (started by alejandro in /home/alejandro/TFM/kyc)
+17-03-2024 12:28:06.579 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+17-03-2024 12:28:07.631 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+17-03-2024 12:28:07.632 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+17-03-2024 12:28:07.634 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 1 ms
+17-03-2024 12:28:07.652 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarted - Started KycServiceTest in 1.288 seconds (process running for 1.816)
+17-03-2024 12:29:08.635 [background-preinit] INFO  o.h.validator.internal.util.Version.<clinit> - HV000001: Hibernate Validator 8.0.1.Final
+17-03-2024 12:29:08.651 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarting - Starting KycServiceTest using Java 17.0.10 with PID 10729 (started by alejandro in /home/alejandro/TFM/kyc)
+17-03-2024 12:29:08.652 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+17-03-2024 12:29:09.690 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+17-03-2024 12:29:09.691 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+17-03-2024 12:29:09.693 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 1 ms
+17-03-2024 12:29:09.709 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarted - Started KycServiceTest in 1.264 seconds (process running for 1.812)
+17-03-2024 12:30:55.537 [background-preinit] INFO  o.h.validator.internal.util.Version.<clinit> - HV000001: Hibernate Validator 8.0.1.Final
+17-03-2024 12:30:55.551 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarting - Starting KycServiceTest using Java 17.0.10 with PID 10901 (started by alejandro in /home/alejandro/TFM/kyc)
+17-03-2024 12:30:55.552 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+17-03-2024 12:30:56.573 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+17-03-2024 12:30:56.573 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+17-03-2024 12:30:56.575 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 0 ms
+17-03-2024 12:30:56.594 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarted - Started KycServiceTest in 1.236 seconds (process running for 1.772)
+17-03-2024 12:30:56.642 [main] INFO  com.tfm.kyc.service.KycService.matchData - No se ha encontrado el cliente con MSISDN, no se puede devolver el match de: +34678901234
+17-03-2024 12:31:59.077 [background-preinit] INFO  o.h.validator.internal.util.Version.<clinit> - HV000001: Hibernate Validator 8.0.1.Final
+17-03-2024 12:31:59.092 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarting - Starting KycServiceTest using Java 17.0.10 with PID 11021 (started by alejandro in /home/alejandro/TFM/kyc)
+17-03-2024 12:31:59.093 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+17-03-2024 12:32:00.083 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+17-03-2024 12:32:00.084 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+17-03-2024 12:32:00.086 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 1 ms
+17-03-2024 12:32:00.102 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarted - Started KycServiceTest in 1.222 seconds (process running for 1.771)
+17-03-2024 12:32:11.932 [background-preinit] INFO  o.h.validator.internal.util.Version.<clinit> - HV000001: Hibernate Validator 8.0.1.Final
+17-03-2024 12:32:11.947 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarting - Starting KycServiceTest using Java 17.0.10 with PID 11128 (started by alejandro in /home/alejandro/TFM/kyc)
+17-03-2024 12:32:11.948 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+17-03-2024 12:32:12.991 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+17-03-2024 12:32:12.991 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+17-03-2024 12:32:12.993 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 1 ms
+17-03-2024 12:32:13.011 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarted - Started KycServiceTest in 1.263 seconds (process running for 1.838)
+17-03-2024 12:32:13.055 [main] INFO  com.tfm.kyc.service.KycService.matchData - No se ha encontrado el cliente con MSISDN, no se puede devolver el match de: +34678901234
+17-03-2024 12:36:22.508 [background-preinit] INFO  o.h.validator.internal.util.Version.<clinit> - HV000001: Hibernate Validator 8.0.1.Final
+17-03-2024 12:36:22.524 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarting - Starting KycServiceTest using Java 17.0.10 with PID 11389 (started by alejandro in /home/alejandro/TFM/kyc)
+17-03-2024 12:36:22.525 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+17-03-2024 12:36:23.577 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+17-03-2024 12:36:23.577 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+17-03-2024 12:36:23.579 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 1 ms
+17-03-2024 12:36:23.597 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarted - Started KycServiceTest in 1.287 seconds (process running for 1.836)
+17-03-2024 12:36:29.179 [background-preinit] INFO  o.h.validator.internal.util.Version.<clinit> - HV000001: Hibernate Validator 8.0.1.Final
+17-03-2024 12:36:29.195 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarting - Starting KycServiceTest using Java 17.0.10 with PID 11501 (started by alejandro in /home/alejandro/TFM/kyc)
+17-03-2024 12:36:29.196 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+17-03-2024 12:36:30.228 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+17-03-2024 12:36:30.229 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+17-03-2024 12:36:30.230 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 1 ms
+17-03-2024 12:36:30.246 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarted - Started KycServiceTest in 1.251 seconds (process running for 1.841)
+17-03-2024 12:36:30.295 [main] INFO  com.tfm.kyc.service.KycService.matchData - No se ha encontrado el cliente con MSISDN, no se puede devolver el match de: +34678901234
