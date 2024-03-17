@@ -87,3 +87,33 @@ Test unitarios del servicio de check de sim swap?? Echarle un ojo
 OJO, cuidado con la configuración de Prometheus. Aunque expongas las metricas de tus MS con la dependecia de microemter y actuator, le tienes que decir a Prometheus que haga queries a esas direcciones.
 
 Cuando cambies todo a contenedores, tienes que cambiar los localhost a los nombres de contenedor. Cuidado.
+
+
+OJO en el codigo de KYC.
+
+Para aumentar el % de matches se ha tenido en cuenta lo siguiente:
+
+DNI
+Se quitan los espacios en blanco
+Se cogen los 20 primeros digitos para evitar problemas.
+Se pone todo minuscula y se compara.
+Creo que funciona correctamente.
+
+Nombres
+Se quitan los espacios en blanco
+Se cogen los 40 primeros digitos
+Se pone en minuscula
+Se quitan acentos y otros caracteres especiales
+Se quita cualquier caracter no alfanumerico (minuscula)
+Se compara
+Creo que funciona correctamente.
+
+Calles
+Se cogen los 40 primeros digitos. (no se puede eliminar primero los espascios en blanco porque vamos a eliminar el nombre de algunas calles)
+Se convierte a minuscula
+Se quitan acentos y otros caracteres especiales.
+Se elimina palabras como (calle, carreteras, crta, avenida, avd, via, etc)
+Se elimina cualquier caracter alfanumerico.
+Se compara.
+Aquí hay un corner case qque no me gusta. Si los string a compara son iguales salvo espacios en blanco distintos (cuenta como un caracter) y se pasan de 40 de largo, se van a coger subsecuencias que si que son distintas.
+Se resuelve facil si aumentamos el máximo largo permitido (ej:60) Creo que no hay ninguna calle de 60 caracteres en españa (Ni siqueira de 40 pero bueno).
