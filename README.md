@@ -165,9 +165,18 @@ Si usamos, client credentials, hay que usar en spring boot
 spring.security.oauth2.client.registration.external.client-secret=1JsLTnYN3PicBWEZwcY702I8vlAaeyNs
 Antes con el modo Direct Access Grants no hacía falta (Tenía la configuración rara, un cliente para las APIs, con usuario y contraseña y client credentials en el JS).
 
-Para levantar keycloak con docker he usado la imagen de bitnami con alguna configuración de administración. Para persisitir los datos he usado Postgre. He usado la oficial en lugar de la de bitnami porque la de bitnami ha dado problemas. OJO, en todas las capretas asignar permisos sudo chmod -R 777 ./postgresql
+Para levantar keycloak con docker he usado la imagen de bitnami con alguna configuración de administración. Para persisitir los datos he usado Postgre. He usado la oficial en lugar de la de bitnami porque la de bitnami ha dado problemas. OJO, en todas las capretas asignar permisos sudo chmod -R 777 ./postgresql.
 
+El siguiente paso, era incluir el API-GW. En principio, Kong por ser muy usado en la comunidad. La idea es que la autenticación la haga directamente el API GW y así nos ahorramos poner la configuración en todas las APIs. Lejos de ser sencillo, ha sido muy problematico. Las versiones 3.x.x y superiores de kong han deprecado BasePlugin por lo que se puede instalar en el dockerfile el plugin pero al introducir en el docker compose       KONG_PLUGINS: bundled,oidc , salta error.
 
+https://devops.stackexchange.com/questions/16944/setting-up-keycloak-with-kong-v5-1
+
+Una vez aclarado, esto. Se ha conseguido instalar el plugin con la versión, aún soportada, 2.8.4.Para comprobarlo, podemos hacer:
+
+curl -s http://localhost:8101 | jq .plugins.available_on_server.oidc
+curl http://localhost:8101/plugins/enabled
+
+A nivel de coker compose no requiere excesiva complejidad. Se ha creado una imagen que tenga ya descargado el plugin de oidc.
 
 
 
