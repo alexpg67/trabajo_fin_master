@@ -118,6 +118,13 @@ Se compara.
 Aquí hay un corner case qque no me gusta. Si los string a compara son iguales salvo espacios en blanco distintos (cuenta como un caracter) y se pasan de 40 de largo, se van a coger subsecuencias que si que son distintas.
 Se resuelve facil si aumentamos el máximo largo permitido (ej:60) Creo que no hay ninguna calle de 60 caracteres en españa (Ni siqueira de 40 pero bueno).
 
+Para visualizar el swagger en nuestra web, hemos seguido los pasos seguidos en stackoverflow
+
+https://stackoverflow.com/questions/46237255/how-to-embed-swagger-ui-into-a-webpage
+
+Se descargan los archivos directamente de la carpeta dict del repositorio de swagger
+
+https://github.com/swagger-api/swagger-ui/tree/master
 
 Para que desde la web se pueda acceder a las APIs y evitar problemas de CORS, hay que añadir la siguiente etiqueta
 @CrossOrigin(origins = "http://localhost:8082")
