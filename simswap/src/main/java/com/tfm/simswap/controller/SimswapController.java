@@ -21,6 +21,7 @@ import java.util.regex.Pattern;
 
 @RestController
 @RequestMapping(path = "/sim-swap/v0")
+@CrossOrigin(origins = "http://localhost:8082")
 public class SimswapController {
 
     private static final Logger log = LoggerFactory.getLogger(SimswapController.class);
@@ -29,7 +30,7 @@ public class SimswapController {
     private SimswapService simswapService;
 
 
-    @PostMapping(path = "/retrieve-data")
+    @PostMapping(path = "/retrieve-date")
     public ResponseEntity<?> retrieveData(@RequestBody @Valid MsisdnDTO msisdnDTO) throws CustomException {
         String msisdn = msisdnDTO.getPhoneNumber();
 //        System.out.println(msisdn);

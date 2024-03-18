@@ -133,7 +133,7 @@ function displayClient(client, container) {
 async function obtenerToken() {
     const detalles = {
         client_id: 'prueba',
-        client_secret: 'B66pt014puIUMFoOUVIKpPBcbrgWGTua',
+        client_secret: '1JsLTnYN3PicBWEZwcY702I8vlAaeyNs',
         grant_type: 'client_credentials'
 
     };
@@ -151,6 +151,7 @@ async function obtenerToken() {
         });
 
         const data = await respuesta.json();
+
 
         return data.access_token;
     } catch (error) {
