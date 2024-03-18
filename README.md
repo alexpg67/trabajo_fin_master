@@ -143,5 +143,31 @@ client secret
 
 B66pt014puIUMFoOUVIKpPBcbrgWGTua
 
+El nuevo client secret es
+
+1JsLTnYN3PicBWEZwcY702I8vlAaeyNs
+
+Ya he migrado Keycloak a contenedores. No he conseguido importar el Realm de local así que lo he vuelto a hacer a Mano.
+
+Creamos el Realm.
+
+Creamos el Cliente
+
+OJO!!
+Valid Redirect URIs: http://localhost:8082/*
+Web Origins: * ( Esto es un poco inseguro pero evitamos CORS en la solicitud javascript para obtener el token)
+Authentication Flow -> Standard Flow y Service Account Roles ( Nos permite usar token en lugar de usuario y contraseña)
+Login Them Keycloak
+
+Por último, creamos el usuario. Usuario y contraseña que queramops.
+
+Si usamos, client credentials, hay que usar en spring boot 
+spring.security.oauth2.client.registration.external.client-secret=1JsLTnYN3PicBWEZwcY702I8vlAaeyNs
+Antes con el modo Direct Access Grants no hacía falta (Tenía la configuración rara, un cliente para las APIs, con usuario y contraseña y client credentials en el JS).
+
+Para levantar keycloak con docker he usado la imagen de bitnami con alguna configuración de administración. Para persisitir los datos he usado Postgre. He usado la oficial en lugar de la de bitnami porque la de bitnami ha dado problemas. OJO, en todas las capretas asignar permisos sudo chmod -R 777 ./postgresql
+
+
+
 
 
