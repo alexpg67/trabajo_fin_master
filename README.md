@@ -130,6 +130,18 @@ Para que desde la web se pueda acceder a las APIs y evitar problemas de CORS, ha
 @CrossOrigin(origins = "http://localhost:8082")
 
 
-Para la migración de docker, cuidado con las rutas relativas. Los localhost van ad ejar de funciona rya que vamos a encapsular la APP en imagenes docker por lo que localhost va a hacer referencia al propio contenedor
+Para la migración de docker, cuidado con las rutas relativas. Los localhost van ad ejar de funciona rya que vamos a encapsular la APP en imagenes docker por lo que localhost va a hacer referencia al propio contenedor.
+
+En keycloack lo que tenemos hasta ahora (descarga local) son dos cliente opengateway-test y prueba.
+Prueba es el ideal.
+
+Ver su configuracion
+
+Ahi esta el client secret y client scope
+
+client secret
+
+B66pt014puIUMFoOUVIKpPBcbrgWGTua
+
 
 
