@@ -128,3 +128,8 @@ https://github.com/swagger-api/swagger-ui/tree/master
 
 Para que desde la web se pueda acceder a las APIs y evitar problemas de CORS, hay que añadir la siguiente etiqueta
 @CrossOrigin(origins = "http://localhost:8082")
+
+
+Para la migración de docker, cuidado con las rutas relativas. Los localhost van ad ejar de funciona rya que vamos a encapsular la APP en imagenes docker por lo que localhost va a hacer referencia al propio contenedor
+
+
