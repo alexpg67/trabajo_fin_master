@@ -183,5 +183,7 @@ Para la migracion de docker compose a kubernetes, lo suyo es usar Kompose. Cuida
 
 curl -s http://localhost:8080/realms/Test/.well-known/openid-configuration
 
+172.17.0.1
+
 
 
