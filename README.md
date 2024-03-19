@@ -178,5 +178,8 @@ curl http://localhost:8101/plugins/enabled
 
 A nivel de coker compose no requiere excesiva complejidad. Se ha creado una imagen que tenga ya descargado el plugin de oidc.
 
+OJO!!
+Para la migracion de docker compose a kubernetes, lo suyo es usar Kompose. Cuidado porque al ahcer la conversio, los nombres con _(barra baja) los cambia por guion ya que K8 no soporta nombres con _.
+
 
 
