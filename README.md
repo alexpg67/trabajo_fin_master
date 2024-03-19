@@ -181,5 +181,7 @@ A nivel de coker compose no requiere excesiva complejidad. Se ha creado una imag
 OJO!!
 Para la migracion de docker compose a kubernetes, lo suyo es usar Kompose. Cuidado porque al ahcer la conversio, los nombres con _(barra baja) los cambia por guion ya que K8 no soporta nombres con _.
 
+curl -s http://localhost:8080/realms/Test/.well-known/openid-configuration
+
 
 
