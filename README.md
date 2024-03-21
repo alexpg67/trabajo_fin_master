@@ -245,3 +245,8 @@ services:
       - "1337:1337"
     depends_on:
       - konga-database
+
+Para instalar el nuevo plugin
+
+sudo docker cp /home/alejandro/TFM/docker/kong/keycloak-introspection kong:/usr/local/share/lua/5.1/kong/plugins
+
