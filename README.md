@@ -185,5 +185,14 @@ curl -s http://localhost:8080/realms/Test/.well-known/openid-configuration
 
 172.17.0.1
 
+Para manejar mejor a KONG, se puede instalar una UI llamada Konga. Konga es muy útil y está muy bien pero es muy dificil de instalar con persitencias (base de datos postgresql). El motivo es que Konga no soporta postgresql en versiones posteriores a la 12. Por este motivo, hemos usado la 11. Además, hay que ejecutar previamente un contenedor de migración. Adjunto líneas usadas
+
+sudo docker compose up -d konga-database
+
+docker run --rm   --network container:konga-database   pantsel/konga:0.14.9 -c prepare -a postgres -u postgresql://konga:konga@konga-database:5432/konga
+
+sudo docker compose up -d konga
+
+
 
 
