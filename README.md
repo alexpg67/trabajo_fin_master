@@ -250,3 +250,33 @@ Para instalar el nuevo plugin
 
 sudo docker cp /home/alejandro/TFM/docker/kong/keycloak-introspection kong:/usr/local/share/lua/5.1/kong/plugins
 
+sudo docker cp /home/alejandro/TFM/docker/kong/kong.conf kong:/etc/kong/kong.conf
+
+sudo docker restart kong
+
+He tenido que volver a la version más reciente y borrar la base de datos que había porque aunque se cargaban los ficehros correctamente, no se veía que estaba activo a traves de las APIs de Kyecloak.
+
+He puesto en docker compose la migración necesaria, pero cuidado porque solo se necesita la priemra vez.
+
+Se ha conseguido gracias al tutorial de https://www.youtube.com/watch?v=5OgjqaFVVrI
+
+Los pasos han sido:
+
+Instalar kong, konga y keycloak con docker compose.
+
+Crear los servicios y rutas en kong.
+
+Añadir el nuevo plugin en kong con los pasos descritos previamente.
+
+Añadir mediante API (Postman) el plugin en el servicio creado,
+
+Muy satisfecho con el resultado, el script de lua se puede seguir modificando sobre todo para los errores.
+
+Al final se ha conseguido.
+
+La unica duda que me queda es
+como es posible que al pedir un token a keycloak en estos dos endpoint
+http://172.17.0.1:8080/realms/Test/protocol/openid-connect/token
+http://localhost:8080/realms/Test/protocol/openid-connect/token
+Los token sean difernetes y uno no valida el token del otro cuando son la misma instancia?
+
