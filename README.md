@@ -205,4 +205,43 @@ Estaría mejor usar esto en docker compose
       - kong-database
 
 
+Otra sugerencia es esta:
 
+services:
+  konga-database:
+    image: postgres:11.0
+    container_name: konga-database
+    volumes:
+      - ./kongadb:/var/lib/postgresql/data
+    ports:
+      - "5434:5432"
+    environment:
+      POSTGRES_DB: konga
+      POSTGRES_USER: konga
+      POSTGRES_PASSWORD: konga
+    restart: unless-stopped
+
+  konga-prepare:
+    image: pantsel/konga:0.14.9
+    container_name: konga-prepare
+    command: sh -c "while ! nc -z konga-database 5432; do sleep 1; done && konga -c prepare -a postgres -u postgresql://konga:konga@konga-database:5432/konga"
+    depends_on:
+      - konga-database
+    restart: on-failure
+
+  konga:
+    image: pantsel/konga:0.14.9
+    container_name: konga
+    restart: always
+    environment:
+      DB_ADAPTER: postgres
+      DB_HOST: konga-database
+      DB_PORT: 5432
+      DB_USER: konga
+      DB_PASSWORD: konga
+      DB_DATABASE: konga
+      NODE_ENV: production
+    ports:
+      - "1337:1337"
+    depends_on:
+      - konga-database
