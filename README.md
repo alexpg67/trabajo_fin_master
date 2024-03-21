@@ -193,6 +193,16 @@ docker run --rm   --network container:konga-database   pantsel/konga:0.14.9 -c p
 
 sudo docker compose up -d konga
 
+Estaría mejor usar esto en docker compose
+
+  konga-prepare:
+    image: pantsel/konga:0.14.9
+    command: "-c prepare -a postgres -u postgresql://konga:konga@konga-database:5432/konga"
+    restart: on-failure
+    links:
+      - kong-database
+    depends_on:
+      - kong-database
 
 
 
