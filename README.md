@@ -302,4 +302,16 @@ titular: 75% titulares 25 % reciclados (Hijos de titular o similar de los que se
 
 idDocument: pseudo aleatorio 08359 random (100-999) y letra aleatoria
 
+email: Se forma con el nombre y añadiendo gmail como extensión.
+
+gender: random masculino o femenino.
+
+birthdate: año aleatorio de 1924 a 2006 (mayor de edad), día aleatorio de 01 a 30 y mes aleatorio de 01 a 12.
+
+house_number_extension: Refleja el piso, he considerado que puede que no haya piso (20%) y fuese un chalet entonces se deja vacío. Si hay piso, se coge un número aleatorio entre 1 y 3 (planta) y letra de la A la F (piso)
+
+latestSimChange: Aleatorio de 2020 a 2024. si es 2024 el mes no puede ser posterior a Abril.
+
+Estoy satisfecho con el resultado. Se ha creado una imagen a través de un Dockerfile y un script que es la base de mongo con los elementos precargados.
+
 
