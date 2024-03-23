@@ -280,3 +280,26 @@ http://172.17.0.1:8080/realms/Test/protocol/openid-connect/token
 http://localhost:8080/realms/Test/protocol/openid-connect/token
 Los token sean difernetes y uno no valida el token del otro cuando son la misma instancia?
 
+El siguiente paso es migrar mongo a contenedor.
+
+Para ello, necesitamos una base de datos más grande, solo teníamos 10 clientes. Vamos a realizar un script para tener al menos 100.
+
+En el script, vamos a necesitar introducir nombres, apellidos y calles como una lista. El resto de campos se pueden generar aleatoriamente.
+
+El script genera los campos en base a:
+
+msisdn: Genera números pseudoaleatorios -> +346514812XX donde XX serán numeros del 00 al 99. generando 100 numeros.
+
+imsi: Estrategia similar a msisdn. Teniendo en cuenta que el mcc y mnc de telefonica España es 214 y 07 respectivamente. Se generan 100 imsis de 214071234567800 a 214071234567899.
+
+mcc:Elige uno de los mcc que hay en redis. En vez de hacer logica con redis, directamente copiamos una lista al script de los mcc disponibles. No todos los usuarios están en roaming, hemos generado que haya solo 15 en roaming, el resto tendran mcc 214.
+
+mnc: Si esta en roaming es aleatorio, sino es 07.
+
+cell_id: Numero aleatorio
+
+titular: 75% titulares 25 % reciclados (Hijos de titular o similar de los que se desconoce informacion)
+
+idDocument: pseudo aleatorio 08359 random (100-999) y letra aleatoria
+
+
