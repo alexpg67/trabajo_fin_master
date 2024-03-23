@@ -312,13 +312,37 @@ house_number_extension: Refleja el piso, he considerado que puede que no haya pi
 
 latestSimChange: Aleatorio de 2020 a 2024. si es 2024 el mes no puede ser posterior a Abril.
 
+
+
+
+
+
 Estoy satisfecho con el resultado. Se ha creado una imagen a través de un Dockerfile y un script que es la base de mongo con los elementos precargados.
+
+OJO al hacer el Dockerfile de la migración. Yo quería que los datos estuviese precargados en la base de datos. Para ello, hice un dockerfile que ejecuta este script.
+
+#!/bin/sh
+
+
+mongod --fork --logpath /var/log/mongodb.log --bind_ip_all -> Permite arrancar mongod, sin esto no deja ni hacer mongosh al entrar al contenedor. La opcion de bind ip permite que escuhe en todos los interfaces de red, no solo en localhost. Esto es importante porque sino no funciona bien ya que localhost es la del contenedor. Con la imagen oficial de mongo sin modificar funcionaba correctamente porque directamente mapea el localhost de mongo con el del ordenador. Con el mongo modificado no es exactamente así.
+
+
+sleep 10
+
+
+mongoimport --uri "mongodb://localhost:27017/telecomclients" --collection client_muestra --type json --file "/data/generated_clients.json" --jsonArray
+
+ 
+tail -f /dev/null -> Si no se elimina el contenedor al ejecutar el script.
+
+
+
 
 Para probar el resultado
 
-sudo docker build -t alejandropalmier/mongodb-telecomclients:1.0 .
+sudo docker build -t alejandropalmier/mongodb-telecomclients:2.0 .
 
-sudo docker run --name test-mongo -d alejandropalmier/mongodb-telecomclients:1.0
+sudo docker run --name test-mongo -d alejandropalmier/mongodb-telecomclients:2.0
 
 sudo docker exec -it test-mongo sh
 
