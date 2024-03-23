@@ -314,4 +314,20 @@ latestSimChange: Aleatorio de 2020 a 2024. si es 2024 el mes no puede ser poster
 
 Estoy satisfecho con el resultado. Se ha creado una imagen a través de un Dockerfile y un script que es la base de mongo con los elementos precargados.
 
+Para probar el resultado
+
+sudo docker build -t alejandropalmier/mongodb-telecomclients:1.0 .
+
+sudo docker run --name test-mongo -d alejandropalmier/mongodb-telecomclients:1.0
+
+sudo docker exec -it test-mongo sh
+
+sudo docker stop (id del proceso)
+
+Lo subimos a la cuenta de dockerhub
+
+
+
+
+
 
