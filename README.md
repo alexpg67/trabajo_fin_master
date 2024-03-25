@@ -350,8 +350,11 @@ sudo docker stop (id del proceso)
 
 Lo subimos a la cuenta de dockerhub
 
+Hay un problema que es un poco incomodo. Se puede sobrepasar y quizás cuando termine toda la configuración lo hago. La cosa es que al pedir el token a keycloak, se pide a la URL publica (en local localhost), mientras que a Kong se le dice que lo autentique a 172.17.0.1 (IP para que un contenedor acceda fuera del mismo), esto provoca que el iss no coincida y que por lo tanto, devuelva un false keycloak. Esto se resuelve pidiendo el token a 172.17.0.1 y no a localhost. No me gusta, por eso he intentado cambiar el hostname para que sea siempre uniforme. Esto se hace a traves de la variable de entorno:
 
+KEYCLOAK_HOSTNAME: "keycloak"
 
+Sin embargo, hay un bug, decrito aqui https://github.com/bitnami/containers/issues/51498. básicamente se queda la interfaz web cargando constantemene incluso habiendo modificado elf icher /etc/hosts para que resuelve el nombre keycloak. La solución pone que es borrar la DB ya que el hostname se guarda solo una vez.
 
 
 
