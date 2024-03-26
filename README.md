@@ -356,5 +356,20 @@ KEYCLOAK_HOSTNAME: "keycloak"
 
 Sin embargo, hay un bug, decrito aqui https://github.com/bitnami/containers/issues/51498. básicamente se queda la interfaz web cargando constantemene incluso habiendo modificado elf icher /etc/hosts para que resuelve el nombre keycloak. La solución pone que es borrar la DB ya que el hostname se guarda solo una vez.
 
+Me ha dado muchos dolores de cabeza conectar el contenedor de devicestatus con redis. Si uso en la configuración localhost, funciona correctamente. Cuando ponía el nombre del contenedor docker no funcionaba. Tras haber comprobado instalando en el conteendor de devicestatus telnet ping y redis-cli que si que hay conectividad, he encontrado este hilo en github de alguien con el mismo problema.
 
+https://github.com/spring-projects/spring-boot/issues/38774
+
+Esto se explica aqui:
+https://www.baeldung.com/spring-data-redis-properties
+
+Para la versión (3.x) de spring boot, que es la que estoy usando porque es la actual, hay que usar
+
+spring.data.redis.host=localhost
+spring.data.redis.port=16379
+
+En lugar de:
+
+spring.redis.host=localhost
+spring.redis.port=16379
 
