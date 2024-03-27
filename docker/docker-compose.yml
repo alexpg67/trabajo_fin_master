@@ -2,8 +2,8 @@ services:
   prometheus:
     image: bitnami/prometheus:2.50.1
     container_name: prometheus
-    ports:
-      - 9090:9090
+    # ports:
+    #   - 9090:9090
     restart: unless-stopped
     volumes:
       - ./prometheus/prometheus.yml:/opt/bitnami/prometheus/conf/prometheus.yml
@@ -32,9 +32,9 @@ services:
           ELASTIC_PASSWORD: "changeme"
           xpack.security.enabled: "false"
           xpack.security.enrollment.enabled: "false" # Desactiva el modo de inscripción p
-    ports:
-      - 9200:9200
-      - 9300:9300
+    # ports:
+    #   - 9200:9200
+    #   - 9300:9300
     volumes:
       - ./elasticsearch/data:/usr/share/elasticsearch/data
 
@@ -42,8 +42,8 @@ services:
   logstash:
     image: docker.elastic.co/logstash/logstash:8.12.2
     container_name: logstash
-    ports:
-      - 5000:5000
+    # ports:
+    #   - 5000:5000
     volumes:
       # - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml
       - ./logstash/pipeline:/usr/share/logstash/pipeline
@@ -65,20 +65,24 @@ services:
     # volumes:
     #   - ./kibana/data:/usr/share/kibana/config
 
-  redis_mcc_database:
-    image: alejandropalmier/redis_mcc_database:v1
-    container_name: redis_mcc_database
-    ports:
-      - "6379:6379" 
+  redis:
+    image: docker.io/alejandropalmier/redis-mcc-db:1.0
+    # image: redis:latest
+    container_name: redis
+    # command: ["redis-server", "--bind", "0.0.0.0"]
+    # command: ["redis", "--bind", "0.0.0.0", "--port", "6379"]
+    # ports:
+    #   - "6379:6379" 
 
   postgresql_keycloak:
     image: postgres:16.2
     container_name: postgresql_keycloak
+    restart: always
     volumes: 
       - ./postgresql:/var/lib/postgresql/data
 
-    ports:
-      - "5432:5432"
+    # ports:
+    #   - "5432:5432"
     environment:
       POSTGRES_DB:       keycloak
       POSTGRES_USER:     keycloak
@@ -99,7 +103,7 @@ services:
       KEYCLOAK_DATABASE_NAME: keycloak
       KEYCLOAK_DATABASE_USER: keycloak
       KEYCLOAK_DATABASE_PASSWORD: keycloak
-      KEYCLOAK_EXTRA_ARGS: --import-realm
+      # KEYCLOAK_HOSTNAME: "keycloak"
     volumes:
       - ./keycloak/realms:/opt/bitnami/keycloak/data/import
 
@@ -111,17 +115,33 @@ services:
       POSTGRES_DB: kong
       POSTGRES_USER: kong
       POSTGRES_PASSWORD: kong
-    ports:
-      - "5433:5432"
+    # ports:
+    #   - "5433:5432"
     volumes:
       - ./kongdb:/var/lib/postgresql/data
-    restart: unless-stopped
+    restart: always
+
+# # Solo hay que ejecutarlo una vez!!
+#   kong-migrations:
+#     image: kong:latest
+#     container_name: kong-migrations
+#     command: "kong migrations bootstrap"
+#     environment:
+#       KONG_DATABASE: postgres
+#       KONG_PG_HOST: kong-database
+#       KONG_PG_DATABASE: kong
+#       KONG_PG_USER: kong
+#       KONG_PG_PASSWORD: kong
+#     depends_on:
+#       - kong-database
 
   kong:
-    image: alejandropalmier/kong:1.0
+    image: docker.io/alejandropalmier/kong:1.0
+    # image: kong:latest
     container_name: kong
     depends_on:
       - kong-database
+      # - kong-migrations
     environment:
       KONG_DATABASE: postgres
       KONG_PG_HOST: kong-database
@@ -133,14 +153,117 @@ services:
       KONG_PROXY_ERROR_LOG: /dev/stderr
       KONG_ADMIN_ERROR_LOG: /dev/stderr
       KONG_ADMIN_LISTEN: '0.0.0.0:8001, 0.0.0.0:8444 ssl'
-      KONG_PLUGINS: bundled,oidc 
+      KONG_PLUGINS: bundled,keycloak-introspection
+      # KONG_PLUGINS: bundled,keycloak-introspection
     ports:
       - "8100:8000"
-      - "8443:8443"
-      - "8101:8001"
-      - "8444:8444"
-    restart: unless-stopped
+      # - "8443:8443"
+      # - "8101:8001"
+      # - "8444:8444"
+    restart: always
+
+
+  konga-database:
+    image: postgres:11.0
+    container_name: konga-database
+    volumes:
+      - ./kongadb:/var/lib/postgresql/data
+    # ports:
+    #   - "5434:5432"  # Asegúrate de usar un puerto diferente si 5432 ya está en uso
+    environment:
+      POSTGRES_DB:       konga
+      POSTGRES_USER:     konga
+      POSTGRES_PASSWORD: konga
+    restart: always
+
+  konga:
+    image: pantsel/konga:0.14.9
+    container_name: konga
+    restart: always
+    environment:
+      DB_ADAPTER: postgres
+      DB_HOST: konga-database
+      DB_PORT: 5432
+      DB_USER: konga
+      DB_PASSWORD: konga
+      DB_DATABASE: konga
+      NODE_ENV: production
+    ports:
+      - "1337:1337"
+    depends_on:
+      - konga-database
+
+
+  mongodb:
+    image: docker.io/alejandropalmier/mongodb-telecomclients:2.0
+    # image: mongo:latest
+    container_name: mongodb
+    # ports:
+    #   - "27017:27017"
+    restart: always
+    volumes:
+      - ./mongo/mongo-data:/data/db
       
+
+  provision:
+    image: docker.io/alejandropalmier/provision:1.0
+    container_name: provision
+    # ports:
+    #   - "8082:8082" 
+    restart: always
+    depends_on:
+      - mongodb 
+
+    volumes:
+      - ./logstash/logs/application.log:/app/logs/application.log
+
+
+  simswap:
+    image: docker.io/alejandropalmier/simswap:1.0
+    container_name: simswap
+    # ports:
+    #   - "8083:8083" 
+    restart: always
+    depends_on:
+      - mongodb 
+
+    volumes:
+      - ./logstash/logs/application.log:/app/logs/application.log
+
+  devicestatus:
+    image: docker.io/alejandropalmier/devicestatus:1.0
+    container_name: devicestatus
+    # ports:
+    #   - "8084:8084" 
+    restart: always
+    depends_on:
+      - mongodb 
+
+    volumes:
+      - ./logstash/logs/application.log:/app/logs/application.log
+
+
+  kyc:
+    image: docker.io/alejandropalmier/kyc:1.0
+    container_name: kyc
+    # ports:
+    #   - "8085:8085" 
+    restart: always
+    depends_on:
+      - mongodb 
+
+    volumes:
+      - ./logstash/logs/application.log:/app/logs/application.log
+  web:
+    image: nginx:1.25.4-alpine
+    container_name: web
+    volumes:
+      - ./web/static:/usr/share/nginx/html  
+    # ports:
+    #   - "80:80"
+    restart: always
+
+
     # networks:
     #   - prometheus_network
 # networks:

@@ -1,0 +1,17 @@
+{
+	"ulid": "01HT129HMYCX5KYDN20Q7287F5",
+	"minTime": 1711569600000,
+	"maxTime": 1711576800000,
+	"stats": {
+		"numSamples": 70962,
+		"numSeries": 1003,
+		"numChunks": 1003
+	},
+	"compaction": {
+		"level": 1,
+		"sources": [
+			"01HT129HMYCX5KYDN20Q7287F5"
+		]
+	},
+	"version": 1
+}

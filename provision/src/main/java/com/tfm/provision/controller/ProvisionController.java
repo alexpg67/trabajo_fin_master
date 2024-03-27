@@ -18,6 +18,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping(path = "/provision/v0")
+@CrossOrigin(origins = "*")
 public class ProvisionController {
 
     private static final Logger log = LoggerFactory.getLogger(ProvisionController.class);
@@ -154,35 +155,13 @@ public class ProvisionController {
     }
 
     @PutMapping(path = "/updateclient/{msisdn}")
-    public ResponseEntity<Client> updateData(@PathVariable String msisdn, @RequestBody @Valid Client updateclient) throws CustomException {
-
-        Optional<Client> client = getMsisdnClient(msisdn);
-
-        if (!client.isPresent()) {
-            throw new CustomException(HttpStatus.NOT_FOUND, "UNKNOWN_MSISDN", "Can't be updated because the msisdn is unknown");
-        }
+    public ResponseEntity<Client> updateData(@PathVariable String msisdn, @RequestBody Client updateclient) throws CustomException {
 
 
-        Client existingClient = client.get();
-        existingClient.setMsisdn(updateclient.getMsisdn());
-        existingClient.setImsi(updateclient.getImsi());
-        existingClient.setMcc(updateclient.getMcc());
-        existingClient.setMnc(updateclient.getMnc());
-        existingClient.setCellId(updateclient.getCellId());
-        existingClient.setTitular(updateclient.isTitular());
-        existingClient.setTitularData(updateclient.getTitularData());
-
-
-        try {
-            Client savedClient = provisionService.saveClient(existingClient);
+            Client savedClient = provisionService.updateClient(updateclient);
             log.info("Se ha modifcado el cliente con MSISDN: {}", savedClient.getMsisdn());
             return ResponseEntity.ok(savedClient);
-        } catch (CustomException e) {
 
-            throw e;
-        } catch (Exception e) {
-            throw new CustomException(HttpStatus.INTERNAL_SERVER_ERROR, "INTERNAL_ERROR", "An internal server error occurred while updating client data");
-        }
     }
 
 

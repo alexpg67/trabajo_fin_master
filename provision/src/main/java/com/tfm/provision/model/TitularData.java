@@ -13,7 +13,7 @@ import org.springframework.security.core.parameters.P;
 @Data
 public class TitularData {
     @NotEmpty
-    @Pattern(regexp = "^[a-zA-ZñÑáéíóúÁÉÍÓÚüÜñ]+$")
+    @Pattern(regexp = "^(?:[a-zA-ZáéíóúÁÉÍÓÚüÜñ]+\\s?){1,4}$")
     private String name;
     @NotEmpty
 //    @Pattern(regexp = "^([a-zA-ZñÑáéíóúÁÉÍÓÚüÜ\\s]+\\s?){1,2}$")
@@ -30,7 +30,8 @@ public class TitularData {
     private String idDocument;
     @Indexed //No son unicos ya que en un pack familiar, solo tenemos los datos del titular (Multiples MSISDN con mismos datos)
     @NotEmpty
-    @Email
+//    @Email
+    @Pattern(regexp = "^[\\w.-]+@[\\w.-]+\\.[a-zA-Z]{2,}$")
     private String email;
     @NotEmpty
     @Pattern(regexp = "^(Masculino|Femenino)$")
@@ -41,4 +42,8 @@ public class TitularData {
     @NotNull
     @Valid
     private Address address;
+
+
+
 }
+

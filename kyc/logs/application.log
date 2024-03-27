@@ -1,0 +1,21 @@
+25-03-2024 23:19:36.575 [background-preinit] INFO  o.h.validator.internal.util.Version.<clinit> - HV000001: Hibernate Validator 8.0.1.Final
+25-03-2024 23:19:36.591 [main] INFO  c.t.kyc.controller.KycControllerTest.logStarting - Starting KycControllerTest using Java 17.0.10 with PID 509823 (started by alejandro in /home/alejandro/TFM/kyc)
+25-03-2024 23:19:36.592 [main] INFO  c.t.kyc.controller.KycControllerTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+25-03-2024 23:19:37.751 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+25-03-2024 23:19:37.752 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+25-03-2024 23:19:37.754 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 0 ms
+25-03-2024 23:19:37.768 [main] INFO  c.t.kyc.controller.KycControllerTest.logStarted - Started KycControllerTest in 1.409 seconds (process running for 1.998)
+25-03-2024 23:19:37.910 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils.detectDefaultConfigurationClasses - Could not detect default configuration classes for test class [com.tfm.kyc.service.KycServiceTest]: KycServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+25-03-2024 23:19:37.921 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper.getOrFindConfigurationClasses - Found @SpringBootConfiguration com.tfm.kyc.KycApplication for test class com.tfm.kyc.service.KycServiceTest
+25-03-2024 23:19:37.945 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarting - Starting KycServiceTest using Java 17.0.10 with PID 509823 (started by alejandro in /home/alejandro/TFM/kyc)
+25-03-2024 23:19:37.946 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+25-03-2024 23:19:38.191 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+25-03-2024 23:19:38.191 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+25-03-2024 23:19:38.192 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 1 ms
+25-03-2024 23:19:38.198 [main] INFO  com.tfm.kyc.service.KycServiceTest.logStarted - Started KycServiceTest in 0.275 seconds (process running for 2.428)
+25-03-2024 23:19:38.209 [main] INFO  com.tfm.kyc.service.KycService.matchData - El cliente no tiene acceso porque no ha introducido el DNI o el DNI no hace match con el que tenemos guardado para ese número: 12224
+25-03-2024 23:19:38.216 [main] INFO  com.tfm.kyc.service.KycService.matchData - No se ha encontrado el cliente con MSISDN, no se puede devolver el match de: +34678901234
+25-03-2024 23:19:38.229 [main] INFO  com.tfm.kyc.service.KycService.matchData - El cliente no tiene acceso porque no ha introducido el DNI o el DNI no hace match con el que tenemos guardado para ese número: 
+25-03-2024 23:19:38.244 [main] INFO  com.tfm.kyc.service.KycService.matchData - El nombre completo no coincide con el nombre + apellido o la dirección completa no coincide con la calle + el número
+25-03-2024 23:19:38.249 [main] INFO  com.tfm.kyc.service.KycService.matchData - Se devuelve correctamente el match
+25-03-2024 23:19:38.257 [main] INFO  com.tfm.kyc.service.KycService.matchData - El nombre completo no coincide con el nombre + apellido o la dirección completa no coincide con la calle + el número

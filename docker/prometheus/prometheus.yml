@@ -27,5 +27,9 @@ scrape_configs:
     scheme: http
     static_configs:
       - targets:
-        - 172.17.0.1:8082
+        # - 172.17.0.1:8082
+        - provision:8082
+        - simswap:8083
+        - devicestatus:8084
+        - kyc:8085
 

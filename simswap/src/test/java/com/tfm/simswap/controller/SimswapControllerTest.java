@@ -42,7 +42,7 @@ public class SimswapControllerTest {
 
     @Test
     public void testMsisdnFound() throws Exception {
-        String requestURI = "http://localhost:8083/sim-swap/v0/retrieve-data";
+        String requestURI = "http://localhost:8083/sim-swap/v0/retrieve-date";
 
         MsisdnDTO input = new MsisdnDTO("+34623456789");
 
@@ -71,7 +71,7 @@ public class SimswapControllerTest {
 
     @Test
     public void testMsisdnNotFound() throws Exception {
-        String requestURI = "http://localhost:8083/sim-swap/v0/retrieve-data";
+        String requestURI = "http://localhost:8083/sim-swap/v0/retrieve-date";
 
         MsisdnDTO input = new MsisdnDTO("+34623456789");
 
@@ -100,7 +100,7 @@ public class SimswapControllerTest {
 
     @Test
     public void testMsisdnNotValid() throws Exception {
-        String requestURI = "http://localhost:8083/sim-swap/v0/retrieve-data";
+        String requestURI = "http://localhost:8083/sim-swap/v0/retrieve-date";
 
         MsisdnDTO input = new MsisdnDTO("+3462345678h");
 
@@ -129,7 +129,7 @@ public class SimswapControllerTest {
 
     @Test
     public void testMsisdnNotProvided() throws Exception {
-        String requestURI = "http://localhost:8083/sim-swap/v0/retrieve-data";
+        String requestURI = "http://localhost:8083/sim-swap/v0/retrieve-date";
 
         MsisdnDTO input = new MsisdnDTO("");
 

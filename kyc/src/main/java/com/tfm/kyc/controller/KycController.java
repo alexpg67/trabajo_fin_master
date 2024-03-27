@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(path = "/kyc-match/v0")
-@CrossOrigin(origins = "http://localhost:8082")
+@CrossOrigin(origins = "*")
 public class KycController {
 
     private static final Logger log = LoggerFactory.getLogger(KycController.class);

@@ -14,7 +14,8 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(path = "/device-status/v0")
-@CrossOrigin(origins = "http://localhost:8082")
+//@CrossOrigin(origins = "http://localhost:8082")
+@CrossOrigin(origins = "*")
 public class DevicestatusController {
 
     private static final Logger log = LoggerFactory.getLogger(DevicestatusController.class);

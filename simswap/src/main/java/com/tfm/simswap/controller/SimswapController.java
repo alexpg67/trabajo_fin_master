@@ -21,7 +21,8 @@ import java.util.regex.Pattern;
 
 @RestController
 @RequestMapping(path = "/sim-swap/v0")
-@CrossOrigin(origins = "http://localhost:8082")
+//@CrossOrigin(origins = "http://localhost:8082")
+@CrossOrigin(origins = "*")
 public class SimswapController {
 
     private static final Logger log = LoggerFactory.getLogger(SimswapController.class);

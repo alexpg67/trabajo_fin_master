@@ -56,6 +56,8 @@ public class Client {
         this.titularData = titularData;
         this.latestSimChange=latestSimChange;
     }
+
+
 }
 
 

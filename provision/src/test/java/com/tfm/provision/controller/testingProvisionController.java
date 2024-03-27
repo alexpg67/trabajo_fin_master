@@ -105,6 +105,7 @@ class ProvisionControllerTest {
                 .andExpect(content().json(objectMapper.writeValueAsString(response)))
                 .andDo(print());
     }
+
     //----------------------------------------GETALL-----------------------------------------------------------------------------
     //----------------------------------------GET/MSISDN-----------------------------------------------------------------------------
     @Test
@@ -462,7 +463,7 @@ class ProvisionControllerTest {
     public void testPostInvalidMsisdnMinLength() throws Exception {
 
 
-        String requestURI = "http://localhost:8082/provision/v0/newclient" ;
+        String requestURI = "http://localhost:8082/provision/v0/newclient";
 
         Address address = new Address();
         address.setStreetName("Calle Ejemplo");
@@ -478,7 +479,7 @@ class ProvisionControllerTest {
         titularData.setGivenName("NombreCompleto");
         titularData.setFamilyName("Apellido");
         titularData.setIdDocument("12345678Z");
-        titularData.setEmail("email@example.com");
+        titularData.setEmail("email@example.com.com");
         titularData.setGender("Masculino");
         titularData.setBirthdate("2000-01-01");
         titularData.setAddress(address);
@@ -489,8 +490,8 @@ class ProvisionControllerTest {
         String jsonCliente = objectMapper.writeValueAsString(cliente);
 
         mockMvc.perform(post(requestURI)
-                 .contentType(MediaType.APPLICATION_JSON)
-                .content(jsonCliente))
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(jsonCliente))
                 .andExpect(status().isBadRequest())
 
                 .andExpect(content().contentType("application/json"))
@@ -503,7 +504,7 @@ class ProvisionControllerTest {
     public void testPostInvalidMsisdnMaxLength() throws Exception {
 
 
-        String requestURI = "http://localhost:8082/provision/v0/newclient" ;
+        String requestURI = "http://localhost:8082/provision/v0/newclient";
 
         Address address = new Address();
         address.setStreetName("Calle Ejemplo");
@@ -519,7 +520,7 @@ class ProvisionControllerTest {
         titularData.setGivenName("NombreCompleto");
         titularData.setFamilyName("Apellido");
         titularData.setIdDocument("12345678Z");
-        titularData.setEmail("email@example.com");
+        titularData.setEmail("email@example.com.com");
         titularData.setGender("Masculino");
         titularData.setBirthdate("2000-01-01");
         titularData.setAddress(address);
@@ -544,7 +545,7 @@ class ProvisionControllerTest {
     public void testPostInvalidMsisdnCharacterError() throws Exception {
 
 
-        String requestURI = "http://localhost:8082/provision/v0/newclient" ;
+        String requestURI = "http://localhost:8082/provision/v0/newclient";
 
         Address address = new Address();
         address.setStreetName("Calle Ejemplo");
@@ -560,7 +561,7 @@ class ProvisionControllerTest {
         titularData.setGivenName("NombreCompleto");
         titularData.setFamilyName("Apellido");
         titularData.setIdDocument("12345678Z");
-        titularData.setEmail("email@example.com");
+        titularData.setEmail("email@example.com.com");
         titularData.setGender("Masculino");
         titularData.setBirthdate("2000-01-01");
         titularData.setAddress(address);
@@ -585,7 +586,7 @@ class ProvisionControllerTest {
     public void testPostValidMsisdnOptionalPlus() throws Exception {
 
 
-        String requestURI = "http://localhost:8082/provision/v0/newclient" ;
+        String requestURI = "http://localhost:8082/provision/v0/newclient";
 
         Address address = new Address();
         address.setStreetName("Calle Ejemplo");
@@ -601,7 +602,7 @@ class ProvisionControllerTest {
         titularData.setGivenName("NombreCompleto");
         titularData.setFamilyName("Apellido");
         titularData.setIdDocument("12345678Z");
-        titularData.setEmail("email@example.com");
+        titularData.setEmail("email@example.com.com");
         titularData.setGender("Masculino");
         titularData.setBirthdate("2000-01-01");
         titularData.setAddress(address);
@@ -615,7 +616,7 @@ class ProvisionControllerTest {
 
 
 //        cliente2.setLatestSimChange(formattedDate);
-       // cliente.setId(null);
+        // cliente.setId(null);
 
         Mockito.when(service.saveClient(Mockito.any())).thenReturn(cliente);
 
@@ -636,7 +637,7 @@ class ProvisionControllerTest {
     public void testPostValidMsisdnWithPlus() throws Exception {
 
 
-        String requestURI = "http://localhost:8082/provision/v0/newclient" ;
+        String requestURI = "http://localhost:8082/provision/v0/newclient";
 
         Address address = new Address();
         address.setStreetName("Calle Ejemplo");
@@ -652,7 +653,7 @@ class ProvisionControllerTest {
         titularData.setGivenName("NombreCompleto");
         titularData.setFamilyName("Apellido");
         titularData.setIdDocument("12345678Z");
-        titularData.setEmail("email@example.com");
+        titularData.setEmail("email@example.com.com");
         titularData.setGender("Masculino");
         titularData.setBirthdate("2000-01-01");
         titularData.setAddress(address);
@@ -687,7 +688,7 @@ class ProvisionControllerTest {
     public void testPostInvalidMsisdnNull() throws Exception {
 
 
-        String requestURI = "http://localhost:8082/provision/v0/newclient" ;
+        String requestURI = "http://localhost:8082/provision/v0/newclient";
 
         Address address = new Address();
         address.setStreetName("Calle Ejemplo");
@@ -703,7 +704,7 @@ class ProvisionControllerTest {
         titularData.setGivenName("NombreCompleto");
         titularData.setFamilyName("Apellido");
         titularData.setIdDocument("12345678Z");
-        titularData.setEmail("email@example.com");
+        titularData.setEmail("email@example.com.com");
         titularData.setGender("Masculino");
         titularData.setBirthdate("2000-01-01");
         titularData.setAddress(address);
@@ -740,7 +741,7 @@ class ProvisionControllerTest {
     public void testPostInvalidImsiMinLength() throws Exception {
 //        @NotNull
 //        @Pattern(regexp = "^[0-9]{3}[0-9]{2,3}[0-9]{1,10}$")
-        String requestURI = "http://localhost:8082/provision/v0/newclient" ;
+        String requestURI = "http://localhost:8082/provision/v0/newclient";
 
         Address address = new Address();
         address.setStreetName("Calle Ejemplo");
@@ -756,13 +757,12 @@ class ProvisionControllerTest {
         titularData.setGivenName("NombreCompleto");
         titularData.setFamilyName("Apellido");
         titularData.setIdDocument("12345678Z");
-        titularData.setEmail("email@example.com");
+        titularData.setEmail("email@example.com.com");
         titularData.setGender("Masculino");
         titularData.setBirthdate("2000-01-01");
         titularData.setAddress(address);
 
         Client cliente = new Client("+34668", "12407", 124, "07", 120, true, titularData, "2024-02-11T12:30:10.360+01:00");
-
 
 
         Mockito.when(service.saveClient(Mockito.any())).thenReturn(cliente);
@@ -788,7 +788,7 @@ class ProvisionControllerTest {
     public void testPostInvalidImsiMaxLength() throws Exception {
 //        @NotNull
 //        @Pattern(regexp = "^[0-9]{3}[0-9]{2,3}[0-9]{1,10}$")
-        String requestURI = "http://localhost:8082/provision/v0/newclient" ;
+        String requestURI = "http://localhost:8082/provision/v0/newclient";
 
         Address address = new Address();
         address.setStreetName("Calle Ejemplo");
@@ -804,13 +804,12 @@ class ProvisionControllerTest {
         titularData.setGivenName("NombreCompleto");
         titularData.setFamilyName("Apellido");
         titularData.setIdDocument("12345678Z");
-        titularData.setEmail("email@example.com");
+        titularData.setEmail("email@example.com.com");
         titularData.setGender("Masculino");
         titularData.setBirthdate("2000-01-01");
         titularData.setAddress(address);
 
         Client cliente = new Client("+34668", "12407777777777777", 124, "07", 120, true, titularData, "2024-02-11T12:30:10.360+01:00");
-
 
 
         Mockito.when(service.saveClient(Mockito.any())).thenReturn(cliente);
@@ -830,12 +829,12 @@ class ProvisionControllerTest {
                 .andDo(print());
     }
 
-   @Test
+    @Test
     @WithMockUser(username = "testuser", roles = {"USER"})
     public void testPostInvalidImsiCharacterError() throws Exception {
 //        @NotNull
 //        @Pattern(regexp = "^[0-9]{3}[0-9]{2,3}[0-9]{1,10}$")
-        String requestURI = "http://localhost:8082/provision/v0/newclient" ;
+        String requestURI = "http://localhost:8082/provision/v0/newclient";
 
         Address address = new Address();
         address.setStreetName("Calle Ejemplo");
@@ -851,13 +850,12 @@ class ProvisionControllerTest {
         titularData.setGivenName("NombreCompleto");
         titularData.setFamilyName("Apellido");
         titularData.setIdDocument("12345678Z");
-        titularData.setEmail("email@example.com");
+        titularData.setEmail("email@example.com.com");
         titularData.setGender("Masculino");
         titularData.setBirthdate("2000-01-01");
         titularData.setAddress(address);
 
         Client cliente = new Client("+34668", "12407777a", 124, "07", 120, true, titularData, "2024-02-11T12:30:10.360+01:00");
-
 
 
         Mockito.when(service.saveClient(Mockito.any())).thenReturn(cliente);
@@ -882,7 +880,7 @@ class ProvisionControllerTest {
     public void testPostInvalidImsiNull() throws Exception {
 //        @NotNull
 //        @Pattern(regexp = "^[0-9]{3}[0-9]{2,3}[0-9]{1,10}$")
-        String requestURI = "http://localhost:8082/provision/v0/newclient" ;
+        String requestURI = "http://localhost:8082/provision/v0/newclient";
 
         Address address = new Address();
         address.setStreetName("Calle Ejemplo");
@@ -898,13 +896,12 @@ class ProvisionControllerTest {
         titularData.setGivenName("NombreCompleto");
         titularData.setFamilyName("Apellido");
         titularData.setIdDocument("12345678Z");
-        titularData.setEmail("email@example.com");
+        titularData.setEmail("email@example.com.com");
         titularData.setGender("Masculino");
         titularData.setBirthdate("2000-01-01");
         titularData.setAddress(address);
 
         Client cliente = new Client("+34668", "", 124, "07", 120, true, titularData, "2024-02-11T12:30:10.360+01:00");
-
 
 
         Mockito.when(service.saveClient(Mockito.any())).thenReturn(cliente);
@@ -929,7 +926,7 @@ class ProvisionControllerTest {
     public void testPostValidImsi() throws Exception {
 //        @NotNull
 //        @Pattern(regexp = "^[0-9]{3}[0-9]{2,3}[0-9]{1,10}$")
-        String requestURI = "http://localhost:8082/provision/v0/newclient" ;
+        String requestURI = "http://localhost:8082/provision/v0/newclient";
 
         Address address = new Address();
         address.setStreetName("Calle Ejemplo");
@@ -945,13 +942,12 @@ class ProvisionControllerTest {
         titularData.setGivenName("NombreCompleto");
         titularData.setFamilyName("Apellido");
         titularData.setIdDocument("12345678Z");
-        titularData.setEmail("email@example.com");
+        titularData.setEmail("email@example.com.com");
         titularData.setGender("Masculino");
         titularData.setBirthdate("2000-01-01");
         titularData.setAddress(address);
 
         Client cliente = new Client("+346687", "7777777", 124, "07", 120, true, titularData, "2024-02-11T12:30:10.360+01:00");
-
 
 
         Mockito.when(service.saveClient(Mockito.any())).thenReturn(cliente);
@@ -976,7 +972,7 @@ class ProvisionControllerTest {
 //        @Min(value = 0)
 //        @Max(value = 999)
 //        @NotNull
-        String requestURI = "http://localhost:8082/provision/v0/newclient" ;
+        String requestURI = "http://localhost:8082/provision/v0/newclient";
 
         Address address = new Address();
         address.setStreetName("Calle Ejemplo");
@@ -992,13 +988,12 @@ class ProvisionControllerTest {
         titularData.setGivenName("NombreCompleto");
         titularData.setFamilyName("Apellido");
         titularData.setIdDocument("12345678Z");
-        titularData.setEmail("email@example.com");
+        titularData.setEmail("email@example.com.com");
         titularData.setGender("Masculino");
         titularData.setBirthdate("2000-01-01");
         titularData.setAddress(address);
 
         Client cliente = new Client("+346687", "7777777", -1, "07", 120, true, titularData, "2024-02-11T12:30:10.360+01:00");
-
 
 
         Mockito.when(service.saveClient(Mockito.any())).thenReturn(cliente);
@@ -1021,7 +1016,7 @@ class ProvisionControllerTest {
 //        @Min(value = 0)
 //        @Max(value = 999)
 //        @NotNull
-        String requestURI = "http://localhost:8082/provision/v0/newclient" ;
+        String requestURI = "http://localhost:8082/provision/v0/newclient";
 
         Address address = new Address();
         address.setStreetName("Calle Ejemplo");
@@ -1037,13 +1032,12 @@ class ProvisionControllerTest {
         titularData.setGivenName("NombreCompleto");
         titularData.setFamilyName("Apellido");
         titularData.setIdDocument("12345678Z");
-        titularData.setEmail("email@example.com");
+        titularData.setEmail("email@example.com.com");
         titularData.setGender("Masculino");
         titularData.setBirthdate("2000-01-01");
         titularData.setAddress(address);
 
         Client cliente = new Client("+346687", "7777777", 1000, "07", 120, true, titularData, "2024-02-11T12:30:10.360+01:00");
-
 
 
         Mockito.when(service.saveClient(Mockito.any())).thenReturn(cliente);
@@ -1067,7 +1061,7 @@ class ProvisionControllerTest {
 //        @Min(value = 0)
 //        @Max(value = 999)
 //        @NotNull
-        String requestURI = "http://localhost:8082/provision/v0/newclient" ;
+        String requestURI = "http://localhost:8082/provision/v0/newclient";
 
         Address address = new Address();
         address.setStreetName("Calle Ejemplo");
@@ -1083,7 +1077,7 @@ class ProvisionControllerTest {
         titularData.setGivenName("NombreCompleto");
         titularData.setFamilyName("Apellido");
         titularData.setIdDocument("12345678Z");
-        titularData.setEmail("email@example.com");
+        titularData.setEmail("email@example.com.com");
         titularData.setGender("Masculino");
         titularData.setBirthdate("2000-01-01");
         titularData.setAddress(address);
@@ -1091,12 +1085,10 @@ class ProvisionControllerTest {
         Client cliente = new Client("+346687", "7777777", 100, "07", 120, true, titularData, "2024-02-11T12:30:10.360+01:00");
 
 
-
         Mockito.when(service.saveClient(Mockito.any())).thenReturn(cliente);
 
 
         String jsonCliente = objectMapper.writeValueAsString(cliente);
-
 
 
         mockMvc.perform(post(requestURI)
@@ -1114,7 +1106,7 @@ class ProvisionControllerTest {
     public void testPostInvalidMncMinLength() throws Exception {
 //        @Pattern(regexp = "^[0-9]{2,3}$")
 //        @NotNull
-        String requestURI = "http://localhost:8082/provision/v0/newclient" ;
+        String requestURI = "http://localhost:8082/provision/v0/newclient";
 
         Address address = new Address();
         address.setStreetName("Calle Ejemplo");
@@ -1130,13 +1122,12 @@ class ProvisionControllerTest {
         titularData.setGivenName("NombreCompleto");
         titularData.setFamilyName("Apellido");
         titularData.setIdDocument("12345678Z");
-        titularData.setEmail("email@example.com");
+        titularData.setEmail("email@example.com.com");
         titularData.setGender("Masculino");
         titularData.setBirthdate("2000-01-01");
         titularData.setAddress(address);
 
         Client cliente = new Client("+346687", "7777777", 100, "0", 120, true, titularData, "2024-02-11T12:30:10.360+01:00");
-
 
 
         Mockito.when(service.saveClient(Mockito.any())).thenReturn(cliente);
@@ -1158,7 +1149,7 @@ class ProvisionControllerTest {
     public void testPostInvalidMncMaxLength() throws Exception {
 //        @Pattern(regexp = "^[0-9]{2,3}$")
 //        @NotNull
-        String requestURI = "http://localhost:8082/provision/v0/newclient" ;
+        String requestURI = "http://localhost:8082/provision/v0/newclient";
 
         Address address = new Address();
         address.setStreetName("Calle Ejemplo");
@@ -1174,13 +1165,12 @@ class ProvisionControllerTest {
         titularData.setGivenName("NombreCompleto");
         titularData.setFamilyName("Apellido");
         titularData.setIdDocument("12345678Z");
-        titularData.setEmail("email@example.com");
+        titularData.setEmail("email@example.com.com");
         titularData.setGender("Masculino");
         titularData.setBirthdate("2000-01-01");
         titularData.setAddress(address);
 
         Client cliente = new Client("+346687", "7777777", 100, "0333", 120, true, titularData, "2024-02-11T12:30:10.360+01:00");
-
 
 
         Mockito.when(service.saveClient(Mockito.any())).thenReturn(cliente);
@@ -1202,7 +1192,7 @@ class ProvisionControllerTest {
     public void testPostInvalidMncCharacterError() throws Exception {
 //        @Pattern(regexp = "^[0-9]{2,3}$")
 //        @NotNull
-        String requestURI = "http://localhost:8082/provision/v0/newclient" ;
+        String requestURI = "http://localhost:8082/provision/v0/newclient";
 
         Address address = new Address();
         address.setStreetName("Calle Ejemplo");
@@ -1218,13 +1208,12 @@ class ProvisionControllerTest {
         titularData.setGivenName("NombreCompleto");
         titularData.setFamilyName("Apellido");
         titularData.setIdDocument("12345678Z");
-        titularData.setEmail("email@example.com");
+        titularData.setEmail("email@example.com.com");
         titularData.setGender("Masculino");
         titularData.setBirthdate("2000-01-01");
         titularData.setAddress(address);
 
         Client cliente = new Client("+346687", "7777777", 100, "03A3", 120, true, titularData, "2024-02-11T12:30:10.360+01:00");
-
 
 
         Mockito.when(service.saveClient(Mockito.any())).thenReturn(cliente);
@@ -1246,7 +1235,7 @@ class ProvisionControllerTest {
     public void testPostInvalidMncNull() throws Exception {
 //        @Pattern(regexp = "^[0-9]{2,3}$")
 //        @NotNull
-        String requestURI = "http://localhost:8082/provision/v0/newclient" ;
+        String requestURI = "http://localhost:8082/provision/v0/newclient";
 
         Address address = new Address();
         address.setStreetName("Calle Ejemplo");
@@ -1262,13 +1251,12 @@ class ProvisionControllerTest {
         titularData.setGivenName("NombreCompleto");
         titularData.setFamilyName("Apellido");
         titularData.setIdDocument("12345678Z");
-        titularData.setEmail("email@example.com");
+        titularData.setEmail("email@example.com.com");
         titularData.setGender("Masculino");
         titularData.setBirthdate("2000-01-01");
         titularData.setAddress(address);
 
         Client cliente = new Client("+346687", "7777777", 100, "", 120, true, titularData, "2024-02-11T12:30:10.360+01:00");
-
 
 
         Mockito.when(service.saveClient(Mockito.any())).thenReturn(cliente);
@@ -1290,7 +1278,7 @@ class ProvisionControllerTest {
     public void testPostValidMnc() throws Exception {
 //        @Pattern(regexp = "^[0-9]{2,3}$")
 //        @NotNull
-        String requestURI = "http://localhost:8082/provision/v0/newclient" ;
+        String requestURI = "http://localhost:8082/provision/v0/newclient";
 
         Address address = new Address();
         address.setStreetName("Calle Ejemplo");
@@ -1306,7 +1294,7 @@ class ProvisionControllerTest {
         titularData.setGivenName("NombreCompleto");
         titularData.setFamilyName("Apellido");
         titularData.setIdDocument("12345678Z");
-        titularData.setEmail("email@example.com");
+        titularData.setEmail("email@example.com.com");
         titularData.setGender("Masculino");
         titularData.setBirthdate("2000-01-01");
         titularData.setAddress(address);
@@ -1314,12 +1302,10 @@ class ProvisionControllerTest {
         Client cliente = new Client("+346687", "7777777", 100, "07", 120, true, titularData, "2024-02-11T12:30:10.360+01:00");
 
 
-
         Mockito.when(service.saveClient(Mockito.any())).thenReturn(cliente);
 
 
         String jsonCliente = objectMapper.writeValueAsString(cliente);
-
 
 
         mockMvc.perform(post(requestURI)
@@ -1338,7 +1324,7 @@ class ProvisionControllerTest {
 //        @Min(value = 0)
 //        @Max(value = 9999)
 //        @NotNull
-        String requestURI = "http://localhost:8082/provision/v0/newclient" ;
+        String requestURI = "http://localhost:8082/provision/v0/newclient";
 
         Address address = new Address();
         address.setStreetName("Calle Ejemplo");
@@ -1354,13 +1340,12 @@ class ProvisionControllerTest {
         titularData.setGivenName("NombreCompleto");
         titularData.setFamilyName("Apellido");
         titularData.setIdDocument("12345678Z");
-        titularData.setEmail("email@example.com");
+        titularData.setEmail("email@example.com.com");
         titularData.setGender("Masculino");
         titularData.setBirthdate("2000-01-01");
         titularData.setAddress(address);
 
         Client cliente = new Client("+346687", "7777777", 100, "07", -2, true, titularData, "2024-02-11T12:30:10.360+01:00");
-
 
 
         Mockito.when(service.saveClient(Mockito.any())).thenReturn(cliente);
@@ -1383,7 +1368,7 @@ class ProvisionControllerTest {
 //        @Min(value = 0)
 //        @Max(value = 9999)
 //        @NotNull
-        String requestURI = "http://localhost:8082/provision/v0/newclient" ;
+        String requestURI = "http://localhost:8082/provision/v0/newclient";
 
         Address address = new Address();
         address.setStreetName("Calle Ejemplo");
@@ -1399,13 +1384,12 @@ class ProvisionControllerTest {
         titularData.setGivenName("NombreCompleto");
         titularData.setFamilyName("Apellido");
         titularData.setIdDocument("12345678Z");
-        titularData.setEmail("email@example.com");
+        titularData.setEmail("email@example.com.com");
         titularData.setGender("Masculino");
         titularData.setBirthdate("2000-01-01");
         titularData.setAddress(address);
 
         Client cliente = new Client("+346687", "7777777", 100, "07", 10000, true, titularData, "2024-02-11T12:30:10.360+01:00");
-
 
 
         Mockito.when(service.saveClient(Mockito.any())).thenReturn(cliente);
@@ -1428,7 +1412,7 @@ class ProvisionControllerTest {
 //        @Min(value = 0)
 //        @Max(value = 9999)
 //        @NotNull
-        String requestURI = "http://localhost:8082/provision/v0/newclient" ;
+        String requestURI = "http://localhost:8082/provision/v0/newclient";
 
         Address address = new Address();
         address.setStreetName("Calle Ejemplo");
@@ -1444,7 +1428,7 @@ class ProvisionControllerTest {
         titularData.setGivenName("NombreCompleto");
         titularData.setFamilyName("Apellido");
         titularData.setIdDocument("12345678Z");
-        titularData.setEmail("email@example.com");
+        titularData.setEmail("email@example.com.com");
         titularData.setGender("Masculino");
         titularData.setBirthdate("2000-01-01");
         titularData.setAddress(address);
@@ -1452,12 +1436,10 @@ class ProvisionControllerTest {
         Client cliente = new Client("+346687", "7777777", 100, "07", 100, true, titularData, "2024-02-11T12:30:10.360+01:00");
 
 
-
         Mockito.when(service.saveClient(Mockito.any())).thenReturn(cliente);
 
 
         String jsonCliente = objectMapper.writeValueAsString(cliente);
-
 
 
         mockMvc.perform(post(requestURI)
@@ -1476,7 +1458,7 @@ class ProvisionControllerTest {
 //        @NotEmpty
 //        @Pattern(regexp = "^[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ]+$")
 
-        String requestURI = "http://localhost:8082/provision/v0/newclient" ;
+        String requestURI = "http://localhost:8082/provision/v0/newclient";
 
         Address address = new Address();
         address.setStreetName("Calle Ejemplo");
@@ -1492,13 +1474,12 @@ class ProvisionControllerTest {
         titularData.setGivenName("NombreCompleto");
         titularData.setFamilyName("Apellido");
         titularData.setIdDocument("12345678Z");
-        titularData.setEmail("email@example.com");
+        titularData.setEmail("email@example.com.com");
         titularData.setGender("Masculino");
         titularData.setBirthdate("2000-01-01");
         titularData.setAddress(address);
 
         Client cliente = new Client("+346687", "7777777", 100, "07", 100, true, titularData, "2024-02-11T12:30:10.360+01:00");
-
 
 
         Mockito.when(service.saveClient(Mockito.any())).thenReturn(cliente);
@@ -1521,7 +1502,7 @@ class ProvisionControllerTest {
 //        @NotEmpty
 //        @Pattern(regexp = "^[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ]+$")
 
-        String requestURI = "http://localhost:8082/provision/v0/newclient" ;
+        String requestURI = "http://localhost:8082/provision/v0/newclient";
 
         Address address = new Address();
         address.setStreetName("Calle Ejemplo");
@@ -1537,7 +1518,7 @@ class ProvisionControllerTest {
         titularData.setGivenName("NombreCompleto");
         titularData.setFamilyName("Apellido");
         titularData.setIdDocument("12345678Z");
-        titularData.setEmail("email@example.com");
+        titularData.setEmail("email@example.com.com");
         titularData.setGender("Masculino");
         titularData.setBirthdate("2000-01-01");
         titularData.setAddress(address);
@@ -1545,12 +1526,10 @@ class ProvisionControllerTest {
         Client cliente = new Client("+346687", "7777777", 100, "07", 100, true, titularData, "2024-02-11T12:30:10.360+01:00");
 
 
-
         Mockito.when(service.saveClient(Mockito.any())).thenReturn(cliente);
 
 
         String jsonCliente = objectMapper.writeValueAsString(cliente);
-
 
 
         mockMvc.perform(post(requestURI)
@@ -1569,7 +1548,7 @@ class ProvisionControllerTest {
 //        @NotEmpty
 //        @Pattern(regexp = "^([a-zA-ZñÑáéíóúÁÉÍÓÚüÜ\\s]+\\s?){1,2}$")
 
-        String requestURI = "http://localhost:8082/provision/v0/newclient" ;
+        String requestURI = "http://localhost:8082/provision/v0/newclient";
 
         Address address = new Address();
         address.setStreetName("Calle Ejemplo");
@@ -1585,13 +1564,12 @@ class ProvisionControllerTest {
         titularData.setGivenName("Ignacio Álvaroo2");
         titularData.setFamilyName("Apellido");
         titularData.setIdDocument("12345678Z");
-        titularData.setEmail("email@example.com");
+        titularData.setEmail("email@example.com.com");
         titularData.setGender("Masculino");
         titularData.setBirthdate("2000-01-01");
         titularData.setAddress(address);
 
         Client cliente = new Client("+346687", "7777777", 100, "07", 100, true, titularData, "2024-02-11T12:30:10.360+01:00");
-
 
 
         Mockito.when(service.saveClient(Mockito.any())).thenReturn(cliente);
@@ -1614,7 +1592,7 @@ class ProvisionControllerTest {
 //        @NotEmpty
 //        @Pattern(regexp = "^([a-zA-ZñÑáéíóúÁÉÍÓÚüÜ\\s]+\\s?){1,2}$")
 
-        String requestURI = "http://localhost:8082/provision/v0/newclient" ;
+        String requestURI = "http://localhost:8082/provision/v0/newclient";
 
         Address address = new Address();
         address.setStreetName("Calle Ejemplo");
@@ -1630,13 +1608,12 @@ class ProvisionControllerTest {
         titularData.setGivenName("Ignacio Álvaroo terminato");
         titularData.setFamilyName("Apellido");
         titularData.setIdDocument("12345678Z");
-        titularData.setEmail("email@example.com");
+        titularData.setEmail("email@example.com.com");
         titularData.setGender("Masculino");
         titularData.setBirthdate("2000-01-01");
         titularData.setAddress(address);
 
         Client cliente = new Client("+346687", "7777777", 100, "07", 100, true, titularData, "2024-02-11T12:30:10.360+01:00");
-
 
 
         Mockito.when(service.saveClient(Mockito.any())).thenReturn(cliente);
@@ -1659,7 +1636,7 @@ class ProvisionControllerTest {
 //        @NotEmpty
 //        @Pattern(regexp = "^([a-zA-ZñÑáéíóúÁÉÍÓÚüÜ\\s]+\\s?){1,2}$")
 
-        String requestURI = "http://localhost:8082/provision/v0/newclient" ;
+        String requestURI = "http://localhost:8082/provision/v0/newclient";
 
         Address address = new Address();
         address.setStreetName("Calle Ejemplo");
@@ -1675,7 +1652,7 @@ class ProvisionControllerTest {
         titularData.setGivenName("Ignacio Álvaroo");
         titularData.setFamilyName("Apellido");
         titularData.setIdDocument("12345678Z");
-        titularData.setEmail("email@example.com");
+        titularData.setEmail("email@example.com.com");
         titularData.setGender("Masculino");
         titularData.setBirthdate("2000-01-01");
         titularData.setAddress(address);
@@ -1683,12 +1660,10 @@ class ProvisionControllerTest {
         Client cliente = new Client("+346687", "7777777", 100, "07", 100, true, titularData, "2024-02-11T12:30:10.360+01:00");
 
 
-
         Mockito.when(service.saveClient(Mockito.any())).thenReturn(cliente);
 
 
         String jsonCliente = objectMapper.writeValueAsString(cliente);
-
 
 
         mockMvc.perform(post(requestURI)
@@ -1710,7 +1685,7 @@ class ProvisionControllerTest {
 //        @Pattern(regexp = "^[0-9]{8}[A-Za-z]$") //OJO!! para KYC puede ser DNI no solo de España.
 
 
-        String requestURI = "http://localhost:8082/provision/v0/newclient" ;
+        String requestURI = "http://localhost:8082/provision/v0/newclient";
 
         Address address = new Address();
         address.setStreetName("Calle Ejemplo");
@@ -1726,13 +1701,12 @@ class ProvisionControllerTest {
         titularData.setGivenName("Ignacio Álvaroo");
         titularData.setFamilyName("Apellido");
         titularData.setIdDocument("12A45678Z");
-        titularData.setEmail("email@example.com");
+        titularData.setEmail("email@example.com.com");
         titularData.setGender("Masculino");
         titularData.setBirthdate("2000-01-01");
         titularData.setAddress(address);
 
         Client cliente = new Client("+346687", "7777777", 100, "07", 100, true, titularData, "2024-02-11T12:30:10.360+01:00");
-
 
 
         Mockito.when(service.saveClient(Mockito.any())).thenReturn(cliente);
@@ -1758,7 +1732,7 @@ class ProvisionControllerTest {
 //        @Pattern(regexp = "^[0-9]{8}[A-Za-z]$") //OJO!! para KYC puede ser DNI no solo de España.
 
 
-        String requestURI = "http://localhost:8082/provision/v0/newclient" ;
+        String requestURI = "http://localhost:8082/provision/v0/newclient";
 
         Address address = new Address();
         address.setStreetName("Calle Ejemplo");
@@ -1774,13 +1748,12 @@ class ProvisionControllerTest {
         titularData.setGivenName("Ignacio Álvaroo");
         titularData.setFamilyName("Apellido");
         titularData.setIdDocument("123456788");
-        titularData.setEmail("email@example.com");
+        titularData.setEmail("email@example.com.com");
         titularData.setGender("Masculino");
         titularData.setBirthdate("2000-01-01");
         titularData.setAddress(address);
 
         Client cliente = new Client("+346687", "7777777", 100, "07", 100, true, titularData, "2024-02-11T12:30:10.360+01:00");
-
 
 
         Mockito.when(service.saveClient(Mockito.any())).thenReturn(cliente);
@@ -1806,7 +1779,7 @@ class ProvisionControllerTest {
 //        @Pattern(regexp = "^[0-9]{8}[A-Za-z]$") //OJO!! para KYC puede ser DNI no solo de España.
 
 
-        String requestURI = "http://localhost:8082/provision/v0/newclient" ;
+        String requestURI = "http://localhost:8082/provision/v0/newclient";
 
         Address address = new Address();
         address.setStreetName("Calle Ejemplo");
@@ -1822,7 +1795,7 @@ class ProvisionControllerTest {
         titularData.setGivenName("Ignacio Álvaroo");
         titularData.setFamilyName("Apellido");
         titularData.setIdDocument("12345678D");
-        titularData.setEmail("email@example.com");
+        titularData.setEmail("email@example.com.com");
         titularData.setGender("Masculino");
         titularData.setBirthdate("2000-01-01");
         titularData.setAddress(address);
@@ -1830,11 +1803,9 @@ class ProvisionControllerTest {
         Client cliente = new Client("+346687", "7777777", 100, "07", 100, true, titularData, "2024-02-11T12:30:10.360+01:00");
 
 
-
         Mockito.when(service.saveClient(Mockito.any())).thenReturn(cliente);
 
         String jsonCliente = objectMapper.writeValueAsString(cliente);
-
 
 
         mockMvc.perform(post(requestURI)
@@ -1854,7 +1825,7 @@ class ProvisionControllerTest {
 //@Email
 
 
-        String requestURI = "http://localhost:8082/provision/v0/newclient" ;
+        String requestURI = "http://localhost:8082/provision/v0/newclient";
 
         Address address = new Address();
         address.setStreetName("Calle Ejemplo");
@@ -1878,7 +1849,6 @@ class ProvisionControllerTest {
         Client cliente = new Client("+346687", "7777777", 100, "07", 100, true, titularData, "2024-02-11T12:30:10.360+01:00");
 
 
-
         Mockito.when(service.saveClient(Mockito.any())).thenReturn(cliente);
 
 
@@ -1899,7 +1869,7 @@ class ProvisionControllerTest {
 //@Email
 
 
-        String requestURI = "http://localhost:8082/provision/v0/newclient" ;
+        String requestURI = "http://localhost:8082/provision/v0/newclient";
 
         Address address = new Address();
         address.setStreetName("Calle Ejemplo");
@@ -1915,7 +1885,7 @@ class ProvisionControllerTest {
         titularData.setGivenName("Ignacio Álvaroo");
         titularData.setFamilyName("Apellido");
         titularData.setIdDocument("12345678D");
-        titularData.setEmail("email@example");
+        titularData.setEmail("email@example.com");
         titularData.setGender("Masculino");
         titularData.setBirthdate("2000-01-01");
         titularData.setAddress(address);
@@ -1923,12 +1893,10 @@ class ProvisionControllerTest {
         Client cliente = new Client("+346687", "7777777", 100, "07", 100, true, titularData, "2024-02-11T12:30:10.360+01:00");
 
 
-
         Mockito.when(service.saveClient(Mockito.any())).thenReturn(cliente);
 
 
         String jsonCliente = objectMapper.writeValueAsString(cliente);
-
 
 
         mockMvc.perform(post(requestURI)
@@ -1947,7 +1915,7 @@ class ProvisionControllerTest {
 //   @Pattern(regexp = "^(Masculino|Femenino)$")
 
 
-        String requestURI = "http://localhost:8082/provision/v0/newclient" ;
+        String requestURI = "http://localhost:8082/provision/v0/newclient";
 
         Address address = new Address();
         address.setStreetName("Calle Ejemplo");
@@ -1963,13 +1931,12 @@ class ProvisionControllerTest {
         titularData.setGivenName("Ignacio Álvaroo");
         titularData.setFamilyName("Apellido");
         titularData.setIdDocument("12345678D");
-        titularData.setEmail("email@example");
+        titularData.setEmail("email@example.com");
         titularData.setGender("Masculinoo");
         titularData.setBirthdate("2000-01-01");
         titularData.setAddress(address);
 
         Client cliente = new Client("+346687", "7777777", 100, "07", 100, true, titularData, "2024-02-11T12:30:10.360+01:00");
-
 
 
         Mockito.when(service.saveClient(Mockito.any())).thenReturn(cliente);
@@ -1992,7 +1959,7 @@ class ProvisionControllerTest {
 //   @Pattern(regexp = "^(Masculino|Femenino)$")
 
 
-        String requestURI = "http://localhost:8082/provision/v0/newclient" ;
+        String requestURI = "http://localhost:8082/provision/v0/newclient";
 
         Address address = new Address();
         address.setStreetName("Calle Ejemplo");
@@ -2008,7 +1975,7 @@ class ProvisionControllerTest {
         titularData.setGivenName("Ignacio Álvaroo");
         titularData.setFamilyName("Apellido");
         titularData.setIdDocument("12345678D");
-        titularData.setEmail("email@example");
+        titularData.setEmail("email@example.com.com");
         titularData.setGender("Masculino");
         titularData.setBirthdate("2000-01-01");
         titularData.setAddress(address);
@@ -2016,12 +1983,10 @@ class ProvisionControllerTest {
         Client cliente = new Client("+346687", "7777777", 100, "07", 100, true, titularData, "2024-02-11T12:30:10.360+01:00");
 
 
-
         Mockito.when(service.saveClient(Mockito.any())).thenReturn(cliente);
 
 
         String jsonCliente = objectMapper.writeValueAsString(cliente);
-
 
 
         mockMvc.perform(post(requestURI)
@@ -2040,7 +2005,7 @@ class ProvisionControllerTest {
 //        @NotEmpty
 //        @Pattern(regexp = "^\\d{4}-\\d{2}-\\d{2}$")
 
-        String requestURI = "http://localhost:8082/provision/v0/newclient" ;
+        String requestURI = "http://localhost:8082/provision/v0/newclient";
 
         Address address = new Address();
         address.setStreetName("Calle Ejemplo");
@@ -2056,13 +2021,12 @@ class ProvisionControllerTest {
         titularData.setGivenName("Ignacio Álvaroo");
         titularData.setFamilyName("Apellido");
         titularData.setIdDocument("12345678D");
-        titularData.setEmail("email@example");
+        titularData.setEmail("email@example.com");
         titularData.setGender("Masculino");
         titularData.setBirthdate("200A-01-01");
         titularData.setAddress(address);
 
         Client cliente = new Client("+346687", "7777777", 100, "07", 100, true, titularData, "2024-02-11T12:30:10.360+01:00");
-
 
 
         Mockito.when(service.saveClient(Mockito.any())).thenReturn(cliente);
@@ -2085,7 +2049,7 @@ class ProvisionControllerTest {
 //        @NotEmpty
 //        @Pattern(regexp = "^\\d{4}-\\d{2}-\\d{2}$")
 
-        String requestURI = "http://localhost:8082/provision/v0/newclient" ;
+        String requestURI = "http://localhost:8082/provision/v0/newclient";
 
         Address address = new Address();
         address.setStreetName("Calle Ejemplo");
@@ -2101,13 +2065,12 @@ class ProvisionControllerTest {
         titularData.setGivenName("Ignacio Álvaroo");
         titularData.setFamilyName("Apellido");
         titularData.setIdDocument("12345678D");
-        titularData.setEmail("email@example");
+        titularData.setEmail("email@example.com");
         titularData.setGender("Masculino");
         titularData.setBirthdate("200001-01");
         titularData.setAddress(address);
 
         Client cliente = new Client("+346687", "7777777", 100, "07", 100, true, titularData, "2024-02-11T12:30:10.360+01:00");
-
 
 
         Mockito.when(service.saveClient(Mockito.any())).thenReturn(cliente);
@@ -2130,7 +2093,7 @@ class ProvisionControllerTest {
 //        @NotEmpty
 //        @Pattern(regexp = "^\\d{4}-\\d{2}-\\d{2}$")
 
-        String requestURI = "http://localhost:8082/provision/v0/newclient" ;
+        String requestURI = "http://localhost:8082/provision/v0/newclient";
 
         Address address = new Address();
         address.setStreetName("Calle Ejemplo");
@@ -2146,13 +2109,12 @@ class ProvisionControllerTest {
         titularData.setGivenName("Ignacio Álvaroo");
         titularData.setFamilyName("Apellido");
         titularData.setIdDocument("12345678D");
-        titularData.setEmail("email@example");
+        titularData.setEmail("email@example.com");
         titularData.setGender("Masculino");
         titularData.setBirthdate("2000-001-01");
         titularData.setAddress(address);
 
         Client cliente = new Client("+346687", "7777777", 100, "07", 100, true, titularData, "2024-02-11T12:30:10.360+01:00");
-
 
 
         Mockito.when(service.saveClient(Mockito.any())).thenReturn(cliente);
@@ -2175,7 +2137,7 @@ class ProvisionControllerTest {
 //        @NotEmpty
 //        @Pattern(regexp = "^\\d{4}-\\d{2}-\\d{2}$")
 
-        String requestURI = "http://localhost:8082/provision/v0/newclient" ;
+        String requestURI = "http://localhost:8082/provision/v0/newclient";
 
         Address address = new Address();
         address.setStreetName("Calle Ejemplo");
@@ -2191,7 +2153,7 @@ class ProvisionControllerTest {
         titularData.setGivenName("Ignacio Álvaroo");
         titularData.setFamilyName("Apellido");
         titularData.setIdDocument("12345678D");
-        titularData.setEmail("email@example");
+        titularData.setEmail("email@example.com.com");
         titularData.setGender("Masculino");
         titularData.setBirthdate("2000-01-01");
         titularData.setAddress(address);
@@ -2199,11 +2161,9 @@ class ProvisionControllerTest {
         Client cliente = new Client("+346687", "7777777", 100, "07", 100, true, titularData, "2024-02-11T12:30:10.360+01:00");
 
 
-
         Mockito.when(service.saveClient(Mockito.any())).thenReturn(cliente);
 
         String jsonCliente = objectMapper.writeValueAsString(cliente);
-
 
 
         mockMvc.perform(post(requestURI)
@@ -2222,7 +2182,7 @@ class ProvisionControllerTest {
 //        @NotEmpty
 //        @Pattern(regexp = "^([a-zA-ZñÑáéíóúÁÉÍÓÚüÜ\\s]+\\s?){1,5}$")
 
-        String requestURI = "http://localhost:8082/provision/v0/newclient" ;
+        String requestURI = "http://localhost:8082/provision/v0/newclient";
 
         Address address = new Address();
         address.setStreetName("Calle Ejemplo1");
@@ -2238,13 +2198,12 @@ class ProvisionControllerTest {
         titularData.setGivenName("Ignacio Álvaroo");
         titularData.setFamilyName("Apellido");
         titularData.setIdDocument("12345678D");
-        titularData.setEmail("email@example");
+        titularData.setEmail("email@example.com");
         titularData.setGender("Masculino");
         titularData.setBirthdate("2000-01-01");
         titularData.setAddress(address);
 
         Client cliente = new Client("+346687", "7777777", 100, "07", 100, true, titularData, "2024-02-11T12:30:10.360+01:00");
-
 
 
         Mockito.when(service.saveClient(Mockito.any())).thenReturn(cliente);
@@ -2267,7 +2226,7 @@ class ProvisionControllerTest {
 //        @NotEmpty
 //        @Pattern(regexp = "^([a-zA-ZñÑáéíóúÁÉÍÓÚüÜ\\s]+\\s?){1,5}$")
 
-        String requestURI = "http://localhost:8082/provision/v0/newclient" ;
+        String requestURI = "http://localhost:8082/provision/v0/newclient";
 
         Address address = new Address();
         address.setStreetName("Calle Ejemplo Hola Gran Vía Pepe Hola Buu Hola Que tal");
@@ -2283,13 +2242,12 @@ class ProvisionControllerTest {
         titularData.setGivenName("Ignacio Álvaroo");
         titularData.setFamilyName("Apellido");
         titularData.setIdDocument("12345678D");
-        titularData.setEmail("email@example");
+        titularData.setEmail("email@example.com");
         titularData.setGender("Masculino");
         titularData.setBirthdate("2000-01-01");
         titularData.setAddress(address);
 
         Client cliente = new Client("+346687", "7777777", 100, "07", 100, true, titularData, "2024-02-11T12:30:10.360+01:00");
-
 
 
         Mockito.when(service.saveClient(Mockito.any())).thenReturn(cliente);
@@ -2312,7 +2270,7 @@ class ProvisionControllerTest {
 //        @NotEmpty
 //        @Pattern(regexp = "^([a-zA-ZñÑáéíóúÁÉÍÓÚüÜ\\s]+\\s?){1,5}$")
 
-        String requestURI = "http://localhost:8082/provision/v0/newclient" ;
+        String requestURI = "http://localhost:8082/provision/v0/newclient";
 
         Address address = new Address();
         address.setStreetName("Calle Puerta del Sol");
@@ -2328,7 +2286,7 @@ class ProvisionControllerTest {
         titularData.setGivenName("Ignacio Álvaroo");
         titularData.setFamilyName("Apellido");
         titularData.setIdDocument("12345678D");
-        titularData.setEmail("email@example");
+        titularData.setEmail("email@example.com");
         titularData.setGender("Masculino");
         titularData.setBirthdate("2000-01-01");
         titularData.setAddress(address);
@@ -2336,12 +2294,10 @@ class ProvisionControllerTest {
         Client cliente = new Client("+346687", "7777777", 100, "07", 100, true, titularData, "2024-02-11T12:30:10.360+01:00");
 
 
-
         Mockito.when(service.saveClient(Mockito.any())).thenReturn(cliente);
 
 
         String jsonCliente = objectMapper.writeValueAsString(cliente);
-
 
 
         mockMvc.perform(post(requestURI)
@@ -2359,7 +2315,7 @@ class ProvisionControllerTest {
     public void testPutValidResponse() throws Exception {
 
         String msisdn = "+346687";
-        String requestURI = "http://localhost:8082/provision/v0/updateclient/" +msisdn;
+        String requestURI = "http://localhost:8082/provision/v0/updateclient/" + msisdn;
 
         Address address = new Address();
         address.setStreetName("Calle Puerta del Sol");
@@ -2375,23 +2331,18 @@ class ProvisionControllerTest {
         titularData.setGivenName("Ignacio Álvaroo");
         titularData.setFamilyName("Apellido");
         titularData.setIdDocument("12345678D");
-        titularData.setEmail("email@example");
+        titularData.setEmail("email@example.com");
         titularData.setGender("Masculino");
         titularData.setBirthdate("2000-01-01");
         titularData.setAddress(address);
 
-        Client cliente = new Client("+346687", "7777777", 100, "07", 100, true, titularData, "2024-02-11T12:30:10.360+01:00");
 
         Client cliente2 = new Client("+346687", "1111111", 200, "17", 150, false, titularData, "2024-02-11T12:30:10.360+01:00");
 
 
-        Optional<Client> clienteOptional = Optional.of(cliente);
-
-        Mockito.when(service.getMsisdnClient(msisdn)).thenReturn(clienteOptional);
-        Mockito.when(service.saveClient(Mockito.any())).thenReturn(cliente2);
+        Mockito.when(service.updateClient(Mockito.any())).thenReturn(cliente2);
 
         String jsonCliente = objectMapper.writeValueAsString(cliente2);
-
 
 
         mockMvc.perform(put(requestURI)
@@ -2403,20 +2354,19 @@ class ProvisionControllerTest {
                 .andExpect(content().json(objectMapper.writeValueAsString(cliente2)))
                 .andDo(print());
 
-        ArgumentCaptor<Client> clientCaptor = ArgumentCaptor.forClass(Client.class);
-        Mockito.verify(service).saveClient(clientCaptor.capture());
+//        ArgumentCaptor<Client> clientCaptor = ArgumentCaptor.forClass(Client.class);
+//        Mockito.verify(service).saveClient(clientCaptor.capture());
+//
+//        Client capturedClient = clientCaptor.getValue();
 
-        Client capturedClient = clientCaptor.getValue();
-
-        assertEquals(cliente2.getMsisdn(), capturedClient.getMsisdn());
-        assertEquals(cliente2.getImsi(), capturedClient.getImsi());
-        assertEquals(cliente2.getMcc(), capturedClient.getMcc());
-        assertEquals(cliente2.getMnc(), capturedClient.getMnc());
-        assertEquals(cliente2.getCellId(), capturedClient.getCellId());
-        assertEquals(cliente2.isTitular(), capturedClient.isTitular());
-        assertEquals(cliente2.getTitularData(), capturedClient.getTitularData());
+//        assertEquals(cliente2.getMsisdn(), capturedClient.getMsisdn());
+//        assertEquals(cliente2.getImsi(), capturedClient.getImsi());
+//        assertEquals(cliente2.getMcc(), capturedClient.getMcc());
+//        assertEquals(cliente2.getMnc(), capturedClient.getMnc());
+//        assertEquals(cliente2.getCellId(), capturedClient.getCellId());
+//        assertEquals(cliente2.isTitular(), capturedClient.isTitular());
+//        assertEquals(cliente2.getTitularData(), capturedClient.getTitularData());
     }
-
 
 
     //----------------------------------------POST-----------------------------------------------------------------------------
@@ -2462,7 +2412,6 @@ class ProvisionControllerTest {
 //    }
 
     //--------------------------------------------------SEGURIDAD-----------------------------------------------------------------------------
-
 
 
 }

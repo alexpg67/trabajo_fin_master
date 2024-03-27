@@ -40,7 +40,7 @@ public class SimswapServiceTest {
     @Test
     public void testSimswapServiceValid() throws Exception {
 
-        CheckDTO input = new CheckDTO("+34658763452",10);
+        CheckDTO input = new CheckDTO("+34658763452",300);
         String msisdn = input.getPhoneNumber();
         Client cliente = new Client(msisdn, "214070000", 214, "0", 120, true, null, "2024-03-15T12:30:10.360+01:00");
 

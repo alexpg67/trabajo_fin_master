@@ -57,7 +57,7 @@ public class DevicestatusService {
 
         if (!imsiMcc.equals(mccStr)){
 
-
+            log.info("Voy a consultar a redis");
             // Consulta en Redis
             String country = redisTemplate.opsForValue().get(String.valueOf(countryCode));
             log.info("El usuario está en roaming en " + country);
