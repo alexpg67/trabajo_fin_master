@@ -373,3 +373,4 @@ En lugar de:
 spring.redis.host=localhost
 spring.redis.port=16379
 
+Efectivamente, ese era el problema (Solucionado!!)
