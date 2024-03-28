@@ -374,3 +374,38 @@ spring.redis.host=localhost
 spring.redis.port=16379
 
 Efectivamente, ese era el problema (Solucionado!!)
+
+Una vez hemos terminado el despliegue con docker compose, vamos a ir a por kubernetes. Vamos a usar por el momento minikube. Para instalarlo seguimos los pasos de la web oficial:
+
+https://minikube.sigs.k8s.io/docs/start/
+
+Al arrancarlo con minikube start me daba error:
+
+minikube start
+😄  minikube v1.32.0 en Ubuntu 22.04 (vbox/amd64)
+👎  Unable to pick a default driver. Here is what was considered, in preference order:
+    ▪ docker: Not healthy: "docker version --format {{.Server.Os}}-{{.Server.Version}}:{{.Server.Platform.Name}}" exit status 1: permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get "http://%2Fvar%2Frun%2Fdocker.sock/v1.24/version": dial unix /var/run/docker.sock: connect: permission denied
+    ▪ docker: Sugerencia: Add your user to the 'docker' group: 'sudo usermod -aG docker $USER && newgrp docker' <https://docs.docker.com/engine/install/linux-postinstall/>
+💡  Alternativamente, puede installar uno de estos drivers:
+    ▪ kvm2: Not installed: exec: "virsh": executable file not found in $PATH
+    ▪ podman: Not installed: exec: "podman": executable file not found in $PATH
+    ▪ qemu2: Not installed: exec: "qemu-system-x86_64": executable file not found in $PATH
+    ▪ virtualbox: Not installed: unable to find VBoxManage in $PATH
+
+Para solucionarlo:
+
+Minikube intenta usar Docker como el controlador (driver) por defecto. El mensaje de error sugiere que tu usuario actual no tiene los permisos adecuados para comunicarse con el demonio de Docker. Para resolver esto, puedes agregar tu usuario al grupo docker con el siguiente comando:
+
+sudo usermod -aG docker $USER
+
+newgrp docker
+
+Tenemos que instalar también kubectl, siguiendo tambien los pasos de la web oficial
+
+https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
+
+Las versiones que estoy usando es 
+
+v1.28.3 Kubernetes
+v1.29.3 Kubectl
+
