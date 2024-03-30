@@ -409,3 +409,19 @@ Las versiones que estoy usando es
 v1.28.3 Kubernetes
 v1.29.3 Kubectl
 
+
+Vale, para el despliegue en kubernetes es muy importante el tema de persisistir los datos en volumenes sobre todo para Elastic, Prometheus/Grafana, Kong (Postgres), Konga (Postgres) y Keycloak (Postgres). Si no somos capaces de persisitir la información, cada vez que se arranque el escenario hay que configurar todo (dashboards, índices, rutas, servicios, clientes, usuarios, realms, etc). Con kompose, lo que se generan son PVCs por cada volumen de docker. La estrategia de PVCs está muy bien en cluster de más de un nodo ya que permite que pods en diferentes máquinas compartan los datos sin depende del sistema de ficheros del host. Con minikube, cuando creas un PVC, a través del Storage Class, se crea automaticamente un PV que cumple las carácterisiticas del PVC. Sin embargo, cuando eliminas el escenario (borras los PVcs), los volumenes desaparecen por como está configurado el Storage Class:
+
+ kubectl get storageclass
+NAME                 PROVISIONER                RECLAIMPOLICY   VOLUMEBINDINGMODE   ALLOWVOLUMEEXPANSION   AGE
+standard (default)   k8s.io/minikube-hostpath   Delete          Immediate           false                  72m
+
+La ReclaimPolicy debería ser Retain. Para soplucionar esto, tenemos dos estrategias. O crear un storage class tipo Retain y asociar los PVCs a este nuevo storage class y no al por defecto de minikube. La otra opción es directamente especificar un volumen de tipo hostPath usando las configuraciones y datos que ya se han creado para docker. Realmente, la ventaja que tenía usar PVCs es que kompose los generaba automáticamente y que el escenario es más fácil de portar a un cluster real. Sin embargo, en este momento no hay idea de migración a un cluster real ya que no tenemos muchos créditos en proveedores de cloud. En caso de que finalmente se despliegue en telefónica en el cluster de open Shift, habrá que migrar esta solución de volumenes, por el momento podemos ir con hostPath que es más eficiente.
+
+Si tuviesemos un cluster, lo más fácil es crear un NFS que es básicamente un sistema de archivos compartido. Habría que instalar NFS en el nodo que va a almacenar los datos (NFS "master") crear el directorio compartido y  posteriormente, en los nodos de los pods que van a usar nfs, hay que configurar los PVCs para que apunten a esta máquina NFS (Es ideal que este todo conectyado en la misma red y usar IPs fijas para las maquinas). Dejo aquí un par de tutoriales útiles:
+
+https://www.josedomingo.org/pledin/2019/03/almacenamiento-kubernetes/
+
+https://medium.com/liveness-y-readiness-probe/kubernetes-nfs-server-3fb2c2c00c29
+
+
