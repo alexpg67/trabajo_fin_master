@@ -424,4 +424,12 @@ https://www.josedomingo.org/pledin/2019/03/almacenamiento-kubernetes/
 
 https://medium.com/liveness-y-readiness-probe/kubernetes-nfs-server-3fb2c2c00c29
 
+Despues de estar un rato dandole vueltas. Voy a poner aquí algunos learnings. Minikube corre en el host como un contenedor de docker. Cuando tu usas hostPath, se esta refiriendo a la carpeta dentro del contenedor de minikube y no al sistema de archivos del host. Por lo tanto, decidí volver a PVCs configurando un StorageClass de tipo retain. Esto soluciono el problema pero no me encajo del todo ya que guarda los PVs en:
 
+/tmp/hostpath-provisioner/default/elasticsearch-claim0
+
+Por lo que al eliminar y volver a crear el escenario, se vuelven a crear los PVs y PVCs aunque eso sí, la información se ha quedado persisitida. La solución más bonita a esto es hacer en el host un servidor NFS y hacer al cluster de minikube el cliente de NFS. Aquí está el tutorial para hacerlo:
+
+https://mikebarkas.dev/setup-nfs-for-minikube-persistent-storage/
+
+Sin embargo, esto es mucho más complejo que simplemente usar hostPath eligiendo la carpeta a usar y cargando si queremos preeviamente los ficheros al contenedor.
