@@ -428,7 +428,7 @@ Despues de estar un rato dandole vueltas. Voy a poner aquí algunos learnings. M
 
 /tmp/hostpath-provisioner/default/elasticsearch-claim0
 
-Por lo que al eliminar y volver a crear el escenario, se vuelven a crear los PVs y PVCs aunque eso sí, la información se ha quedado persisitida. La solución más bonita a esto es hacer en el host un servidor NFS y hacer al cluster de minikube el cliente de NFS. Aquí está el tutorial para hacerlo:
+Por lo que al eliminar y volver a crear el escenario, se vuelven a crear los PVs y PVCs aunque eso sí, la información se ha quedado persisitida. El caso aquí es que los PVCs se crean y se destruyen y por eso se crean nuevos PVs, no se debería recrear los PVCs. La solución más bonita a esto es hacer en el host un servidor NFS y hacer al cluster de minikube el cliente de NFS. Aquí está el tutorial para hacerlo:
 
 https://mikebarkas.dev/setup-nfs-for-minikube-persistent-storage/
 
