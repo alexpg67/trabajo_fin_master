@@ -180,3 +180,75 @@
 27-03-2024 11:14:01.853 [main] INFO  c.t.d.service.DevicestatusService.getRoaming - Voy a consultar a redis
 27-03-2024 11:14:01.853 [main] INFO  c.t.d.service.DevicestatusService.getRoaming - El usuario est√° en roaming en Spain
 27-03-2024 11:14:01.857 [main] INFO  c.t.d.service.DevicestatusService.getRoaming - No se ha encontrado el cliente con MSISDN, no se puede devolver el estado de roaming: +34623456701
+05-04-2024 17:47:08.915 [background-preinit] INFO  o.h.validator.internal.util.Version.<clinit> - HV000001: Hibernate Validator 8.0.1.Final
+05-04-2024 17:47:08.957 [main] INFO  c.t.d.c.DevicestatusControllerTest.logStarting - Starting DevicestatusControllerTest using Java 17.0.10 with PID 594144 (started by jenkins in /home/alejandro/TFM/devicestatus)
+05-04-2024 17:47:08.958 [main] INFO  c.t.d.c.DevicestatusControllerTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+05-04-2024 17:47:10.584 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+05-04-2024 17:47:10.585 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+05-04-2024 17:47:10.587 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 0 ms
+05-04-2024 17:47:10.602 [main] INFO  c.t.d.c.DevicestatusControllerTest.logStarted - Started DevicestatusControllerTest in 1.959 seconds (process running for 2.641)
+05-04-2024 17:47:10.817 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils.detectDefaultConfigurationClasses - Could not detect default configuration classes for test class [com.tfm.devicestatus.service.DevicestatusServiceTest]: DevicestatusServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+05-04-2024 17:47:10.829 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper.getOrFindConfigurationClasses - Found @SpringBootConfiguration com.tfm.devicestatus.DevicestatusApplication for test class com.tfm.devicestatus.service.DevicestatusServiceTest
+05-04-2024 17:47:10.952 [main] INFO  c.t.d.s.DevicestatusServiceTest.logStarting - Starting DevicestatusServiceTest using Java 17.0.10 with PID 594144 (started by jenkins in /home/alejandro/TFM/devicestatus)
+05-04-2024 17:47:10.953 [main] INFO  c.t.d.s.DevicestatusServiceTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+05-04-2024 17:47:11.296 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+05-04-2024 17:47:11.297 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+05-04-2024 17:47:11.297 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 0 ms
+05-04-2024 17:47:11.303 [main] INFO  c.t.d.s.DevicestatusServiceTest.logStarted - Started DevicestatusServiceTest in 0.371 seconds (process running for 3.342)
+05-04-2024 17:47:11.328 [main] INFO  c.t.d.service.DevicestatusService.getRoaming - Voy a consultar a redis
+05-04-2024 17:47:11.329 [main] INFO  c.t.d.service.DevicestatusService.getRoaming - El usuario est· en roaming en Spain
+05-04-2024 17:47:11.335 [main] INFO  c.t.d.service.DevicestatusService.getRoaming - No se ha encontrado el cliente con MSISDN, no se puede devolver el estado de roaming: +34623456701
+05-04-2024 18:01:53.261 [background-preinit] INFO  o.h.validator.internal.util.Version.<clinit> - HV000001: Hibernate Validator 8.0.1.Final
+05-04-2024 18:01:53.281 [main] INFO  c.t.d.c.DevicestatusControllerTest.logStarting - Starting DevicestatusControllerTest using Java 17.0.10 with PID 608122 (started by jenkins in /home/alejandro/TFM/devicestatus)
+05-04-2024 18:01:53.284 [main] INFO  c.t.d.c.DevicestatusControllerTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+05-04-2024 18:01:56.208 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+05-04-2024 18:01:56.211 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+05-04-2024 18:01:56.219 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 5 ms
+05-04-2024 18:01:56.276 [main] INFO  c.t.d.c.DevicestatusControllerTest.logStarted - Started DevicestatusControllerTest in 3.553 seconds (process running for 4.733)
+05-04-2024 18:01:56.775 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils.detectDefaultConfigurationClasses - Could not detect default configuration classes for test class [com.tfm.devicestatus.service.DevicestatusServiceTest]: DevicestatusServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+05-04-2024 18:01:56.787 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper.getOrFindConfigurationClasses - Found @SpringBootConfiguration com.tfm.devicestatus.DevicestatusApplication for test class com.tfm.devicestatus.service.DevicestatusServiceTest
+05-04-2024 18:01:56.927 [main] INFO  c.t.d.s.DevicestatusServiceTest.logStarting - Starting DevicestatusServiceTest using Java 17.0.10 with PID 608122 (started by jenkins in /home/alejandro/TFM/devicestatus)
+05-04-2024 18:01:56.927 [main] INFO  c.t.d.s.DevicestatusServiceTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+05-04-2024 18:01:57.829 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+05-04-2024 18:01:57.829 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+05-04-2024 18:01:57.830 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 0 ms
+05-04-2024 18:01:57.836 [main] INFO  c.t.d.s.DevicestatusServiceTest.logStarted - Started DevicestatusServiceTest in 0.937 seconds (process running for 6.293)
+05-04-2024 18:01:57.858 [main] INFO  c.t.d.service.DevicestatusService.getRoaming - Voy a consultar a redis
+05-04-2024 18:01:57.858 [main] INFO  c.t.d.service.DevicestatusService.getRoaming - El usuario est· en roaming en Spain
+05-04-2024 18:01:57.866 [main] INFO  c.t.d.service.DevicestatusService.getRoaming - No se ha encontrado el cliente con MSISDN, no se puede devolver el estado de roaming: +34623456701
+05-04-2024 18:05:56.743 [background-preinit] INFO  o.h.validator.internal.util.Version.<clinit> - HV000001: Hibernate Validator 8.0.1.Final
+05-04-2024 18:05:56.786 [main] INFO  c.t.d.c.DevicestatusControllerTest.logStarting - Starting DevicestatusControllerTest using Java 17.0.10 with PID 612470 (started by jenkins in /home/alejandro/TFM/devicestatus)
+05-04-2024 18:05:56.787 [main] INFO  c.t.d.c.DevicestatusControllerTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+05-04-2024 18:06:00.368 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+05-04-2024 18:06:00.370 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+05-04-2024 18:06:00.374 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 2 ms
+05-04-2024 18:06:00.491 [main] INFO  c.t.d.c.DevicestatusControllerTest.logStarted - Started DevicestatusControllerTest in 4.14 seconds (process running for 5.482)
+05-04-2024 18:06:01.125 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils.detectDefaultConfigurationClasses - Could not detect default configuration classes for test class [com.tfm.devicestatus.service.DevicestatusServiceTest]: DevicestatusServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+05-04-2024 18:06:01.192 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper.getOrFindConfigurationClasses - Found @SpringBootConfiguration com.tfm.devicestatus.DevicestatusApplication for test class com.tfm.devicestatus.service.DevicestatusServiceTest
+05-04-2024 18:06:01.562 [main] INFO  c.t.d.s.DevicestatusServiceTest.logStarting - Starting DevicestatusServiceTest using Java 17.0.10 with PID 612470 (started by jenkins in /home/alejandro/TFM/devicestatus)
+05-04-2024 18:06:01.563 [main] INFO  c.t.d.s.DevicestatusServiceTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+05-04-2024 18:06:02.214 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+05-04-2024 18:06:02.215 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+05-04-2024 18:06:02.216 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 1 ms
+05-04-2024 18:06:02.220 [main] INFO  c.t.d.s.DevicestatusServiceTest.logStarted - Started DevicestatusServiceTest in 0.731 seconds (process running for 7.211)
+05-04-2024 18:06:02.250 [main] INFO  c.t.d.service.DevicestatusService.getRoaming - Voy a consultar a redis
+05-04-2024 18:06:02.251 [main] INFO  c.t.d.service.DevicestatusService.getRoaming - El usuario est· en roaming en Spain
+05-04-2024 18:06:02.257 [main] INFO  c.t.d.service.DevicestatusService.getRoaming - No se ha encontrado el cliente con MSISDN, no se puede devolver el estado de roaming: +34623456701
+05-04-2024 18:15:38.640 [background-preinit] INFO  o.h.validator.internal.util.Version.<clinit> - HV000001: Hibernate Validator 8.0.1.Final
+05-04-2024 18:15:38.688 [main] INFO  c.t.d.c.DevicestatusControllerTest.logStarting - Starting DevicestatusControllerTest using Java 17.0.10 with PID 622310 (started by jenkins in /home/alejandro/TFM/devicestatus)
+05-04-2024 18:15:38.702 [main] INFO  c.t.d.c.DevicestatusControllerTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+05-04-2024 18:15:41.094 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+05-04-2024 18:15:41.097 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+05-04-2024 18:15:41.104 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 1 ms
+05-04-2024 18:15:41.143 [main] INFO  c.t.d.c.DevicestatusControllerTest.logStarted - Started DevicestatusControllerTest in 2.964 seconds (process running for 4.076)
+05-04-2024 18:15:42.249 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils.detectDefaultConfigurationClasses - Could not detect default configuration classes for test class [com.tfm.devicestatus.service.DevicestatusServiceTest]: DevicestatusServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+05-04-2024 18:15:42.314 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper.getOrFindConfigurationClasses - Found @SpringBootConfiguration com.tfm.devicestatus.DevicestatusApplication for test class com.tfm.devicestatus.service.DevicestatusServiceTest
+05-04-2024 18:15:42.809 [main] INFO  c.t.d.s.DevicestatusServiceTest.logStarting - Starting DevicestatusServiceTest using Java 17.0.10 with PID 622310 (started by jenkins in /home/alejandro/TFM/devicestatus)
+05-04-2024 18:15:42.809 [main] INFO  c.t.d.s.DevicestatusServiceTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+05-04-2024 18:15:43.567 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+05-04-2024 18:15:43.567 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+05-04-2024 18:15:43.568 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 1 ms
+05-04-2024 18:15:43.598 [main] INFO  c.t.d.s.DevicestatusServiceTest.logStarted - Started DevicestatusServiceTest in 0.894 seconds (process running for 6.532)
+05-04-2024 18:15:43.646 [main] INFO  c.t.d.service.DevicestatusService.getRoaming - Voy a consultar a redis
+05-04-2024 18:15:43.650 [main] INFO  c.t.d.service.DevicestatusService.getRoaming - El usuario est· en roaming en Spain
+05-04-2024 18:15:43.710 [main] INFO  c.t.d.service.DevicestatusService.getRoaming - No se ha encontrado el cliente con MSISDN, no se puede devolver el estado de roaming: +34623456701

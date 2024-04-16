@@ -1,0 +1,2062 @@
+{
+	"info": {
+		"_postman_id": "bab4e5d9-5f79-48d8-a6ec-a2e16b6192ba",
+		"name": "Pruebas E2E Provision",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32869911"
+	},
+	"item": [
+		{
+			"name": "GET Msisdn",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.sendRequest({",
+							"    url: \"http://localhost:8100/realms/TFM/protocol/openid-connect/token\",",
+							"    method: 'POST',",
+							"    headers: {",
+							"        'Accept': 'application/json', // Agregado encabezado Accept",
+							"        'Content-Type': 'application/x-www-form-urlencoded'",
+							"    },",
+							"    body: {",
+							"        mode: 'urlencoded', ",
+							"        urlencoded: [",
+							"            {key: \"client_id\", value: \"opengateway\"},",
+							"            {key: \"client_secret\", value: \"1JsLTnYN3PicBWEZwcY702I8vlAaeyNs\"},",
+							"            {key: \"grant_type\", value: \"client_credentials\"}",
+							"",
+							"",
+							"        ]",
+							"    }",
+							"},",
+							"(err, res) => {",
+							"    if (err) {",
+							"        console.log(err);",
+							"    } else {",
+							"        pm.variables.set(\"access_token\", res.json().access_token);",
+							"        console.log(\"Token: \", res.json().access_token);",
+							"        console.log(\"Token: \", res.json());",
+							"        console.log(\"access_token: \", pm.variables.get(\"access_token\"))",
+							"    }",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Codigo 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Formato JSON\", function () {",
+							"    pm.response.to.be.json; ",
+							"});",
+							"",
+							"pm.test(\"La respuesta coincide con la esperada, ignorando el ID\", function () {",
+							"    var expectedResponse = {",
+							"        \"msisdn\": \"+34651481201\",",
+							"        \"imsi\": \"214071234567801\",",
+							"        \"mcc\": 214,",
+							"        \"mnc\": \"07\",",
+							"        \"cellId\": 6563,",
+							"        \"titular\": true,",
+							"        \"titularData\": {",
+							"            \"name\": \"Yolanda Gómez\",",
+							"            \"givenName\": \"Yolanda\",",
+							"            \"familyName\": \"Gómez\",",
+							"            \"idDocument\": \"08359159D\",",
+							"            \"email\": \"yolandagomez@gmail.com\",",
+							"            \"gender\": \"Femenino\",",
+							"            \"birthdate\": \"1940-08-02\",",
+							"            \"address\": {",
+							"                \"streetName\": \"Calle de Hortaleza\",",
+							"                \"streetNumber\": \"92\",",
+							"                \"postalCode\": \"28096\",",
+							"                \"region\": \"Madrid\",",
+							"                \"locality\": \"Madrid\",",
+							"                \"country\": \"España\",",
+							"                \"houseNumberExtension\": \"1D\"",
+							"            }",
+							"        },",
+							"        \"latestSimChange\": \"2024-03-25T11:29:37.000Z\"",
+							"    };",
+							"",
+							"    var actualResponse = pm.response.json(); ",
+							"    delete actualResponse.id; ",
+							"    pm.expect(actualResponse).to.deep.equal(expectedResponse);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://localhost:8100/provision/v0/get/msisdn/+34651481201",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8100",
+					"path": [
+						"provision",
+						"v0",
+						"get",
+						"msisdn",
+						"+34651481201"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Unknown Msisdn",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.sendRequest({",
+							"    url: \"http://localhost:8100/realms/TFM/protocol/openid-connect/token\",",
+							"    method: 'POST',",
+							"    headers: {",
+							"        'Accept': 'application/json', // Agregado encabezado Accept",
+							"        'Content-Type': 'application/x-www-form-urlencoded'",
+							"    },",
+							"    body: {",
+							"        mode: 'urlencoded', ",
+							"        urlencoded: [",
+							"            {key: \"client_id\", value: \"opengateway\"},",
+							"            {key: \"client_secret\", value: \"1JsLTnYN3PicBWEZwcY702I8vlAaeyNs\"},",
+							"            {key: \"grant_type\", value: \"client_credentials\"}",
+							"",
+							"",
+							"        ]",
+							"    }",
+							"},",
+							"(err, res) => {",
+							"    if (err) {",
+							"        console.log(err);",
+							"    } else {",
+							"        pm.variables.set(\"access_token\", res.json().access_token);",
+							"        console.log(\"Token: \", res.json().access_token);",
+							"        console.log(\"Token: \", res.json());",
+							"        console.log(\"access_token: \", pm.variables.get(\"access_token\"))",
+							"    }",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Codigo 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Formato JSON\", function () {",
+							"    pm.response.to.be.json; ",
+							"});",
+							"",
+							"pm.test(\"La respuesta coincide con la esperada\", function () {",
+							"    pm.response.to.have.status(404);",
+							"    ",
+							"    var expectedResponse = {",
+							"        \"status\": 404,",
+							"        \"code\": \"UNKNOWN_MSISDN\",",
+							"        \"message\": \"Can't be checked because the msisdn is unknown\"",
+							"    };",
+							"",
+							"    var actualResponse = pm.response.json();",
+							"",
+							"    pm.expect(actualResponse).to.deep.equal(expectedResponse);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://localhost:8100/provision/v0/get/msisdn/+34999999999",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8100",
+					"path": [
+						"provision",
+						"v0",
+						"get",
+						"msisdn",
+						"+34999999999"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET DNI",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.sendRequest({",
+							"    url: \"http://localhost:8100/realms/TFM/protocol/openid-connect/token\",",
+							"    method: 'POST',",
+							"    headers: {",
+							"        'Accept': 'application/json', // Agregado encabezado Accept",
+							"        'Content-Type': 'application/x-www-form-urlencoded'",
+							"    },",
+							"    body: {",
+							"        mode: 'urlencoded', ",
+							"        urlencoded: [",
+							"            {key: \"client_id\", value: \"opengateway\"},",
+							"            {key: \"client_secret\", value: \"1JsLTnYN3PicBWEZwcY702I8vlAaeyNs\"},",
+							"            {key: \"grant_type\", value: \"client_credentials\"}",
+							"",
+							"",
+							"        ]",
+							"    }",
+							"},",
+							"(err, res) => {",
+							"    if (err) {",
+							"        console.log(err);",
+							"    } else {",
+							"        pm.variables.set(\"access_token\", res.json().access_token);",
+							"        console.log(\"Token: \", res.json().access_token);",
+							"        console.log(\"Token: \", res.json());",
+							"        console.log(\"access_token: \", pm.variables.get(\"access_token\"))",
+							"    }",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Codigo 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Formato JSON\", function () {",
+							"    pm.response.to.be.json; ",
+							"});",
+							"",
+							"pm.test(\"La respuesta coincide con la esperada, ignorando el ID\", function () {",
+							"    var expectedResponse = {",
+							"        \"msisdn\": \"+34651481201\",",
+							"        \"imsi\": \"214071234567801\",",
+							"        \"mcc\": 214,",
+							"        \"mnc\": \"07\",",
+							"        \"cellId\": 6563,",
+							"        \"titular\": true,",
+							"        \"titularData\": {",
+							"            \"name\": \"Yolanda Gómez\",",
+							"            \"givenName\": \"Yolanda\",",
+							"            \"familyName\": \"Gómez\",",
+							"            \"idDocument\": \"08359159D\",",
+							"            \"email\": \"yolandagomez@gmail.com\",",
+							"            \"gender\": \"Femenino\",",
+							"            \"birthdate\": \"1940-08-02\",",
+							"            \"address\": {",
+							"                \"streetName\": \"Calle de Hortaleza\",",
+							"                \"streetNumber\": \"92\",",
+							"                \"postalCode\": \"28096\",",
+							"                \"region\": \"Madrid\",",
+							"                \"locality\": \"Madrid\",",
+							"                \"country\": \"España\",",
+							"                \"houseNumberExtension\": \"1D\"",
+							"            }",
+							"        },",
+							"        \"latestSimChange\": \"2024-03-25T11:29:37.000Z\"",
+							"    };",
+							"",
+							"    var actualResponse = pm.response.json()[0]; ",
+							"",
+							"    delete actualResponse.id; ",
+							"",
+							"    pm.expect(actualResponse).to.deep.equal(expectedResponse);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://localhost:8100/provision/v0/get/dni/08359159D",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8100",
+					"path": [
+						"provision",
+						"v0",
+						"get",
+						"dni",
+						"08359159D"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Unknown DNI",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.sendRequest({",
+							"    url: \"http://localhost:8100/realms/TFM/protocol/openid-connect/token\",",
+							"    method: 'POST',",
+							"    headers: {",
+							"        'Accept': 'application/json', // Agregado encabezado Accept",
+							"        'Content-Type': 'application/x-www-form-urlencoded'",
+							"    },",
+							"    body: {",
+							"        mode: 'urlencoded', ",
+							"        urlencoded: [",
+							"            {key: \"client_id\", value: \"opengateway\"},",
+							"            {key: \"client_secret\", value: \"1JsLTnYN3PicBWEZwcY702I8vlAaeyNs\"},",
+							"            {key: \"grant_type\", value: \"client_credentials\"}",
+							"",
+							"",
+							"        ]",
+							"    }",
+							"},",
+							"(err, res) => {",
+							"    if (err) {",
+							"        console.log(err);",
+							"    } else {",
+							"        pm.variables.set(\"access_token\", res.json().access_token);",
+							"        console.log(\"Token: \", res.json().access_token);",
+							"        console.log(\"Token: \", res.json());",
+							"        console.log(\"access_token: \", pm.variables.get(\"access_token\"))",
+							"    }",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Codigo 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Formato JSON\", function () {",
+							"    pm.response.to.be.json; ",
+							"});",
+							"",
+							"pm.test(\"La respuesta coincide con la esperada\", function () {",
+							"    pm.response.to.have.status(404);",
+							"    ",
+							"    var expectedResponse = {",
+							"        \"status\": 404,",
+							"        \"code\": \"UNKNOWN_DNI\",",
+							"        \"message\": \"Can't be checked because the dni is unknown\"",
+							"    };",
+							"",
+							"    var actualResponse = pm.response.json();",
+							"",
+							"    pm.expect(actualResponse).to.deep.equal(expectedResponse);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://localhost:8100/provision/v0/get/dni/99999999D",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8100",
+					"path": [
+						"provision",
+						"v0",
+						"get",
+						"dni",
+						"99999999D"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Email",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.sendRequest({",
+							"    url: \"http://localhost:8100/realms/TFM/protocol/openid-connect/token\",",
+							"    method: 'POST',",
+							"    headers: {",
+							"        'Accept': 'application/json', // Agregado encabezado Accept",
+							"        'Content-Type': 'application/x-www-form-urlencoded'",
+							"    },",
+							"    body: {",
+							"        mode: 'urlencoded', ",
+							"        urlencoded: [",
+							"            {key: \"client_id\", value: \"opengateway\"},",
+							"            {key: \"client_secret\", value: \"1JsLTnYN3PicBWEZwcY702I8vlAaeyNs\"},",
+							"            {key: \"grant_type\", value: \"client_credentials\"}",
+							"",
+							"",
+							"        ]",
+							"    }",
+							"},",
+							"(err, res) => {",
+							"    if (err) {",
+							"        console.log(err);",
+							"    } else {",
+							"        pm.variables.set(\"access_token\", res.json().access_token);",
+							"        console.log(\"Token: \", res.json().access_token);",
+							"        console.log(\"Token: \", res.json());",
+							"        console.log(\"access_token: \", pm.variables.get(\"access_token\"))",
+							"    }",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Codigo 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Formato JSON\", function () {",
+							"    pm.response.to.be.json; ",
+							"});",
+							"",
+							"pm.test(\"La respuesta coincide con la esperada, ignorando el ID\", function () {",
+							"    var expectedResponse = {",
+							"        \"msisdn\": \"+34651481201\",",
+							"        \"imsi\": \"214071234567801\",",
+							"        \"mcc\": 214,",
+							"        \"mnc\": \"07\",",
+							"        \"cellId\": 6563,",
+							"        \"titular\": true,",
+							"        \"titularData\": {",
+							"            \"name\": \"Yolanda Gómez\",",
+							"            \"givenName\": \"Yolanda\",",
+							"            \"familyName\": \"Gómez\",",
+							"            \"idDocument\": \"08359159D\",",
+							"            \"email\": \"yolandagomez@gmail.com\",",
+							"            \"gender\": \"Femenino\",",
+							"            \"birthdate\": \"1940-08-02\",",
+							"            \"address\": {",
+							"                \"streetName\": \"Calle de Hortaleza\",",
+							"                \"streetNumber\": \"92\",",
+							"                \"postalCode\": \"28096\",",
+							"                \"region\": \"Madrid\",",
+							"                \"locality\": \"Madrid\",",
+							"                \"country\": \"España\",",
+							"                \"houseNumberExtension\": \"1D\"",
+							"            }",
+							"        },",
+							"        \"latestSimChange\": \"2024-03-25T11:29:37.000Z\"",
+							"    };",
+							"",
+							"    var actualResponse = pm.response.json()[0]; ",
+							"",
+							"    delete actualResponse.id; ",
+							"",
+							"    pm.expect(actualResponse).to.deep.equal(expectedResponse);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://localhost:8100/provision/v0/get/email/yolandagomez@gmail.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8100",
+					"path": [
+						"provision",
+						"v0",
+						"get",
+						"email",
+						"yolandagomez@gmail.com"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Unknown email",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.sendRequest({",
+							"    url: \"http://localhost:8100/realms/TFM/protocol/openid-connect/token\",",
+							"    method: 'POST',",
+							"    headers: {",
+							"        'Accept': 'application/json', // Agregado encabezado Accept",
+							"        'Content-Type': 'application/x-www-form-urlencoded'",
+							"    },",
+							"    body: {",
+							"        mode: 'urlencoded', ",
+							"        urlencoded: [",
+							"            {key: \"client_id\", value: \"opengateway\"},",
+							"            {key: \"client_secret\", value: \"1JsLTnYN3PicBWEZwcY702I8vlAaeyNs\"},",
+							"            {key: \"grant_type\", value: \"client_credentials\"}",
+							"",
+							"",
+							"        ]",
+							"    }",
+							"},",
+							"(err, res) => {",
+							"    if (err) {",
+							"        console.log(err);",
+							"    } else {",
+							"        pm.variables.set(\"access_token\", res.json().access_token);",
+							"        console.log(\"Token: \", res.json().access_token);",
+							"        console.log(\"Token: \", res.json());",
+							"        console.log(\"access_token: \", pm.variables.get(\"access_token\"))",
+							"    }",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Codigo 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Formato JSON\", function () {",
+							"    pm.response.to.be.json; ",
+							"});",
+							"",
+							"pm.test(\"La respuesta coincide con la esperada\", function () {",
+							"    pm.response.to.have.status(404);",
+							"    ",
+							"    var expectedResponse = {",
+							"        \"status\": 404,",
+							"        \"code\": \"UNKNOWN_EMAIL\",",
+							"        \"message\": \"Can't be checked because the email is unknown\"",
+							"    };",
+							"",
+							"    var actualResponse = pm.response.json();",
+							"",
+							"    pm.expect(actualResponse).to.deep.equal(expectedResponse);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://localhost:8100/provision/v0/get/email/nosecuantitos@gmail.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8100",
+					"path": [
+						"provision",
+						"v0",
+						"get",
+						"email",
+						"nosecuantitos@gmail.com"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Existing Client",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.sendRequest({",
+							"    url: \"http://localhost:8100/realms/TFM/protocol/openid-connect/token\",",
+							"    method: 'POST',",
+							"    headers: {",
+							"        'Accept': 'application/json', // Agregado encabezado Accept",
+							"        'Content-Type': 'application/x-www-form-urlencoded'",
+							"    },",
+							"    body: {",
+							"        mode: 'urlencoded', ",
+							"        urlencoded: [",
+							"            {key: \"client_id\", value: \"opengateway\"},",
+							"            {key: \"client_secret\", value: \"1JsLTnYN3PicBWEZwcY702I8vlAaeyNs\"},",
+							"            {key: \"grant_type\", value: \"client_credentials\"}",
+							"",
+							"",
+							"        ]",
+							"    }",
+							"},",
+							"(err, res) => {",
+							"    if (err) {",
+							"        console.log(err);",
+							"    } else {",
+							"        pm.variables.set(\"access_token\", res.json().access_token);",
+							"        console.log(\"Token: \", res.json().access_token);",
+							"        console.log(\"Token: \", res.json());",
+							"        console.log(\"access_token: \", pm.variables.get(\"access_token\"))",
+							"    }",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Codigo 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"",
+							"pm.test(\"Formato JSON\", function () {",
+							"    pm.response.to.be.json; ",
+							"});",
+							"",
+							"pm.test(\"La respuesta coincide con la esperada\", function () {",
+							"    pm.response.to.have.status(400);",
+							"    ",
+							"    var expectedResponse = {",
+							"        \"status\": 400,",
+							"        \"code\": \"INVALID_ARGUMENT\",",
+							"        \"message\": \"Client specified an invalid argument, request body or query param\"",
+							"    };",
+							"",
+							"    var actualResponse = pm.response.json();",
+							"",
+							"    pm.expect(actualResponse).to.deep.equal(expectedResponse);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"msisdn\": \"+34624967111\",\n  \"imsi\": \"214076799568111\",\n  \"mcc\": 214,\n  \"mnc\": \"07\",\n  \"cellId\": 1299,\n  \"titular\": true,\n  \"titularData\": {\n    \"name\": \"Yolanda Gómez\",\n            \"givenName\": \"Yolanda\",\n            \"familyName\": \"Gómez\",\n            \"idDocument\": \"08359159D\",\n            \"email\": \"yolandagomez@gmail.com\",\n            \"gender\": \"Femenino\",\n            \"birthdate\": \"1940-08-02\",\n            \"address\": {\n                \"streetName\": \"Calle de Hortaleza\",\n                \"streetNumber\": \"92\",\n                \"postalCode\": \"28096\",\n                \"region\": \"Madrid\",\n                \"locality\": \"Madrid\",\n                \"country\": \"España\",\n                \"houseNumberExtension\": \"1D\"\n            }\n        },\n        \"latestSimChange\": \"2024-03-25T11:29:37.000Z\"\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8100/provision/v0/newclient",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8100",
+					"path": [
+						"provision",
+						"v0",
+						"newclient"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Non Existing Client",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.sendRequest({",
+							"    url: \"http://localhost:8100/realms/TFM/protocol/openid-connect/token\",",
+							"    method: 'POST',",
+							"    headers: {",
+							"        'Accept': 'application/json', // Agregado encabezado Accept",
+							"        'Content-Type': 'application/x-www-form-urlencoded'",
+							"    },",
+							"    body: {",
+							"        mode: 'urlencoded', ",
+							"        urlencoded: [",
+							"            {key: \"client_id\", value: \"opengateway\"},",
+							"            {key: \"client_secret\", value: \"1JsLTnYN3PicBWEZwcY702I8vlAaeyNs\"},",
+							"            {key: \"grant_type\", value: \"client_credentials\"}",
+							"",
+							"",
+							"        ]",
+							"    }",
+							"},",
+							"(err, res) => {",
+							"    if (err) {",
+							"        console.log(err);",
+							"    } else {",
+							"        pm.variables.set(\"access_token\", res.json().access_token);",
+							"        console.log(\"Token: \", res.json().access_token);",
+							"        console.log(\"Token: \", res.json());",
+							"        console.log(\"access_token: \", pm.variables.get(\"access_token\"))",
+							"    }",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Codigo 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Formato JSON\", function () {",
+							"    pm.response.to.be.json; ",
+							"});",
+							"",
+							"pm.test(\"La respuesta coincide con la esperada\", function () {",
+							"    var expectedResponse = {",
+							"        \"msisdn\": \"+34624967111\",",
+							"        \"imsi\": \"214076799568111\",",
+							"        \"mcc\": 214,",
+							"        \"mnc\": \"07\",",
+							"        \"cellId\": 0,",
+							"        \"titular\": false,",
+							"        \"titularData\": {",
+							"            \"name\": \"Prueba\",",
+							"            \"givenName\": \"Alex\",",
+							"            \"familyName\": \"Pruebita\",",
+							"            \"idDocument\": \"33348811B\",",
+							"            \"email\": \"prueba111@gmail.com\",",
+							"            \"gender\": \"Masculino\",",
+							"            \"birthdate\": \"1990-05-15\",",
+							"            \"address\": {",
+							"                \"streetName\": \"Gran Vía\",",
+							"                \"streetNumber\": \"10\",",
+							"                \"postalCode\": \"28001\",",
+							"                \"region\": \"Madrid\",",
+							"                \"locality\": \"Madrid\",",
+							"                \"country\": \"España\",",
+							"                \"houseNumberExtension\": \"B\"",
+							"            }",
+							"        }",
+							"        // `latestSimChange` se omite aquí ya que depende del momento de la ejecución",
+							"    };",
+							"",
+							"    var actualResponse = pm.response.json(); ",
+							"",
+							"    delete actualResponse.id;",
+							"    delete actualResponse.latestSimChange;",
+							"",
+							"    pm.expect(actualResponse).to.deep.equal(expectedResponse);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"msisdn\": \"+34624967111\",\n  \"imsi\": \"214076799568111\",\n  \"mcc\": 214,\n  \"mnc\": \"07\",\n  \"cellId\": 0,\n  \"titular\": false,\n  \"titularData\": {\n    \"name\": \"Prueba\",\n    \"givenName\": \"Alex\",\n    \"familyName\": \"Pruebita\",\n    \"idDocument\": \"33348811B\",\n    \"email\": \"prueba111@gmail.com\",\n    \"gender\": \"Masculino\",\n    \"birthdate\": \"1990-05-15\",\n    \"address\": {\n      \"streetName\": \"Gran Vía\",\n      \"streetNumber\": \"10\",\n      \"postalCode\": \"28001\",\n      \"region\": \"Madrid\",\n      \"locality\": \"Madrid\",\n      \"country\": \"España\",\n      \"houseNumberExtension\": \"B\"\n    }\n  },\n  \"latestSimChange\": \"\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8100/provision/v0/newclient",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8100",
+					"path": [
+						"provision",
+						"v0",
+						"newclient"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Non Existing Client Copy",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.sendRequest({",
+							"    url: \"http://localhost:8100/realms/TFM/protocol/openid-connect/token\",",
+							"    method: 'POST',",
+							"    headers: {",
+							"        'Accept': 'application/json', // Agregado encabezado Accept",
+							"        'Content-Type': 'application/x-www-form-urlencoded'",
+							"    },",
+							"    body: {",
+							"        mode: 'urlencoded', ",
+							"        urlencoded: [",
+							"            {key: \"client_id\", value: \"opengateway\"},",
+							"            {key: \"client_secret\", value: \"1JsLTnYN3PicBWEZwcY702I8vlAaeyNs\"},",
+							"            {key: \"grant_type\", value: \"client_credentials\"}",
+							"",
+							"",
+							"        ]",
+							"    }",
+							"},",
+							"(err, res) => {",
+							"    if (err) {",
+							"        console.log(err);",
+							"    } else {",
+							"        pm.variables.set(\"access_token\", res.json().access_token);",
+							"        console.log(\"Token: \", res.json().access_token);",
+							"        console.log(\"Token: \", res.json());",
+							"        console.log(\"access_token: \", pm.variables.get(\"access_token\"))",
+							"    }",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Codigo 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Formato JSON\", function () {",
+							"    pm.response.to.be.json; ",
+							"});",
+							"",
+							"pm.test(\"La respuesta coincide con la esperada\", function () {",
+							"    var expectedResponse = {",
+							"\"msisdn\": \"+34624967112\",",
+							"  \"imsi\": \"214076799568112\",",
+							"  \"mcc\": 215,",
+							"  \"mnc\": \"08\",",
+							"  \"cellId\": 129,",
+							"  \"titular\": false,",
+							"  \"titularData\": {",
+							"    \"name\": \"Sergio Ramos\",",
+							"    \"givenName\": \"Sergio\",",
+							"    \"familyName\": \"Ramos\",",
+							"    \"idDocument\": \"33348812B\",",
+							"    \"email\": \"sergioramos@gmail.com\",",
+							"    \"gender\": \"Masculino\",",
+							"    \"birthdate\": \"1990-05-15\",",
+							"    \"address\": {",
+							"      \"streetName\": \"Gran Vía\",",
+							"      \"streetNumber\": \"10\",",
+							"      \"postalCode\": \"28001\",",
+							"      \"region\": \"Madrid\",",
+							"      \"locality\": \"Madrid\",",
+							"      \"country\": \"España\",",
+							"      \"houseNumberExtension\": \"B\"",
+							"    }",
+							"        }",
+							"        // `latestSimChange` se omite aquí ya que depende del momento de la ejecución",
+							"    };",
+							"",
+							"    var actualResponse = pm.response.json(); ",
+							"",
+							"    delete actualResponse.id;",
+							"    delete actualResponse.latestSimChange;",
+							"",
+							"    pm.expect(actualResponse).to.deep.equal(expectedResponse);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"msisdn\": \"+34624967112\",\n  \"imsi\": \"214076799568112\",\n  \"mcc\": 215,\n  \"mnc\": \"08\",\n  \"cellId\": 129,\n  \"titular\": false,\n  \"titularData\": {\n    \"name\": \"Sergio Ramos\",\n    \"givenName\": \"Sergio\",\n    \"familyName\": \"Ramos\",\n    \"idDocument\": \"33348812B\",\n    \"email\": \"sergioramos@gmail.com\",\n    \"gender\": \"Masculino\",\n    \"birthdate\": \"1990-05-15\",\n    \"address\": {\n      \"streetName\": \"Gran Vía\",\n      \"streetNumber\": \"10\",\n      \"postalCode\": \"28001\",\n      \"region\": \"Madrid\",\n      \"locality\": \"Madrid\",\n      \"country\": \"España\",\n      \"houseNumberExtension\": \"B\"\n    }\n  },\n  \"latestSimChange\": \"\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8100/provision/v0/newclient",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8100",
+					"path": [
+						"provision",
+						"v0",
+						"newclient"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Non Existing Client Copy 2",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.sendRequest({",
+							"    url: \"http://localhost:8100/realms/TFM/protocol/openid-connect/token\",",
+							"    method: 'POST',",
+							"    headers: {",
+							"        'Accept': 'application/json', // Agregado encabezado Accept",
+							"        'Content-Type': 'application/x-www-form-urlencoded'",
+							"    },",
+							"    body: {",
+							"        mode: 'urlencoded', ",
+							"        urlencoded: [",
+							"            {key: \"client_id\", value: \"opengateway\"},",
+							"            {key: \"client_secret\", value: \"1JsLTnYN3PicBWEZwcY702I8vlAaeyNs\"},",
+							"            {key: \"grant_type\", value: \"client_credentials\"}",
+							"",
+							"",
+							"        ]",
+							"    }",
+							"},",
+							"(err, res) => {",
+							"    if (err) {",
+							"        console.log(err);",
+							"    } else {",
+							"        pm.variables.set(\"access_token\", res.json().access_token);",
+							"        console.log(\"Token: \", res.json().access_token);",
+							"        console.log(\"Token: \", res.json());",
+							"        console.log(\"access_token: \", pm.variables.get(\"access_token\"))",
+							"    }",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Codigo 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Formato JSON\", function () {",
+							"    pm.response.to.be.json; ",
+							"});",
+							"",
+							"pm.test(\"La respuesta coincide con la esperada\", function () {",
+							"    var expectedResponse = {",
+							"\"msisdn\": \"+34624967113\",",
+							"    \"imsi\": \"214076799568113\",",
+							"    \"mcc\": 216,",
+							"    \"mnc\": \"09\",",
+							"    \"cellId\": 129,",
+							"    \"titular\": false,",
+							"    \"titularData\": {",
+							"        \"name\": \"Cristiano Ronaldo\",",
+							"        \"givenName\": \"Cristiano\",",
+							"        \"familyName\": \"Ronaldo\",",
+							"        \"idDocument\": \"33348813D\",",
+							"        \"email\": \"cristianoronaldo@gmail.com\",",
+							"        \"gender\": \"Masculino\",",
+							"        \"birthdate\": \"1990-05-15\",",
+							"        \"address\": {",
+							"            \"streetName\": \"Gran Vía\",",
+							"            \"streetNumber\": \"10\",",
+							"            \"postalCode\": \"28001\",",
+							"            \"region\": \"Madrid\",",
+							"            \"locality\": \"Madrid\",",
+							"            \"country\": \"España\",",
+							"            \"houseNumberExtension\": \"B\"",
+							"        }",
+							"        }",
+							"        // `latestSimChange` se omite aquí ya que depende del momento de la ejecución",
+							"    };",
+							"",
+							"    var actualResponse = pm.response.json(); ",
+							"",
+							"    delete actualResponse.id;",
+							"    delete actualResponse.latestSimChange;",
+							"",
+							"    pm.expect(actualResponse).to.deep.equal(expectedResponse);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"msisdn\": \"+34624967113\",\n  \"imsi\": \"214076799568113\",\n  \"mcc\": 216,\n  \"mnc\": \"09\",\n  \"cellId\": \"129\",\n  \"titular\": false,\n  \"titularData\": {\n    \"name\": \"Cristiano Ronaldo\",\n    \"givenName\": \"Cristiano\",\n    \"familyName\": \"Ronaldo\",\n    \"idDocument\": \"33348813D\",\n    \"email\": \"cristianoronaldo@gmail.com\",\n    \"gender\": \"Masculino\",\n    \"birthdate\": \"1990-05-15\",\n    \"address\": {\n      \"streetName\": \"Gran Vía\",\n      \"streetNumber\": \"10\",\n      \"postalCode\": \"28001\",\n      \"region\": \"Madrid\",\n      \"locality\": \"Madrid\",\n      \"country\": \"España\",\n      \"houseNumberExtension\": \"B\"\n    }\n  },\n  \"latestSimChange\": \"\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8100/provision/v0/newclient",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8100",
+					"path": [
+						"provision",
+						"v0",
+						"newclient"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Client",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.sendRequest({",
+							"    url: \"http://localhost:8100/realms/TFM/protocol/openid-connect/token\",",
+							"    method: 'POST',",
+							"    headers: {",
+							"        'Accept': 'application/json', // Agregado encabezado Accept",
+							"        'Content-Type': 'application/x-www-form-urlencoded'",
+							"    },",
+							"    body: {",
+							"        mode: 'urlencoded', ",
+							"        urlencoded: [",
+							"            {key: \"client_id\", value: \"opengateway\"},",
+							"            {key: \"client_secret\", value: \"1JsLTnYN3PicBWEZwcY702I8vlAaeyNs\"},",
+							"            {key: \"grant_type\", value: \"client_credentials\"}",
+							"",
+							"",
+							"        ]",
+							"    }",
+							"},",
+							"(err, res) => {",
+							"    if (err) {",
+							"        console.log(err);",
+							"    } else {",
+							"        pm.variables.set(\"access_token\", res.json().access_token);",
+							"        console.log(\"Token: \", res.json().access_token);",
+							"        console.log(\"Token: \", res.json());",
+							"        console.log(\"access_token: \", pm.variables.get(\"access_token\"))",
+							"    }",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Codigo 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Formato JSON\", function () {",
+							"    pm.response.to.be.json; ",
+							"});",
+							"",
+							"",
+							"",
+							"pm.test(\"La respuesta coincide con la esperada\", function () {",
+							"    var expectedResponse = {",
+							"        \"msisdn\": \"+34624967111\",",
+							"        \"imsi\": \"214076799568111\",",
+							"        \"mcc\": 214,",
+							"        \"mnc\": \"07\",",
+							"        \"cellId\": 0,",
+							"        \"titular\": false,",
+							"        \"titularData\": {",
+							"            \"name\": \"Prueba\",",
+							"            \"givenName\": \"Alex\",",
+							"            \"familyName\": \"Pedr\",",
+							"            \"idDocument\": \"33348878A\",",
+							"    \"email\": \"prueba123@gmail.com\",",
+							"    \"gender\": \"Masculino\",",
+							"    \"birthdate\": \"1990-05-15\",",
+							"    \"address\": {",
+							"      \"streetName\": \"Gran Vía\",",
+							"      \"streetNumber\": \"10\",",
+							"      \"postalCode\": \"28011\",",
+							"      \"region\": \"Madrid\",",
+							"      \"locality\": \"Madrid\",",
+							"      \"country\": \"Espana\",",
+							"      \"houseNumberExtension\": \"B\"",
+							"            }",
+							"        }",
+							"        // `latestSimChange` se omite aquí ya que depende del momento de la ejecución",
+							"    };",
+							"",
+							"    var actualResponse = pm.response.json(); ",
+							"",
+							"    delete actualResponse.id;",
+							"    delete actualResponse.latestSimChange;",
+							"",
+							"    pm.expect(actualResponse).to.deep.equal(expectedResponse);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"msisdn\": \"+34624967111\",\n   \"imsi\": \"214076799568111\",\n   \"mcc\": 214,\n   \"mnc\": \"07\",\n   \"cellId\": 0,\n  \"titular\": false,\n  \"titularData\": {\n    \"name\": \"Prueba\",\n    \"givenName\": \"Alex\",\n    \"familyName\": \"Pedr\",\n    \"idDocument\": \"33348878A\",\n    \"email\": \"prueba123@gmail.com\",\n    \"gender\": \"Masculino\",\n    \"birthdate\": \"1990-05-15\",\n    \"address\": {\n      \"streetName\": \"Gran Vía\",\n      \"streetNumber\": \"10\",\n      \"postalCode\": \"28011\",\n      \"region\": \"Madrid\",\n      \"locality\": \"Madrid\",\n      \"country\": \"Espana\",\n      \"houseNumberExtension\": \"B\"\n    }\n  },\n  \"latestSimChange\": \"\"\n}\n\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/provision/v0/updateclient/+34624967111",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"provision",
+						"v0",
+						"updateclient",
+						"+34624967111"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Msisdn",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.sendRequest({",
+							"    url: \"http://localhost:8100/realms/TFM/protocol/openid-connect/token\",",
+							"    method: 'POST',",
+							"    headers: {",
+							"        'Accept': 'application/json', // Agregado encabezado Accept",
+							"        'Content-Type': 'application/x-www-form-urlencoded'",
+							"    },",
+							"    body: {",
+							"        mode: 'urlencoded', ",
+							"        urlencoded: [",
+							"            {key: \"client_id\", value: \"opengateway\"},",
+							"            {key: \"client_secret\", value: \"1JsLTnYN3PicBWEZwcY702I8vlAaeyNs\"},",
+							"            {key: \"grant_type\", value: \"client_credentials\"}",
+							"",
+							"",
+							"        ]",
+							"    }",
+							"},",
+							"(err, res) => {",
+							"    if (err) {",
+							"        console.log(err);",
+							"    } else {",
+							"        pm.variables.set(\"access_token\", res.json().access_token);",
+							"        console.log(\"Token: \", res.json().access_token);",
+							"        console.log(\"Token: \", res.json());",
+							"        console.log(\"access_token: \", pm.variables.get(\"access_token\"))",
+							"    }",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Codigo 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Formato JSON\", function () {",
+							"    pm.response.to.be.json; ",
+							"});",
+							"",
+							"",
+							"pm.test(\"La respuesta coincide con la esperada\", function () {",
+							"    var expectedResponse = {",
+							"    \"msisdn\": \"+34624967111\",",
+							"    \"imsi\": \"214076799568111\",",
+							"    \"mcc\": 214,",
+							"    \"mnc\": \"07\",",
+							"    \"cellId\": 0,",
+							"    \"titular\": false,",
+							"    \"titularData\": {",
+							"        \"name\": \"Prueba\",",
+							"        \"givenName\": \"Alex\",",
+							"        \"familyName\": \"Pedr\",",
+							"        \"idDocument\": \"33348878A\",",
+							"        \"email\": \"prueba123@gmail.com\",",
+							"        \"gender\": \"Masculino\",",
+							"        \"birthdate\": \"1990-05-15\",",
+							"        \"address\": {",
+							"            \"streetName\": \"Gran Vía\",",
+							"            \"streetNumber\": \"10\",",
+							"            \"postalCode\": \"28011\",",
+							"            \"region\": \"Madrid\",",
+							"            \"locality\": \"Madrid\",",
+							"            \"country\": \"Espana\",",
+							"            \"houseNumberExtension\": \"B\"",
+							"            }",
+							"        }",
+							"        // `latestSimChange` se omite aquí ya que depende del momento de la ejecución",
+							"    };",
+							"",
+							"    var actualResponse = pm.response.json(); ",
+							"",
+							"    delete actualResponse.id;",
+							"    delete actualResponse.latestSimChange;",
+							"",
+							"    pm.expect(actualResponse).to.deep.equal(expectedResponse);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8100/provision/v0/delete/msisdn/+34624967111",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8100",
+					"path": [
+						"provision",
+						"v0",
+						"delete",
+						"msisdn",
+						"+34624967111"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Unknown Msisdn",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.sendRequest({",
+							"    url: \"http://localhost:8100/realms/TFM/protocol/openid-connect/token\",",
+							"    method: 'POST',",
+							"    headers: {",
+							"        'Accept': 'application/json', // Agregado encabezado Accept",
+							"        'Content-Type': 'application/x-www-form-urlencoded'",
+							"    },",
+							"    body: {",
+							"        mode: 'urlencoded', ",
+							"        urlencoded: [",
+							"            {key: \"client_id\", value: \"opengateway\"},",
+							"            {key: \"client_secret\", value: \"1JsLTnYN3PicBWEZwcY702I8vlAaeyNs\"},",
+							"            {key: \"grant_type\", value: \"client_credentials\"}",
+							"",
+							"",
+							"        ]",
+							"    }",
+							"},",
+							"(err, res) => {",
+							"    if (err) {",
+							"        console.log(err);",
+							"    } else {",
+							"        pm.variables.set(\"access_token\", res.json().access_token);",
+							"        console.log(\"Token: \", res.json().access_token);",
+							"        console.log(\"Token: \", res.json());",
+							"        console.log(\"access_token: \", pm.variables.get(\"access_token\"))",
+							"    }",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Codigo 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Formato JSON\", function () {",
+							"    pm.response.to.be.json; ",
+							"});",
+							"",
+							"pm.test(\"La respuesta coincide con la esperada\", function () {",
+							"    pm.response.to.have.status(404);",
+							"    ",
+							"    var expectedResponse = {",
+							"        \"status\": 404,",
+							"        \"code\": \"UNKNOWN_MSISDN\",",
+							"        \"message\": \"Can't be deleted because the msisdn is unknown\"",
+							"    };",
+							"",
+							"    var actualResponse = pm.response.json();",
+							"",
+							"    pm.expect(actualResponse).to.deep.equal(expectedResponse);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8100/provision/v0/delete/msisdn/+34999999999",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8100",
+					"path": [
+						"provision",
+						"v0",
+						"delete",
+						"msisdn",
+						"+34999999999"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete DNI",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.sendRequest({",
+							"    url: \"http://localhost:8100/realms/TFM/protocol/openid-connect/token\",",
+							"    method: 'POST',",
+							"    headers: {",
+							"        'Accept': 'application/json', // Agregado encabezado Accept",
+							"        'Content-Type': 'application/x-www-form-urlencoded'",
+							"    },",
+							"    body: {",
+							"        mode: 'urlencoded', ",
+							"        urlencoded: [",
+							"            {key: \"client_id\", value: \"opengateway\"},",
+							"            {key: \"client_secret\", value: \"1JsLTnYN3PicBWEZwcY702I8vlAaeyNs\"},",
+							"            {key: \"grant_type\", value: \"client_credentials\"}",
+							"",
+							"",
+							"        ]",
+							"    }",
+							"},",
+							"(err, res) => {",
+							"    if (err) {",
+							"        console.log(err);",
+							"    } else {",
+							"        pm.variables.set(\"access_token\", res.json().access_token);",
+							"        console.log(\"Token: \", res.json().access_token);",
+							"        console.log(\"Token: \", res.json());",
+							"        console.log(\"access_token: \", pm.variables.get(\"access_token\"))",
+							"    }",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Codigo 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Formato JSON\", function () {",
+							"    pm.response.to.be.json; ",
+							"});",
+							"",
+							"",
+							"pm.test(\"La respuesta coincide con la esperada\", function () {",
+							"    var expectedResponse = {",
+							"  \"msisdn\": \"+34624967112\",",
+							"  \"imsi\": \"214076799568112\",",
+							"  \"mcc\": 215,",
+							"  \"mnc\": \"08\",",
+							"  \"cellId\": 129,",
+							"  \"titular\": false,",
+							"  \"titularData\": {",
+							"    \"name\": \"Sergio Ramos\",",
+							"    \"givenName\": \"Sergio\",",
+							"    \"familyName\": \"Ramos\",",
+							"    \"idDocument\": \"33348812B\",",
+							"    \"email\": \"sergioramos@gmail.com\",",
+							"    \"gender\": \"Masculino\",",
+							"    \"birthdate\": \"1990-05-15\",",
+							"    \"address\": {",
+							"      \"streetName\": \"Gran Vía\",",
+							"      \"streetNumber\": \"10\",",
+							"      \"postalCode\": \"28001\",",
+							"      \"region\": \"Madrid\",",
+							"      \"locality\": \"Madrid\",",
+							"      \"country\": \"España\",",
+							"      \"houseNumberExtension\": \"B\"",
+							"    }",
+							"        }",
+							"  ",
+							"    };",
+							"",
+							"   var actualResponse = pm.response.json()[0]; ",
+							"",
+							"    delete actualResponse.id;",
+							"    delete actualResponse.latestSimChange;",
+							"",
+							"    pm.expect(actualResponse).to.deep.equal(expectedResponse);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8100/provision/v0/delete/dni/33348812B",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8100",
+					"path": [
+						"provision",
+						"v0",
+						"delete",
+						"dni",
+						"33348812B"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Unknown DNI",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.sendRequest({",
+							"    url: \"http://localhost:8100/realms/TFM/protocol/openid-connect/token\",",
+							"    method: 'POST',",
+							"    headers: {",
+							"        'Accept': 'application/json', // Agregado encabezado Accept",
+							"        'Content-Type': 'application/x-www-form-urlencoded'",
+							"    },",
+							"    body: {",
+							"        mode: 'urlencoded', ",
+							"        urlencoded: [",
+							"            {key: \"client_id\", value: \"opengateway\"},",
+							"            {key: \"client_secret\", value: \"1JsLTnYN3PicBWEZwcY702I8vlAaeyNs\"},",
+							"            {key: \"grant_type\", value: \"client_credentials\"}",
+							"",
+							"",
+							"        ]",
+							"    }",
+							"},",
+							"(err, res) => {",
+							"    if (err) {",
+							"        console.log(err);",
+							"    } else {",
+							"        pm.variables.set(\"access_token\", res.json().access_token);",
+							"        console.log(\"Token: \", res.json().access_token);",
+							"        console.log(\"Token: \", res.json());",
+							"        console.log(\"access_token: \", pm.variables.get(\"access_token\"))",
+							"    }",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Codigo 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Formato JSON\", function () {",
+							"    pm.response.to.be.json; ",
+							"});",
+							"",
+							"pm.test(\"La respuesta coincide con la esperada\", function () {",
+							"    pm.response.to.have.status(404);",
+							"    ",
+							"    var expectedResponse = {",
+							"        \"status\": 404,",
+							"        \"code\": \"UNKNOWN_DNI\",",
+							"        \"message\": \"Can't be deleted because the dni is unknown\"",
+							"    };",
+							"",
+							"    var actualResponse = pm.response.json();",
+							"",
+							"    pm.expect(actualResponse).to.deep.equal(expectedResponse);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8100/provision/v0/delete/dni/99999999F",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8100",
+					"path": [
+						"provision",
+						"v0",
+						"delete",
+						"dni",
+						"99999999F"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Email",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.sendRequest({",
+							"    url: \"http://localhost:8100/realms/TFM/protocol/openid-connect/token\",",
+							"    method: 'POST',",
+							"    headers: {",
+							"        'Accept': 'application/json', // Agregado encabezado Accept",
+							"        'Content-Type': 'application/x-www-form-urlencoded'",
+							"    },",
+							"    body: {",
+							"        mode: 'urlencoded', ",
+							"        urlencoded: [",
+							"            {key: \"client_id\", value: \"opengateway\"},",
+							"            {key: \"client_secret\", value: \"1JsLTnYN3PicBWEZwcY702I8vlAaeyNs\"},",
+							"            {key: \"grant_type\", value: \"client_credentials\"}",
+							"",
+							"",
+							"        ]",
+							"    }",
+							"},",
+							"(err, res) => {",
+							"    if (err) {",
+							"        console.log(err);",
+							"    } else {",
+							"        pm.variables.set(\"access_token\", res.json().access_token);",
+							"        console.log(\"Token: \", res.json().access_token);",
+							"        console.log(\"Token: \", res.json());",
+							"        console.log(\"access_token: \", pm.variables.get(\"access_token\"))",
+							"    }",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Codigo 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Formato JSON\", function () {",
+							"    pm.response.to.be.json; ",
+							"});",
+							"",
+							"",
+							"pm.test(\"La respuesta coincide con la esperada\", function () {",
+							"    var expectedResponse = {",
+							"       \"msisdn\": \"+34624967113\",",
+							"    \"imsi\": \"214076799568113\",",
+							"    \"mcc\": 216,",
+							"    \"mnc\": \"09\",",
+							"    \"cellId\": 129,",
+							"    \"titular\": false,",
+							"    \"titularData\": {",
+							"        \"name\": \"Cristiano Ronaldo\",",
+							"        \"givenName\": \"Cristiano\",",
+							"        \"familyName\": \"Ronaldo\",",
+							"        \"idDocument\": \"33348813D\",",
+							"        \"email\": \"cristianoronaldo@gmail.com\",",
+							"        \"gender\": \"Masculino\",",
+							"        \"birthdate\": \"1990-05-15\",",
+							"        \"address\": {",
+							"            \"streetName\": \"Gran Vía\",",
+							"            \"streetNumber\": \"10\",",
+							"            \"postalCode\": \"28001\",",
+							"            \"region\": \"Madrid\",",
+							"            \"locality\": \"Madrid\",",
+							"            \"country\": \"España\",",
+							"            \"houseNumberExtension\": \"B\"",
+							"        }",
+							"        }",
+							"  ",
+							"    };",
+							"",
+							"   var actualResponse = pm.response.json()[0]; ",
+							"",
+							"    delete actualResponse.id;",
+							"    delete actualResponse.latestSimChange;",
+							"",
+							"    pm.expect(actualResponse).to.deep.equal(expectedResponse);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8100/provision/v0/delete/email/cristianoronaldo@gmail.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8100",
+					"path": [
+						"provision",
+						"v0",
+						"delete",
+						"email",
+						"cristianoronaldo@gmail.com"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Unknown Email",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.sendRequest({",
+							"    url: \"http://localhost:8100/realms/TFM/protocol/openid-connect/token\",",
+							"    method: 'POST',",
+							"    headers: {",
+							"        'Accept': 'application/json', // Agregado encabezado Accept",
+							"        'Content-Type': 'application/x-www-form-urlencoded'",
+							"    },",
+							"    body: {",
+							"        mode: 'urlencoded', ",
+							"        urlencoded: [",
+							"            {key: \"client_id\", value: \"opengateway\"},",
+							"            {key: \"client_secret\", value: \"1JsLTnYN3PicBWEZwcY702I8vlAaeyNs\"},",
+							"            {key: \"grant_type\", value: \"client_credentials\"}",
+							"",
+							"",
+							"        ]",
+							"    }",
+							"},",
+							"(err, res) => {",
+							"    if (err) {",
+							"        console.log(err);",
+							"    } else {",
+							"        pm.variables.set(\"access_token\", res.json().access_token);",
+							"        console.log(\"Token: \", res.json().access_token);",
+							"        console.log(\"Token: \", res.json());",
+							"        console.log(\"access_token: \", pm.variables.get(\"access_token\"))",
+							"    }",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Codigo 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Formato JSON\", function () {",
+							"    pm.response.to.be.json; ",
+							"});",
+							"",
+							"pm.test(\"La respuesta coincide con la esperada\", function () {",
+							"    pm.response.to.have.status(404);",
+							"    ",
+							"    var expectedResponse = {",
+							"        \"status\": 404,",
+							"        \"code\": \"UNKNOWN_EMAIL\",",
+							"        \"message\": \"Can't be deleted because the email is unknown\"",
+							"    };",
+							"",
+							"    var actualResponse = pm.response.json();",
+							"",
+							"    pm.expect(actualResponse).to.deep.equal(expectedResponse);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8100/provision/v0/delete/email/noseque07@gmail.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8100",
+					"path": [
+						"provision",
+						"v0",
+						"delete",
+						"email",
+						"noseque07@gmail.com"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

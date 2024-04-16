@@ -1,0 +1,336 @@
+{
+	"info": {
+		"_postman_id": "ddd37c49-3d99-4797-90cc-fd159959e2b5",
+		"name": "Pruebas E2E Device Status",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32869911"
+	},
+	"item": [
+		{
+			"name": "roaming Non Existing Client",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.sendRequest({",
+							"    url: \"http://localhost:8100/realms/TFM/protocol/openid-connect/token\",",
+							"    method: 'POST',",
+							"    headers: {",
+							"        'Accept': 'application/json', // Agregado encabezado Accept",
+							"        'Content-Type': 'application/x-www-form-urlencoded'",
+							"    },",
+							"    body: {",
+							"        mode: 'urlencoded', ",
+							"        urlencoded: [",
+							"            {key: \"client_id\", value: \"opengateway\"},",
+							"            {key: \"client_secret\", value: \"1JsLTnYN3PicBWEZwcY702I8vlAaeyNs\"},",
+							"            {key: \"grant_type\", value: \"client_credentials\"}",
+							"",
+							"",
+							"        ]",
+							"    }",
+							"},",
+							"(err, res) => {",
+							"    if (err) {",
+							"        console.log(err);",
+							"    } else {",
+							"        pm.variables.set(\"access_token\", res.json().access_token);",
+							"        console.log(\"Token: \", res.json().access_token);",
+							"        console.log(\"Token: \", res.json());",
+							"        console.log(\"access_token: \", pm.variables.get(\"access_token\"))",
+							"    }",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Codigo 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Formato JSON\", function () {",
+							"    pm.response.to.be.json; ",
+							"});",
+							"",
+							"pm.test(\"La respuesta coincide con la esperada\", function () {",
+							"    var actualResponseBody = pm.response.json(); ",
+							"    ",
+							"    var expectedResponseBody = {",
+							"        \"status\": 404,",
+							"        \"code\": \"NOT_FOUND\",",
+							"        \"message\": \"The specified resource is not found\"",
+							"    };",
+							"",
+							"    ",
+							"    pm.expect(actualResponseBody).to.deep.eql(expectedResponseBody);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"ueId\": {\n    \"externalId\": \"\",\n    \"msisdn\": \"+34999999999\",\n    \"ipv4Addr\": \"\",\n    \"ipv6Addr\": \"\"\n  },\n  \"uePort\": 5060\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8100/device-status/v0/roaming",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8100",
+					"path": [
+						"device-status",
+						"v0",
+						"roaming"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "roaming Roaming",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.sendRequest({",
+							"    url: \"http://localhost:8100/realms/TFM/protocol/openid-connect/token\",",
+							"    method: 'POST',",
+							"    headers: {",
+							"        'Accept': 'application/json', // Agregado encabezado Accept",
+							"        'Content-Type': 'application/x-www-form-urlencoded'",
+							"    },",
+							"    body: {",
+							"        mode: 'urlencoded', ",
+							"        urlencoded: [",
+							"            {key: \"client_id\", value: \"opengateway\"},",
+							"            {key: \"client_secret\", value: \"1JsLTnYN3PicBWEZwcY702I8vlAaeyNs\"},",
+							"            {key: \"grant_type\", value: \"client_credentials\"}",
+							"",
+							"",
+							"        ]",
+							"    }",
+							"},",
+							"(err, res) => {",
+							"    if (err) {",
+							"        console.log(err);",
+							"    } else {",
+							"        pm.variables.set(\"access_token\", res.json().access_token);",
+							"        console.log(\"Token: \", res.json().access_token);",
+							"        console.log(\"Token: \", res.json());",
+							"        console.log(\"access_token: \", pm.variables.get(\"access_token\"))",
+							"    }",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Codigo 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Formato JSON\", function () {",
+							"    pm.response.to.be.json; ",
+							"});",
+							"",
+							"pm.test(\"Valida respuesta con detalles de roaming\", function () {",
+							"    var actualResponseBody = pm.response.json();",
+							"    ",
+							"    var expectedResponseBody = {",
+							"        \"roaming\": true,",
+							"        \"countryCode\": 611,",
+							"        \"countryName\": [",
+							"            \"Guinea\"",
+							"        ]",
+							"    };",
+							"",
+							"    pm.expect(actualResponseBody).to.eql(expectedResponseBody);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"ueId\": {\n    \"externalId\": \"\",\n    \"msisdn\": \"+34651481210\",\n    \"ipv4Addr\": \"\",\n    \"ipv6Addr\": \"\"\n  },\n  \"uePort\": 5060\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8100/device-status/v0/roaming",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8100",
+					"path": [
+						"device-status",
+						"v0",
+						"roaming"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "roaming No Roaming",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.sendRequest({",
+							"    url: \"http://localhost:8100/realms/TFM/protocol/openid-connect/token\",",
+							"    method: 'POST',",
+							"    headers: {",
+							"        'Accept': 'application/json', // Agregado encabezado Accept",
+							"        'Content-Type': 'application/x-www-form-urlencoded'",
+							"    },",
+							"    body: {",
+							"        mode: 'urlencoded', ",
+							"        urlencoded: [",
+							"            {key: \"client_id\", value: \"opengateway\"},",
+							"            {key: \"client_secret\", value: \"1JsLTnYN3PicBWEZwcY702I8vlAaeyNs\"},",
+							"            {key: \"grant_type\", value: \"client_credentials\"}",
+							"",
+							"",
+							"        ]",
+							"    }",
+							"},",
+							"(err, res) => {",
+							"    if (err) {",
+							"        console.log(err);",
+							"    } else {",
+							"        pm.variables.set(\"access_token\", res.json().access_token);",
+							"        console.log(\"Token: \", res.json().access_token);",
+							"        console.log(\"Token: \", res.json());",
+							"        console.log(\"access_token: \", pm.variables.get(\"access_token\"))",
+							"    }",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Codigo 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Formato JSON\", function () {",
+							"    pm.response.to.be.json; ",
+							"});",
+							"",
+							"pm.test(\"Valida respuesta sin roaming\", function () {",
+							"    var actualResponseBody = pm.response.json(); ",
+							"",
+							"    var expectedResponseBody = {",
+							"        \"roaming\": false,",
+							"        \"countryCode\": 214,",
+							"        \"countryName\": []",
+							"    };",
+							"",
+							"    pm.expect(actualResponseBody).to.eql(expectedResponseBody);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"ueId\": {\n    \"externalId\": \"\",\n    \"msisdn\": \"+34651481211\",\n    \"ipv4Addr\": \"\",\n    \"ipv6Addr\": \"\"\n  },\n  \"uePort\": 5060\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8100/device-status/v0/roaming",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8100",
+					"path": [
+						"device-status",
+						"v0",
+						"roaming"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: logstash
+  labels:
+    component: logstash
+spec:
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      component: logstash
+  template:
+    metadata:
+      labels:
+        component: logstash
+    spec:
+      containers:
+        - name: logstash
+          image: logstash:8.12.2
+          ports:
+            - containerPort: 5044
+          volumeMounts:
+            - name: logstash-config
+              mountPath: /usr/share/logstash/pipeline
+            # - name: logstash-persistance
+            #   mountPath: /usr/share/logstash/logs
+      volumes:
+        - name: logstash-config
+          configMap:
+            name: logstash
+        # - name: logstash-persistance
+        #   persistentVolumeClaim:
+        #     claimName: logstash-claim1

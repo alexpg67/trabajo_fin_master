@@ -8,7 +8,7 @@ import com.tfm.provision.model.Client;
 import com.tfm.provision.model.TitularData;
 //import com.tfm.provision.security.SecurityConfiguration;
 //import com.tfm.provision.security.SecurityConfiguration;
-import com.tfm.provision.security.TestSecurityConfiguration;
+//import com.tfm.provision.security.TestSecurityConfiguration;
 import com.tfm.provision.service.ProvisionService;
 import jakarta.validation.constraints.*;
 import org.junit.jupiter.api.Test;
@@ -27,7 +27,7 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.security.test.context.support.WithMockUser;
+//import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestPropertySource;
@@ -46,15 +46,11 @@ import java.util.Optional;
 
 //
 @WebMvcTest(ProvisionController.class)
-//@WebMvcTest(value = ProvisionController.class, excludeFilters = @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, classes = SecurityConfiguration.class))
-//@TestPropertySource(locations = "classpath:application-security.properties", inheritLocations = false, inheritProperties = false)2
-//@TestPropertySource(locations = "/application-test.properties", inheritLocations = false, inheritProperties = false)
-@TestPropertySource(locations = "classpath:application-test.properties")
-//@SpringBootTest
-//@AutoConfigureMockMvc
-//@MockBean(SecurityConfiguration.class)
-@Import(TestSecurityConfiguration.class)
-@ActiveProfiles("test")
+
+//@TestPropertySource(locations = "classpath:application-test.properties")
+//
+//@Import(TestSecurityConfiguration.class)
+//@ActiveProfiles("test")
 //@SpringBootTest
 class ProvisionControllerTest {
 
@@ -70,7 +66,7 @@ class ProvisionControllerTest {
 
     //----------------------------------------GETALL-----------------------------------------------------------------------------
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testGetAllEmptyResponse() throws Exception {
 
 
@@ -86,7 +82,7 @@ class ProvisionControllerTest {
     }
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testGetAllTwoSizeResponse() throws Exception {
 
         String msisdn1 = "+1234";
@@ -109,7 +105,7 @@ class ProvisionControllerTest {
     //----------------------------------------GETALL-----------------------------------------------------------------------------
     //----------------------------------------GET/MSISDN-----------------------------------------------------------------------------
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testGetMsisdnEmptyResponse() throws Exception {
 
         String msisdn = "+1234";
@@ -126,7 +122,7 @@ class ProvisionControllerTest {
     }
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testGetMsisdnEmptyRequest() throws Exception {
 
         String msisdn = "";
@@ -143,7 +139,7 @@ class ProvisionControllerTest {
     }
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testGetMsisdnSuccessResponse() throws Exception {
 
         String msisdn = "+1234";
@@ -167,7 +163,7 @@ class ProvisionControllerTest {
     //----------------------------------------GET/EMAIL-----------------------------------------------------------------------------
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testGetEmailEmptyResponse() throws Exception {
 
         String email = "prueba@gmail.com";
@@ -184,7 +180,7 @@ class ProvisionControllerTest {
     }
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testGetEmailEmptyRequest() throws Exception {
 
         String email = "";
@@ -201,7 +197,7 @@ class ProvisionControllerTest {
     }
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testGetEmailSuccessResponse() throws Exception {
 
         String email = "prueba@gmail.com";
@@ -226,7 +222,7 @@ class ProvisionControllerTest {
 //----------------------------------------GET/DNI-----------------------------------------------------------------------------
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testGetDniEmptyResponse() throws Exception {
 
         String dni = "1111111A";
@@ -243,7 +239,7 @@ class ProvisionControllerTest {
     }
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testGetDniEmptyRequest() throws Exception {
 
         String dni = "";
@@ -260,7 +256,7 @@ class ProvisionControllerTest {
     }
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testGetDniSuccessResponse() throws Exception {
 
         String dni = "11111111A";
@@ -284,7 +280,7 @@ class ProvisionControllerTest {
 
     //----------------------------------------DELETE/MSISDN-----------------------------------------------------------------------------
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testDeleteMsisdnEmptyResponse() throws Exception {
 
         String msisdn = "+1234";
@@ -301,7 +297,7 @@ class ProvisionControllerTest {
     }
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testDeleteMsisdnEmptyRequest() throws Exception {
 
         String msisdn = "";
@@ -318,7 +314,7 @@ class ProvisionControllerTest {
     }
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testDeleteMsisdnSuccessResponse() throws Exception {
 
         String msisdn = "+1234";
@@ -342,7 +338,7 @@ class ProvisionControllerTest {
     //----------------------------------------DELETE/EMAIL-----------------------------------------------------------------------------
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testDeleteEmailEmptyResponse() throws Exception {
 
         String email = "prueba@gmail.com";
@@ -359,7 +355,7 @@ class ProvisionControllerTest {
     }
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testDeleteEmailEmptyRequest() throws Exception {
 
         String email = "";
@@ -376,7 +372,7 @@ class ProvisionControllerTest {
     }
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testDeleteEmailSuccessResponse() throws Exception {
 
         String email = "prueba@gmail.com";
@@ -401,7 +397,7 @@ class ProvisionControllerTest {
     //----------------------------------------DELETE/DNI-----------------------------------------------------------------------------
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testDeleteDniEmptyResponse() throws Exception {
 
         String dni = "1111111A";
@@ -418,7 +414,7 @@ class ProvisionControllerTest {
     }
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testDeleteDniEmptyRequest() throws Exception {
 
         String dni = "";
@@ -435,7 +431,7 @@ class ProvisionControllerTest {
     }
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testDeleteDniSuccessResponse() throws Exception {
 
         String dni = "11111111A";
@@ -459,7 +455,7 @@ class ProvisionControllerTest {
     //----------------------------------------POST-----------------------------------------------------------------------------
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testPostInvalidMsisdnMinLength() throws Exception {
 
 
@@ -500,7 +496,7 @@ class ProvisionControllerTest {
     }
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testPostInvalidMsisdnMaxLength() throws Exception {
 
 
@@ -541,7 +537,7 @@ class ProvisionControllerTest {
     }
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testPostInvalidMsisdnCharacterError() throws Exception {
 
 
@@ -582,7 +578,7 @@ class ProvisionControllerTest {
     }
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testPostValidMsisdnOptionalPlus() throws Exception {
 
 
@@ -633,7 +629,7 @@ class ProvisionControllerTest {
     }
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testPostValidMsisdnWithPlus() throws Exception {
 
 
@@ -684,7 +680,7 @@ class ProvisionControllerTest {
     }
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testPostInvalidMsisdnNull() throws Exception {
 
 
@@ -737,7 +733,7 @@ class ProvisionControllerTest {
     }
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testPostInvalidImsiMinLength() throws Exception {
 //        @NotNull
 //        @Pattern(regexp = "^[0-9]{3}[0-9]{2,3}[0-9]{1,10}$")
@@ -784,7 +780,7 @@ class ProvisionControllerTest {
 
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testPostInvalidImsiMaxLength() throws Exception {
 //        @NotNull
 //        @Pattern(regexp = "^[0-9]{3}[0-9]{2,3}[0-9]{1,10}$")
@@ -830,7 +826,7 @@ class ProvisionControllerTest {
     }
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testPostInvalidImsiCharacterError() throws Exception {
 //        @NotNull
 //        @Pattern(regexp = "^[0-9]{3}[0-9]{2,3}[0-9]{1,10}$")
@@ -876,7 +872,7 @@ class ProvisionControllerTest {
     }
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testPostInvalidImsiNull() throws Exception {
 //        @NotNull
 //        @Pattern(regexp = "^[0-9]{3}[0-9]{2,3}[0-9]{1,10}$")
@@ -922,7 +918,7 @@ class ProvisionControllerTest {
     }
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testPostValidImsi() throws Exception {
 //        @NotNull
 //        @Pattern(regexp = "^[0-9]{3}[0-9]{2,3}[0-9]{1,10}$")
@@ -967,7 +963,7 @@ class ProvisionControllerTest {
 
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testPostInvalidMccMinLength() throws Exception {
 //        @Min(value = 0)
 //        @Max(value = 999)
@@ -1011,7 +1007,7 @@ class ProvisionControllerTest {
     }
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testPostInvalidMccMaxLength() throws Exception {
 //        @Min(value = 0)
 //        @Max(value = 999)
@@ -1056,7 +1052,7 @@ class ProvisionControllerTest {
 
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testPostValidMccNull() throws Exception {
 //        @Min(value = 0)
 //        @Max(value = 999)
@@ -1102,7 +1098,7 @@ class ProvisionControllerTest {
     }
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testPostInvalidMncMinLength() throws Exception {
 //        @Pattern(regexp = "^[0-9]{2,3}$")
 //        @NotNull
@@ -1145,7 +1141,7 @@ class ProvisionControllerTest {
     }
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testPostInvalidMncMaxLength() throws Exception {
 //        @Pattern(regexp = "^[0-9]{2,3}$")
 //        @NotNull
@@ -1188,7 +1184,7 @@ class ProvisionControllerTest {
     }
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testPostInvalidMncCharacterError() throws Exception {
 //        @Pattern(regexp = "^[0-9]{2,3}$")
 //        @NotNull
@@ -1231,7 +1227,7 @@ class ProvisionControllerTest {
     }
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testPostInvalidMncNull() throws Exception {
 //        @Pattern(regexp = "^[0-9]{2,3}$")
 //        @NotNull
@@ -1274,7 +1270,7 @@ class ProvisionControllerTest {
     }
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testPostValidMnc() throws Exception {
 //        @Pattern(regexp = "^[0-9]{2,3}$")
 //        @NotNull
@@ -1319,7 +1315,7 @@ class ProvisionControllerTest {
     }
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testPostInvalidCellIdMinLength() throws Exception {
 //        @Min(value = 0)
 //        @Max(value = 9999)
@@ -1363,7 +1359,7 @@ class ProvisionControllerTest {
     }
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testPostInvalidCellIdMaxLength() throws Exception {
 //        @Min(value = 0)
 //        @Max(value = 9999)
@@ -1407,7 +1403,7 @@ class ProvisionControllerTest {
     }
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testPostValidCellId() throws Exception {
 //        @Min(value = 0)
 //        @Max(value = 9999)
@@ -1453,7 +1449,7 @@ class ProvisionControllerTest {
     }
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testPostInvalidName() throws Exception {
 //        @NotEmpty
 //        @Pattern(regexp = "^[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ]+$")
@@ -1497,7 +1493,7 @@ class ProvisionControllerTest {
     }
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testPostValidName() throws Exception {
 //        @NotEmpty
 //        @Pattern(regexp = "^[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ]+$")
@@ -1543,7 +1539,7 @@ class ProvisionControllerTest {
     }
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testPostInvalidGivenName() throws Exception {
 //        @NotEmpty
 //        @Pattern(regexp = "^([a-zA-ZñÑáéíóúÁÉÍÓÚüÜ\\s]+\\s?){1,2}$")
@@ -1587,7 +1583,7 @@ class ProvisionControllerTest {
     }
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testPostInvalidGivenNameLength() throws Exception {
 //        @NotEmpty
 //        @Pattern(regexp = "^([a-zA-ZñÑáéíóúÁÉÍÓÚüÜ\\s]+\\s?){1,2}$")
@@ -1631,7 +1627,7 @@ class ProvisionControllerTest {
     }
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testPostValidGivenName() throws Exception {
 //        @NotEmpty
 //        @Pattern(regexp = "^([a-zA-ZñÑáéíóúÁÉÍÓÚüÜ\\s]+\\s?){1,2}$")
@@ -1677,7 +1673,7 @@ class ProvisionControllerTest {
     }
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testPostInvalidIdDocumentCharacterError() throws Exception {
 //        @Indexed
 //        //No son unicos ya que en un pack familiar, solo tenemos los datos del titular (Multiples MSISDN con mismos datos)
@@ -1724,7 +1720,7 @@ class ProvisionControllerTest {
     }
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testPostInvalidIdDocumentLetraCharacterError() throws Exception {
 //        @Indexed
 //        //No son unicos ya que en un pack familiar, solo tenemos los datos del titular (Multiples MSISDN con mismos datos)
@@ -1771,7 +1767,7 @@ class ProvisionControllerTest {
     }
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testPostValidIdDocument() throws Exception {
 //        @Indexed
 //        //No son unicos ya que en un pack familiar, solo tenemos los datos del titular (Multiples MSISDN con mismos datos)
@@ -1820,7 +1816,7 @@ class ProvisionControllerTest {
 
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testPostInvalidIdEmail() throws Exception {
 //@Email
 
@@ -1864,7 +1860,7 @@ class ProvisionControllerTest {
     }
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testPostValidEmail() throws Exception {
 //@Email
 
@@ -1910,7 +1906,7 @@ class ProvisionControllerTest {
     }
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testPostInvalidGender() throws Exception {
 //   @Pattern(regexp = "^(Masculino|Femenino)$")
 
@@ -1954,7 +1950,7 @@ class ProvisionControllerTest {
     }
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testPostValidGender() throws Exception {
 //   @Pattern(regexp = "^(Masculino|Femenino)$")
 
@@ -2000,7 +1996,7 @@ class ProvisionControllerTest {
     }
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testPostInvalidBirthdate() throws Exception {
 //        @NotEmpty
 //        @Pattern(regexp = "^\\d{4}-\\d{2}-\\d{2}$")
@@ -2044,7 +2040,7 @@ class ProvisionControllerTest {
     }
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testPostInvalidBirthdateTwo() throws Exception {
 //        @NotEmpty
 //        @Pattern(regexp = "^\\d{4}-\\d{2}-\\d{2}$")
@@ -2088,7 +2084,7 @@ class ProvisionControllerTest {
     }
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testPostInvalidBirthdayThree() throws Exception {
 //        @NotEmpty
 //        @Pattern(regexp = "^\\d{4}-\\d{2}-\\d{2}$")
@@ -2132,7 +2128,7 @@ class ProvisionControllerTest {
     }
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testPostValidBirthdate() throws Exception {
 //        @NotEmpty
 //        @Pattern(regexp = "^\\d{4}-\\d{2}-\\d{2}$")
@@ -2177,7 +2173,7 @@ class ProvisionControllerTest {
     }
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testPostInvalidStreetNameNumberError() throws Exception {
 //        @NotEmpty
 //        @Pattern(regexp = "^([a-zA-ZñÑáéíóúÁÉÍÓÚüÜ\\s]+\\s?){1,5}$")
@@ -2221,7 +2217,7 @@ class ProvisionControllerTest {
     }
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testPostInvalidStreetNameMaxLength() throws Exception {
 //        @NotEmpty
 //        @Pattern(regexp = "^([a-zA-ZñÑáéíóúÁÉÍÓÚüÜ\\s]+\\s?){1,5}$")
@@ -2265,7 +2261,7 @@ class ProvisionControllerTest {
     }
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testPostValidStreetName() throws Exception {
 //        @NotEmpty
 //        @Pattern(regexp = "^([a-zA-ZñÑáéíóúÁÉÍÓÚüÜ\\s]+\\s?){1,5}$")
@@ -2311,7 +2307,7 @@ class ProvisionControllerTest {
     }
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testPutValidResponse() throws Exception {
 
         String msisdn = "+346687";
@@ -2392,7 +2388,7 @@ class ProvisionControllerTest {
 //    }
 //
 //    @Test
-//    @WithMockUser(username = "testuser", roles = {"USER"})
+// //   @WithMockUser(username = "testuser", roles = {"USER"})
 //    public void testGetMsisdnNotAuthorized() throws Exception {
 //
 //        String msisdn = "+1234";

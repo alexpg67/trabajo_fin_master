@@ -8,8 +8,7 @@ import com.tfm.provision.model.Address;
 import com.tfm.provision.model.Client;
 import com.tfm.provision.model.TitularData;
 import com.tfm.provision.repository.ProvisionRepository;
-import com.tfm.provision.security.SecurityConfiguration;
-import com.tfm.provision.security.TestSecurityConfiguration;
+
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import org.junit.jupiter.api.Assertions;
@@ -27,7 +26,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.Import;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.security.test.context.support.WithMockUser;
+
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
@@ -48,10 +47,11 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 //@SpringBootTest
 //@AutoConfigureMockMvc
-@TestPropertySource(locations = "classpath:application-test.properties")
+//@TestPropertySource(locations = "classpath:application-test.properties")
 @WebMvcTest(ProvisionController.class)
-@Import({TestSecurityConfiguration.class, ProvisionService.class })
-@ActiveProfiles("test")
+//@Import({TestSecurityConfiguration.class, ProvisionService.class })
+@Import({ ProvisionService.class })
+//@ActiveProfiles("test")
 public class ProvisionServiceTest {
 
 
@@ -70,7 +70,7 @@ public class ProvisionServiceTest {
 
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+// //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testProvisionServiceValidClient() throws Exception {
 //        @Pattern(regexp = "^[0-9]{2,3}$")
 //        @NotNull
@@ -110,7 +110,7 @@ public class ProvisionServiceTest {
     }
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ ////   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testProvisionServiceInvalidTitularClientDuplicatedDni() throws Exception {
 
 
@@ -148,7 +148,7 @@ public class ProvisionServiceTest {
     }
 
 //    @Test
-//    @WithMockUser(username = "testuser", roles = {"USER"})
+// //   @WithMockUser(username = "testuser", roles = {"USER"})
 //    public void testProvisionServiceInvalidImsiFormat() throws Exception {
 //
 //
@@ -185,7 +185,7 @@ public class ProvisionServiceTest {
 //    }
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testProvisionServiceLatestSimChangeFormat() throws Exception {
 
 
@@ -225,7 +225,7 @@ public class ProvisionServiceTest {
     }
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testUpdateClientNotFound() throws Exception {
 
 
@@ -272,7 +272,7 @@ public class ProvisionServiceTest {
     }
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testUpdateClientImsiWrongFormat() throws Exception {
 
 
@@ -320,7 +320,7 @@ public class ProvisionServiceTest {
     }
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testUpdateClientMccWrongFormat() throws Exception {
 
 
@@ -368,7 +368,7 @@ public class ProvisionServiceTest {
     }
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testUpdateClientMncWrongFormat() throws Exception {
 
 
@@ -416,7 +416,7 @@ public class ProvisionServiceTest {
     }
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testUpdateClientCellIdWrongFormat() throws Exception {
 
 
@@ -486,7 +486,7 @@ public class ProvisionServiceTest {
     }
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testUpdateClientNameWrongFormat() throws Exception {
 
 
@@ -556,7 +556,7 @@ public class ProvisionServiceTest {
     }
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testUpdateClientGivenNameWrongFormat() throws Exception {
 
 
@@ -626,7 +626,7 @@ public class ProvisionServiceTest {
     }
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testUpdateClientFamilyNameWrongFormat() throws Exception {
 
 
@@ -695,7 +695,7 @@ public class ProvisionServiceTest {
 
     }
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testUpdateClientIdDocumentWrong() throws Exception {
 
 
@@ -765,7 +765,7 @@ public class ProvisionServiceTest {
     }
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testUpdateClientEmailWrongFormat() throws Exception {
 
 
@@ -835,7 +835,7 @@ public class ProvisionServiceTest {
     }
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testUpdateClientGenderWrongFormat() throws Exception {
 
 
@@ -905,7 +905,7 @@ public class ProvisionServiceTest {
     }
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testUpdateClientBirthdayWrongFormat() throws Exception {
 
 
@@ -975,7 +975,7 @@ public class ProvisionServiceTest {
     }
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testUpdateClientStreetNameWrongFormat() throws Exception {
 
 
@@ -1045,7 +1045,7 @@ public class ProvisionServiceTest {
     }
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testUpdateClientStreetNumberWrongFormat() throws Exception {
 
 
@@ -1115,7 +1115,7 @@ public class ProvisionServiceTest {
     }
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testUpdateClientPostalCodeWrongFormat() throws Exception {
 
 
@@ -1185,7 +1185,7 @@ public class ProvisionServiceTest {
     }
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testUpdateClientRegionWrongFormat() throws Exception {
 
 
@@ -1255,7 +1255,7 @@ public class ProvisionServiceTest {
     }
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testUpdateClientLocalityWrongFormat() throws Exception {
 
 
@@ -1325,7 +1325,7 @@ public class ProvisionServiceTest {
     }
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testUpdateClientCountryWrongFormat() throws Exception {
 
 
@@ -1395,7 +1395,7 @@ public class ProvisionServiceTest {
     }
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testUpdateClientValidInput() throws Exception {
 
 
@@ -1486,7 +1486,7 @@ public class ProvisionServiceTest {
 
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testUpdateClientValidInputTitular() throws Exception {
 
 
@@ -1574,7 +1574,7 @@ public class ProvisionServiceTest {
     }
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testUpdateClientInvalidInputTitular() throws Exception {
 
 
@@ -1649,7 +1649,7 @@ public class ProvisionServiceTest {
     }
 
     @Test
-    @WithMockUser(username = "testuser", roles = {"USER"})
+ //   @WithMockUser(username = "testuser", roles = {"USER"})
     public void testUpdateClientInvalidInputTitularIdDocumentNotEmpty() throws Exception {
 
 

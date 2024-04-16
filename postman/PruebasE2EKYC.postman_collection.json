@@ -1,0 +1,697 @@
+{
+	"info": {
+		"_postman_id": "80ba4054-7317-448b-86dd-9325525c710a",
+		"name": "Pruebas E2E KYC",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32869911"
+	},
+	"item": [
+		{
+			"name": "Match Non Existing Client",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.sendRequest({",
+							"    url: \"http://localhost:8100/realms/TFM/protocol/openid-connect/token\",",
+							"    method: 'POST',",
+							"    headers: {",
+							"        'Accept': 'application/json', // Agregado encabezado Accept",
+							"        'Content-Type': 'application/x-www-form-urlencoded'",
+							"    },",
+							"    body: {",
+							"        mode: 'urlencoded', ",
+							"        urlencoded: [",
+							"            {key: \"client_id\", value: \"opengateway\"},",
+							"            {key: \"client_secret\", value: \"1JsLTnYN3PicBWEZwcY702I8vlAaeyNs\"},",
+							"            {key: \"grant_type\", value: \"client_credentials\"}",
+							"",
+							"",
+							"        ]",
+							"    }",
+							"},",
+							"(err, res) => {",
+							"    if (err) {",
+							"        console.log(err);",
+							"    } else {",
+							"        pm.variables.set(\"access_token\", res.json().access_token);",
+							"        console.log(\"Token: \", res.json().access_token);",
+							"        console.log(\"Token: \", res.json());",
+							"        console.log(\"access_token: \", pm.variables.get(\"access_token\"))",
+							"    }",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Codigo 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Formato JSON\", function () {",
+							"    pm.response.to.be.json; ",
+							"});",
+							"",
+							"pm.test(\"La respuesta coincide con la esperada\", function () {",
+							"    var actualResponseBody = pm.response.json(); ",
+							"    ",
+							"    var expectedResponseBody = {",
+							"        \"status\": 404,",
+							"        \"code\": \"NOT_FOUND\",",
+							"        \"message\": \"not_found_contractor/not_found\"",
+							"    };",
+							"",
+							"    ",
+							"    pm.expect(actualResponseBody).to.deep.eql(expectedResponseBody);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\n    \"phoneNumber\": \"+34999999999\",\n    \"idDocument\": \"08359219Z\",\n    \"name\": \"Sofía Hernández\",\n    \"givenName\": \"Sofía\",\n    \"familyName\": \"Hernández\",\n    \"nameKanaHankaku\": \"\",\n    \"nameKanaZenkaku\": \"Ｆｅｄｅ\",\n    \"middleNames\": \"Sanchez\",\n    \"familyNameAtBirth\": \"YYYY\",\n    \"address\": \"Carrer De MALlorca 100\",\n    \"streetName\": \"Carrer de Mallorca\",\n    \"streetNumber\": \"100\",\n    \"postalCode\": \"08029\",\n    \"region\": \"Barcelona\",\n    \"locality\": \"Barcelona\",\n    \"country\": \"España\",\n    \"houseNumberExtension\": \"I\",\n    \"birthdate\": \"1984-07-25\",\n    \"email\": \"sofia@example.com\",\n    \"gender\": \"FEMale\"\n \n\n      }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8100/kyc-match/v0/match",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8100",
+					"path": [
+						"kyc-match",
+						"v0",
+						"match"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Match DNI Not Match",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.sendRequest({",
+							"    url: \"http://localhost:8100/realms/TFM/protocol/openid-connect/token\",",
+							"    method: 'POST',",
+							"    headers: {",
+							"        'Accept': 'application/json', // Agregado encabezado Accept",
+							"        'Content-Type': 'application/x-www-form-urlencoded'",
+							"    },",
+							"    body: {",
+							"        mode: 'urlencoded', ",
+							"        urlencoded: [",
+							"            {key: \"client_id\", value: \"opengateway\"},",
+							"            {key: \"client_secret\", value: \"1JsLTnYN3PicBWEZwcY702I8vlAaeyNs\"},",
+							"            {key: \"grant_type\", value: \"client_credentials\"}",
+							"",
+							"",
+							"        ]",
+							"    }",
+							"},",
+							"(err, res) => {",
+							"    if (err) {",
+							"        console.log(err);",
+							"    } else {",
+							"        pm.variables.set(\"access_token\", res.json().access_token);",
+							"        console.log(\"Token: \", res.json().access_token);",
+							"        console.log(\"Token: \", res.json());",
+							"        console.log(\"access_token: \", pm.variables.get(\"access_token\"))",
+							"    }",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Codigo 401\", function () {",
+							"    pm.response.to.have.status(401);",
+							"});",
+							"",
+							"pm.test(\"Formato JSON\", function () {",
+							"    pm.response.to.be.json; ",
+							"});",
+							"",
+							"pm.test(\"La respuesta coincide con la esperada\", function () {",
+							"    var actualResponseBody = pm.response.json(); ",
+							"    ",
+							"    var expectedResponseBody = {",
+							"        \"status\": 401,",
+							"        \"code\": \"PERMISSION_DENIED\",",
+							"        \"message\": \"Client does not have sufficient permissions to perform this action\"",
+							"    };",
+							"",
+							"    ",
+							"    pm.expect(actualResponseBody).to.deep.eql(expectedResponseBody);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\n    \"phoneNumber\": \"+34651481201\",\n    \"idDocument\": \"08359219Z\",\n    \"name\": \"Sofía Hernández\",\n    \"givenName\": \"Sofía\",\n    \"familyName\": \"Hernández\",\n    \"nameKanaHankaku\": \"\",\n    \"nameKanaZenkaku\": \"Ｆｅｄｅ\",\n    \"middleNames\": \"Sanchez\",\n    \"familyNameAtBirth\": \"YYYY\",\n    \"address\": \"Carrer De MALlorca 100\",\n    \"streetName\": \"Carrer de Mallorca\",\n    \"streetNumber\": \"100\",\n    \"postalCode\": \"08029\",\n    \"region\": \"Barcelona\",\n    \"locality\": \"Barcelona\",\n    \"country\": \"España\",\n    \"houseNumberExtension\": \"I\",\n    \"birthdate\": \"1984-07-25\",\n    \"email\": \"sofia@example.com\",\n    \"gender\": \"FEMale\"\n \n\n      }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8100/kyc-match/v0/match",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8100",
+					"path": [
+						"kyc-match",
+						"v0",
+						"match"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Match Bad Address",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.sendRequest({",
+							"    url: \"http://localhost:8100/realms/TFM/protocol/openid-connect/token\",",
+							"    method: 'POST',",
+							"    headers: {",
+							"        'Accept': 'application/json', // Agregado encabezado Accept",
+							"        'Content-Type': 'application/x-www-form-urlencoded'",
+							"    },",
+							"    body: {",
+							"        mode: 'urlencoded', ",
+							"        urlencoded: [",
+							"            {key: \"client_id\", value: \"opengateway\"},",
+							"            {key: \"client_secret\", value: \"1JsLTnYN3PicBWEZwcY702I8vlAaeyNs\"},",
+							"            {key: \"grant_type\", value: \"client_credentials\"}",
+							"",
+							"",
+							"        ]",
+							"    }",
+							"},",
+							"(err, res) => {",
+							"    if (err) {",
+							"        console.log(err);",
+							"    } else {",
+							"        pm.variables.set(\"access_token\", res.json().access_token);",
+							"        console.log(\"Token: \", res.json().access_token);",
+							"        console.log(\"Token: \", res.json());",
+							"        console.log(\"access_token: \", pm.variables.get(\"access_token\"))",
+							"    }",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Codigo 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"",
+							"pm.test(\"Formato JSON\", function () {",
+							"    pm.response.to.be.json; ",
+							"});",
+							"",
+							"pm.test(\"La respuesta coincide con la esperada\", function () {",
+							"    var actualResponseBody = pm.response.json(); ",
+							"    ",
+							"    var expectedResponseBody = {",
+							"        \"status\": 400,",
+							"        \"code\": \"INVALID_ARGUMENT\",",
+							"        \"message\": \"Client specified an invalid argument, request body or query param\"",
+							"    };",
+							"",
+							"    ",
+							"    pm.expect(actualResponseBody).to.deep.eql(expectedResponseBody);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\n    \"phoneNumber\": \"+34651481201\",\n    \"idDocument\": \"08359159D\",\n    \"name\": \"Sofía Hernández\",\n    \"givenName\": \"Sofía\",\n    \"familyName\": \"Hernández\",\n    \"nameKanaHankaku\": \"\",\n    \"nameKanaZenkaku\": \"Ｆｅｄｅ\",\n    \"middleNames\": \"Sanchez\",\n    \"familyNameAtBirth\": \"YYYY\",\n    \"address\": \"Carrer De MALlorca 100\",\n    \"streetName\": \"Carrer de Mallorquina\",\n    \"streetNumber\": \"100\",\n    \"postalCode\": \"08029\",\n    \"region\": \"Barcelona\",\n    \"locality\": \"Barcelona\",\n    \"country\": \"España\",\n    \"houseNumberExtension\": \"I\",\n    \"birthdate\": \"1984-07-25\",\n    \"email\": \"sofia@example.com\",\n    \"gender\": \"FEMale\"\n \n\n      }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8100/kyc-match/v0/match",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8100",
+					"path": [
+						"kyc-match",
+						"v0",
+						"match"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Match Bad Name",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.sendRequest({",
+							"    url: \"http://localhost:8100/realms/TFM/protocol/openid-connect/token\",",
+							"    method: 'POST',",
+							"    headers: {",
+							"        'Accept': 'application/json', // Agregado encabezado Accept",
+							"        'Content-Type': 'application/x-www-form-urlencoded'",
+							"    },",
+							"    body: {",
+							"        mode: 'urlencoded', ",
+							"        urlencoded: [",
+							"            {key: \"client_id\", value: \"opengateway\"},",
+							"            {key: \"client_secret\", value: \"1JsLTnYN3PicBWEZwcY702I8vlAaeyNs\"},",
+							"            {key: \"grant_type\", value: \"client_credentials\"}",
+							"",
+							"",
+							"        ]",
+							"    }",
+							"},",
+							"(err, res) => {",
+							"    if (err) {",
+							"        console.log(err);",
+							"    } else {",
+							"        pm.variables.set(\"access_token\", res.json().access_token);",
+							"        console.log(\"Token: \", res.json().access_token);",
+							"        console.log(\"Token: \", res.json());",
+							"        console.log(\"access_token: \", pm.variables.get(\"access_token\"))",
+							"    }",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Codigo 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"",
+							"pm.test(\"Formato JSON\", function () {",
+							"    pm.response.to.be.json; ",
+							"});",
+							"",
+							"pm.test(\"La respuesta coincide con la esperada\", function () {",
+							"    var actualResponseBody = pm.response.json(); ",
+							"    ",
+							"    var expectedResponseBody = {",
+							"        \"status\": 400,",
+							"        \"code\": \"INVALID_ARGUMENT\",",
+							"        \"message\": \"Client specified an invalid argument, request body or query param\"",
+							"    };",
+							"",
+							"    ",
+							"    pm.expect(actualResponseBody).to.deep.eql(expectedResponseBody);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\n    \"phoneNumber\": \"+34651481201\",\n    \"idDocument\": \"08359159D\",\n    \"name\": \"Sofía Hernández\",\n    \"givenName\": \"Sofía\",\n    \"familyName\": \"Fernández\",\n    \"nameKanaHankaku\": \"\",\n    \"nameKanaZenkaku\": \"Ｆｅｄｅ\",\n    \"middleNames\": \"Sanchez\",\n    \"familyNameAtBirth\": \"YYYY\",\n    \"address\": \"Carrer De MALlorca 100\",\n    \"streetName\": \"Carrer de Mallorca\",\n    \"streetNumber\": \"100\",\n    \"postalCode\": \"08029\",\n    \"region\": \"Barcelona\",\n    \"locality\": \"Barcelona\",\n    \"country\": \"España\",\n    \"houseNumberExtension\": \"I\",\n    \"birthdate\": \"1984-07-25\",\n    \"email\": \"sofia@example.com\",\n    \"gender\": \"FEMale\"\n \n\n      }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8100/kyc-match/v0/match",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8100",
+					"path": [
+						"kyc-match",
+						"v0",
+						"match"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Match Partial Match",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.sendRequest({",
+							"    url: \"http://localhost:8100/realms/TFM/protocol/openid-connect/token\",",
+							"    method: 'POST',",
+							"    headers: {",
+							"        'Accept': 'application/json', // Agregado encabezado Accept",
+							"        'Content-Type': 'application/x-www-form-urlencoded'",
+							"    },",
+							"    body: {",
+							"        mode: 'urlencoded', ",
+							"        urlencoded: [",
+							"            {key: \"client_id\", value: \"opengateway\"},",
+							"            {key: \"client_secret\", value: \"1JsLTnYN3PicBWEZwcY702I8vlAaeyNs\"},",
+							"            {key: \"grant_type\", value: \"client_credentials\"}",
+							"",
+							"",
+							"        ]",
+							"    }",
+							"},",
+							"(err, res) => {",
+							"    if (err) {",
+							"        console.log(err);",
+							"    } else {",
+							"        pm.variables.set(\"access_token\", res.json().access_token);",
+							"        console.log(\"Token: \", res.json().access_token);",
+							"        console.log(\"Token: \", res.json());",
+							"        console.log(\"access_token: \", pm.variables.get(\"access_token\"))",
+							"    }",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Codigo 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Formato JSON\", function () {",
+							"    pm.response.to.be.json; ",
+							"});",
+							"",
+							"pm.test(\"La respuesta coincide con la esperada\", function () {",
+							"    var actualResponseBody = pm.response.json(); // Parsea la respuesta a JSON",
+							"",
+							"    var expectedResponseBody = {",
+							"        \"idDocumentMatch\": \"true\",",
+							"        \"nameMatch\": \"true\",",
+							"        \"givenNameMatch\": \"true\",",
+							"        \"familyNameMatch\": \"true\",",
+							"        \"nameKanaHankakuMatch\": \"not_available\",",
+							"        \"nameKanaZenkakuMatch\": \"not_available\",",
+							"        \"middleNamesMatch\": \"not_available\",",
+							"        \"familyNameAtBirthMatch\": \"not_available\",",
+							"        \"addressMatch\": \"true\",",
+							"        \"streetNameMatch\": \"true\",",
+							"        \"streetNumberMatch\": \"true\",",
+							"        \"postalCodeMatch\": \"true\",",
+							"        \"regionMatch\": \"true\",",
+							"        \"localityMatch\": \"true\",",
+							"        \"countryMatch\": \"true\",",
+							"        \"houseNumberExtensionMatch\": \"false\",",
+							"        \"birthdateMatch\": \"false\",",
+							"        \"emailMatch\": \"false\",",
+							"        \"genderMatch\": \"false\"",
+							"    };",
+							"",
+							"    // Compara el cuerpo de la respuesta actual con el esperado",
+							"    pm.expect(actualResponseBody).to.deep.equal(expectedResponseBody);",
+							"});",
+							"",
+							"    ",
+							"",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\n    \"phoneNumber\": \"+34651481201\",\n    \"idDocument\": \"08359159D\",\n    \"name\": \"Yolanda Gómez\",\n    \"givenName\": \"yolanda\",\n    \"familyName\": \"gomez\",\n    \"nameKanaHankaku\": \"\",\n    \"nameKanaZenkaku\": \"Ｆｅｄｅ\",\n    \"middleNames\": \"Sanchez\",\n    \"familyNameAtBirth\": \"YYYY\",\n    \"address\": \"Calle de Hortaleza 92\",\n    \"streetName\": \"Calle de Hortaleza\",\n    \"streetNumber\": \"92\",\n    \"postalCode\": \"28096\",\n    \"region\": \"Madrid\",\n    \"locality\": \"Madrid\",\n    \"country\": \"España\",\n    \"houseNumberExtension\": \"I\",\n    \"birthdate\": \"1984-07-25\",\n    \"email\": \"sofia@example.com\",\n    \"gender\": \"masculino\"\n \n\n      }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8100/kyc-match/v0/match",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8100",
+					"path": [
+						"kyc-match",
+						"v0",
+						"match"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Match Complete Match",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.sendRequest({",
+							"    url: \"http://localhost:8100/realms/TFM/protocol/openid-connect/token\",",
+							"    method: 'POST',",
+							"    headers: {",
+							"        'Accept': 'application/json', // Agregado encabezado Accept",
+							"        'Content-Type': 'application/x-www-form-urlencoded'",
+							"    },",
+							"    body: {",
+							"        mode: 'urlencoded', ",
+							"        urlencoded: [",
+							"            {key: \"client_id\", value: \"opengateway\"},",
+							"            {key: \"client_secret\", value: \"1JsLTnYN3PicBWEZwcY702I8vlAaeyNs\"},",
+							"            {key: \"grant_type\", value: \"client_credentials\"}",
+							"",
+							"",
+							"        ]",
+							"    }",
+							"},",
+							"(err, res) => {",
+							"    if (err) {",
+							"        console.log(err);",
+							"    } else {",
+							"        pm.variables.set(\"access_token\", res.json().access_token);",
+							"        console.log(\"Token: \", res.json().access_token);",
+							"        console.log(\"Token: \", res.json());",
+							"        console.log(\"access_token: \", pm.variables.get(\"access_token\"))",
+							"    }",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Codigo 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Formato JSON\", function () {",
+							"    pm.response.to.be.json; ",
+							"});",
+							"",
+							"pm.test(\"La respuesta coincide con la esperada\", function () {",
+							"    var actualResponseBody = pm.response.json(); ",
+							"",
+							"    var expectedResponseBody = {",
+							"        \"idDocumentMatch\": \"true\",",
+							"        \"nameMatch\": \"true\",",
+							"        \"givenNameMatch\": \"true\",",
+							"        \"familyNameMatch\": \"true\",",
+							"        \"nameKanaHankakuMatch\": \"not_available\",",
+							"        \"nameKanaZenkakuMatch\": \"not_available\",",
+							"        \"middleNamesMatch\": \"not_available\",",
+							"        \"familyNameAtBirthMatch\": \"not_available\",",
+							"        \"addressMatch\": \"true\",",
+							"        \"streetNameMatch\": \"true\",",
+							"        \"streetNumberMatch\": \"true\",",
+							"        \"postalCodeMatch\": \"true\",",
+							"        \"regionMatch\": \"true\",",
+							"        \"localityMatch\": \"true\",",
+							"        \"countryMatch\": \"true\",",
+							"        \"houseNumberExtensionMatch\": \"true\",",
+							"        \"birthdateMatch\": \"true\",",
+							"        \"emailMatch\": \"true\",",
+							"        \"genderMatch\": \"true\"",
+							"    };",
+							"",
+							"    pm.expect(actualResponseBody).to.deep.equal(expectedResponseBody);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\n    \"phoneNumber\": \"+34651481201\",\n    \"idDocument\": \"08359159D\",\n    \"name\": \"Yolanda Gómez\",\n    \"givenName\": \"yolanda\",\n    \"familyName\": \"gomez\",\n    \"nameKanaHankaku\": \"\",\n    \"nameKanaZenkaku\": \"Ｆｅｄｅ\",\n    \"middleNames\": \"Sanchez\",\n    \"familyNameAtBirth\": \"YYYY\",\n    \"address\": \"Calle de Hortaleza 92\",\n    \"streetName\": \"Calle de Hortaleza\",\n    \"streetNumber\": \"92\",\n    \"postalCode\": \"28096\",\n    \"region\": \"Madrid\",\n    \"locality\": \"Madrid\",\n    \"country\": \"España\",\n    \"houseNumberExtension\": \"1D\",\n    \"birthdate\": \"1940-08-02\",\n    \"email\": \"yolandagomez@gmail.com\",\n    \"gender\": \"Female\"\n \n\n      }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8100/kyc-match/v0/match",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8100",
+					"path": [
+						"kyc-match",
+						"v0",
+						"match"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,42 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: prometheus-config
+  labels:
+    component: prometheus
+data:
+  prometheus.yml: |
+    global:
+      scrape_interval: 15s
+      scrape_timeout: 10s
+      evaluation_interval: 15s
+    alerting:
+      alertmanagers:
+        - static_configs:
+            - targets: []
+          scheme: http
+          timeout: 10s
+          api_version: v1
+    scrape_configs:
+      - job_name: "prometheus"
+        honor_timestamps: true
+        scrape_interval: 15s
+        scrape_timeout: 10s
+        scheme: http
+        static_configs:
+          - targets:
+              - "prometheus:9090"
+
+      - job_name: "spring-provision"
+        honor_timestamps: true
+        scrape_interval: 15s
+        scrape_timeout: 10s
+        metrics_path: "/actuator/prometheus"
+        scheme: http
+        static_configs:
+          - targets:
+              # - "172.17.0.1:8082" # Descomenta esta línea si necesitas usar la dirección IP específica
+              # - "provision:8082"
+              - "simswap:8083"
+              # - "devicestatus:8084"
+              - "kyc:8085"

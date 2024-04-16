@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.31.2 (a92241f79)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: konga-database
+  name: konga-database
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: konga-database
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.31.2 (a92241f79)
+      creationTimestamp: null
+      labels:
+        io.kompose.network/docker-default: "true"
+        io.kompose.service: konga-database
+    spec:
+      containers:
+        - env:
+            - name: POSTGRES_DB
+              value: konga
+            - name: POSTGRES_PASSWORD
+              value: konga
+            - name: POSTGRES_USER
+              value: konga
+          # image: postgres:11.0
+          image: alejandropalmier/konga-database:2.0
+          name: konga-database
+          ports:
+            - containerPort: 5432
+              # hostPort: 5434
+              protocol: TCP
+          resources: {}
+          volumeMounts:
+            - mountPath: /var/lib/postgresql/data
+              name: konga-database-claim0
+      restartPolicy: Always
+      volumes:
+        - name: konga-database-claim0
+          persistentVolumeClaim:
+            claimName: konga-database-claim0
+        # - name: konga-data
+        #   hostPath:
+        #     path: /mnt/kongadb
+        #     type: DirectoryOrCreate
+status: {}

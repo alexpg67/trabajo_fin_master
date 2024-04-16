@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.31.2 (a92241f79)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: keycloak
+  name: keycloak
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: keycloak
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.31.2 (a92241f79)
+      creationTimestamp: null
+      labels:
+        io.kompose.network/docker-default: "true"
+        io.kompose.service: keycloak
+    spec:
+      containers:
+        - env:
+            - name: KEYCLOAK_ADMIN_PASSWORD
+              value: admin
+            - name: KEYCLOAK_ADMIN_USER
+              value: Alex
+            - name: KEYCLOAK_DATABASE_HOST
+              value: postgresql-keycloak
+            - name: KEYCLOAK_DATABASE_NAME
+              value: keycloak
+            - name: KEYCLOAK_DATABASE_PASSWORD
+              value: keycloak
+            - name: KEYCLOAK_DATABASE_PORT
+              value: "5432"
+            - name: KEYCLOAK_DATABASE_USER
+              value: keycloak
+          image: bitnami/keycloak:23.0.7
+          name: keycloak
+          ports:
+            - containerPort: 8080
+              # hostPort: 8080
+              protocol: TCP
+          resources: {}
+          # volumeMounts:
+          #   - mountPath: /opt/bitnami/keycloak/data/import
+          #     name: keycloak-claim0
+      restartPolicy: Always
+      # volumes:
+      #   - name: keycloak-claim0
+      #     persistentVolumeClaim:
+      #       claimName: keycloak-claim0
+status: {}

@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: logstash
+  labels:
+    component: logstash
+data:
+  access-log.conf: |
+    input {
+      beats {
+        port => "5044"
+      }
+    }
+     filter {
+
+      mutate{
+        remove_field => ["[event][original]"]
+        rename => { "[log][file][path]" => "[logPath]" }
+      }
+
+     }
+    
+        output {
+      elasticsearch {
+        hosts => [ "elasticsearch:9200" ]
+        index => "spring-%{+YYYY.MM.dd}"
+        user => "elastic" 
+        password => "admin" 
+      }
+    }

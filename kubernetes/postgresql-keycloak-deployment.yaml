@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.31.2 (a92241f79)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: postgresql-keycloak
+  name: postgresql-keycloak
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: postgresql-keycloak
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.31.2 (a92241f79)
+      creationTimestamp: null
+      labels:
+        io.kompose.network/docker-default: "true"
+        io.kompose.service: postgresql-keycloak
+    spec:
+      containers:
+        - env:
+            - name: POSTGRES_DB
+              value: keycloak
+            - name: POSTGRES_PASSWORD
+              value: keycloak
+            - name: POSTGRES_USER
+              value: keycloak
+          # image: postgres:16.2
+          image: alejandropalmier/keycloak-database:2.0
+          name: postgresql-keycloak
+          ports:
+            - containerPort: 5432
+              # hostPort: 5432
+              protocol: TCP
+          resources: {}
+          volumeMounts:
+            - mountPath: /var/lib/postgresql/data
+              name: postgresql-keycloak-claim0
+      restartPolicy: Always
+      volumes:
+        - name: postgresql-keycloak-claim0
+          persistentVolumeClaim:
+            claimName: postgresql-keycloak-claim0
+        # - name: postgresql-keycloak
+        #   hostPath:
+        #     path: /mnt/postgresql
+        #     type: DirectoryOrCreate
+status: {}

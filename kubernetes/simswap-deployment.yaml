@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.31.2 (a92241f79)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: simswap
+  name: simswap
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: simswap
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.31.2 (a92241f79)
+      creationTimestamp: null
+      labels:
+        io.kompose.network/docker-default: "true"
+        io.kompose.service: simswap
+    spec:
+      containers:
+        - image: docker.io/alejandropalmier/simswap:latest
+          name: simswap
+          ports:
+            - containerPort: 8083
+              hostPort: 8083
+              protocol: TCP
+          resources: {}
+          volumeMounts:
+            - mountPath: /app/logs
+              name: simswap-claim0
+
+        - image: elastic/filebeat:7.16.3
+          name: filebeat
+          args:
+            - -c
+            - /etc/filebeat/conf.yaml
+            - -e
+          volumeMounts:
+            - name: filebeat-config
+              mountPath: /etc/filebeat
+              
+            - mountPath: /app/logs
+              name: simswap-claim0
+
+      restartPolicy: Always
+
+      volumes:
+        - name: simswap-claim0
+          emptyDir: {}
+        #   persistentVolumeClaim:
+        #     claimName: simswap-claim0
+        - name: filebeat-config
+          configMap:
+            name: filebeat-config
+status: {}

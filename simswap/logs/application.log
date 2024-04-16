@@ -63,3 +63,267 @@
 25-03-2024 19:56:26.825 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 0 ms
 25-03-2024 19:56:26.831 [main] INFO  c.t.s.service.SimswapServiceTest.logStarted - Started SimswapServiceTest in 0.285 seconds (process running for 2.363)
 25-03-2024 19:56:26.837 [main] INFO  c.tfm.simswap.service.SimswapService.checkSwap - No se ha encontrado el cliente con MSISDN, no se puede devolver el swapped: +34658763452
+03-04-2024 20:39:06.183 [background-preinit] INFO  o.h.validator.internal.util.Version.<clinit> - HV000001: Hibernate Validator 8.0.1.Final
+03-04-2024 20:39:06.197 [main] INFO  c.t.s.c.SimswapControllerTest.logStarting - Starting SimswapControllerTest using Java 17.0.10 with PID 94681 (started by jenkins in /home/alejandro/TFM/simswap)
+03-04-2024 20:39:06.198 [main] INFO  c.t.s.c.SimswapControllerTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+03-04-2024 20:39:07.373 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+03-04-2024 20:39:07.373 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+03-04-2024 20:39:07.376 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 0 ms
+03-04-2024 20:39:07.392 [main] INFO  c.t.s.c.SimswapControllerTest.logStarted - Started SimswapControllerTest in 1.419 seconds (process running for 2.034)
+03-04-2024 20:39:07.513 [main] INFO  c.t.s.controller.SimswapController.retrieveData - No se ha encontrado el cliente con MSISDN, no se puede devolver timestamp: +34623456789
+03-04-2024 20:39:07.578 [main] INFO  c.t.s.controller.SimswapController.checkData - El msisdn  no cumple con las reglas definidas
+03-04-2024 20:39:07.597 [main] INFO  c.t.s.controller.SimswapController.retrieveData - Se devuelve el timestamp del cliente con MSISDN: +34623456789
+03-04-2024 20:39:07.610 [main] INFO  c.t.s.controller.SimswapController.checkData - El parametro2401 no está entre 1 y 2400
+03-04-2024 20:39:07.617 [main] INFO  c.t.s.controller.SimswapController.checkData - El parametro-2 no está entre 1 y 2400
+03-04-2024 20:39:07.635 [main] INFO  c.t.s.controller.SimswapController.checkData - El msisdn +3462345678h no cumple con las reglas definidas
+03-04-2024 20:39:07.645 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils.detectDefaultConfigurationClasses - Could not detect default configuration classes for test class [com.tfm.simswap.service.SimswapServiceTest]: SimswapServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+03-04-2024 20:39:07.655 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper.getOrFindConfigurationClasses - Found @SpringBootConfiguration com.tfm.simswap.SimswapApplication for test class com.tfm.simswap.service.SimswapServiceTest
+03-04-2024 20:39:07.674 [main] INFO  c.t.s.service.SimswapServiceTest.logStarting - Starting SimswapServiceTest using Java 17.0.10 with PID 94681 (started by jenkins in /home/alejandro/TFM/simswap)
+03-04-2024 20:39:07.675 [main] INFO  c.t.s.service.SimswapServiceTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+03-04-2024 20:39:07.895 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+03-04-2024 20:39:07.896 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+03-04-2024 20:39:07.896 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 0 ms
+03-04-2024 20:39:07.901 [main] INFO  c.t.s.service.SimswapServiceTest.logStarted - Started SimswapServiceTest in 0.243 seconds (process running for 2.542)
+03-04-2024 20:39:07.907 [main] INFO  c.tfm.simswap.service.SimswapService.checkSwap - No se ha encontrado el cliente con MSISDN, no se puede devolver el swapped: +34658763452
+03-04-2024 20:40:47.174 [background-preinit] INFO  o.h.validator.internal.util.Version.<clinit> - HV000001: Hibernate Validator 8.0.1.Final
+03-04-2024 20:40:47.192 [main] INFO  c.t.s.c.SimswapControllerTest.logStarting - Starting SimswapControllerTest using Java 17.0.10 with PID 95037 (started by jenkins in /home/alejandro/TFM/simswap)
+03-04-2024 20:40:47.193 [main] INFO  c.t.s.c.SimswapControllerTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+03-04-2024 20:40:48.348 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+03-04-2024 20:40:48.348 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+03-04-2024 20:40:48.350 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 0 ms
+03-04-2024 20:40:48.365 [main] INFO  c.t.s.c.SimswapControllerTest.logStarted - Started SimswapControllerTest in 1.385 seconds (process running for 2.005)
+03-04-2024 20:40:48.482 [main] INFO  c.t.s.controller.SimswapController.retrieveData - No se ha encontrado el cliente con MSISDN, no se puede devolver timestamp: +34623456789
+03-04-2024 20:40:48.545 [main] INFO  c.t.s.controller.SimswapController.checkData - El msisdn  no cumple con las reglas definidas
+03-04-2024 20:40:48.564 [main] INFO  c.t.s.controller.SimswapController.retrieveData - Se devuelve el timestamp del cliente con MSISDN: +34623456789
+03-04-2024 20:40:48.575 [main] INFO  c.t.s.controller.SimswapController.checkData - El parametro2401 no está entre 1 y 2400
+03-04-2024 20:40:48.584 [main] INFO  c.t.s.controller.SimswapController.checkData - El parametro-2 no está entre 1 y 2400
+03-04-2024 20:40:48.603 [main] INFO  c.t.s.controller.SimswapController.checkData - El msisdn +3462345678h no cumple con las reglas definidas
+03-04-2024 20:40:48.610 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils.detectDefaultConfigurationClasses - Could not detect default configuration classes for test class [com.tfm.simswap.service.SimswapServiceTest]: SimswapServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+03-04-2024 20:40:48.619 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper.getOrFindConfigurationClasses - Found @SpringBootConfiguration com.tfm.simswap.SimswapApplication for test class com.tfm.simswap.service.SimswapServiceTest
+03-04-2024 20:40:48.641 [main] INFO  c.t.s.service.SimswapServiceTest.logStarting - Starting SimswapServiceTest using Java 17.0.10 with PID 95037 (started by jenkins in /home/alejandro/TFM/simswap)
+03-04-2024 20:40:48.641 [main] INFO  c.t.s.service.SimswapServiceTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+03-04-2024 20:40:48.875 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+03-04-2024 20:40:48.876 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+03-04-2024 20:40:48.876 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 0 ms
+03-04-2024 20:40:48.881 [main] INFO  c.t.s.service.SimswapServiceTest.logStarted - Started SimswapServiceTest in 0.259 seconds (process running for 2.521)
+03-04-2024 20:40:48.886 [main] INFO  c.tfm.simswap.service.SimswapService.checkSwap - No se ha encontrado el cliente con MSISDN, no se puede devolver el swapped: +34658763452
+03-04-2024 20:45:29.457 [background-preinit] INFO  o.h.validator.internal.util.Version.<clinit> - HV000001: Hibernate Validator 8.0.1.Final
+03-04-2024 20:45:29.476 [main] INFO  c.t.s.c.SimswapControllerTest.logStarting - Starting SimswapControllerTest using Java 17.0.10 with PID 95636 (started by jenkins in /home/alejandro/TFM/simswap)
+03-04-2024 20:45:29.477 [main] INFO  c.t.s.c.SimswapControllerTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+03-04-2024 20:45:30.645 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+03-04-2024 20:45:30.646 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+03-04-2024 20:45:30.647 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 0 ms
+03-04-2024 20:45:30.660 [main] INFO  c.t.s.c.SimswapControllerTest.logStarted - Started SimswapControllerTest in 1.405 seconds (process running for 2.007)
+03-04-2024 20:45:30.775 [main] INFO  c.t.s.controller.SimswapController.retrieveData - No se ha encontrado el cliente con MSISDN, no se puede devolver timestamp: +34623456789
+03-04-2024 20:45:30.831 [main] INFO  c.t.s.controller.SimswapController.checkData - El msisdn  no cumple con las reglas definidas
+03-04-2024 20:45:30.859 [main] INFO  c.t.s.controller.SimswapController.retrieveData - Se devuelve el timestamp del cliente con MSISDN: +34623456789
+03-04-2024 20:45:30.873 [main] INFO  c.t.s.controller.SimswapController.checkData - El parametro2401 no está entre 1 y 2400
+03-04-2024 20:45:30.881 [main] INFO  c.t.s.controller.SimswapController.checkData - El parametro-2 no está entre 1 y 2400
+03-04-2024 20:45:30.900 [main] INFO  c.t.s.controller.SimswapController.checkData - El msisdn +3462345678h no cumple con las reglas definidas
+03-04-2024 20:45:30.910 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils.detectDefaultConfigurationClasses - Could not detect default configuration classes for test class [com.tfm.simswap.service.SimswapServiceTest]: SimswapServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+03-04-2024 20:45:30.919 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper.getOrFindConfigurationClasses - Found @SpringBootConfiguration com.tfm.simswap.SimswapApplication for test class com.tfm.simswap.service.SimswapServiceTest
+03-04-2024 20:45:30.937 [main] INFO  c.t.s.service.SimswapServiceTest.logStarting - Starting SimswapServiceTest using Java 17.0.10 with PID 95636 (started by jenkins in /home/alejandro/TFM/simswap)
+03-04-2024 20:45:30.938 [main] INFO  c.t.s.service.SimswapServiceTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+03-04-2024 20:45:31.154 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+03-04-2024 20:45:31.154 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+03-04-2024 20:45:31.155 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 0 ms
+03-04-2024 20:45:31.159 [main] INFO  c.t.s.service.SimswapServiceTest.logStarted - Started SimswapServiceTest in 0.238 seconds (process running for 2.505)
+03-04-2024 20:45:31.165 [main] INFO  c.tfm.simswap.service.SimswapService.checkSwap - No se ha encontrado el cliente con MSISDN, no se puede devolver el swapped: +34658763452
+03-04-2024 20:51:03.693 [background-preinit] INFO  o.h.validator.internal.util.Version.<clinit> - HV000001: Hibernate Validator 8.0.1.Final
+03-04-2024 20:51:03.712 [main] INFO  c.t.s.c.SimswapControllerTest.logStarting - Starting SimswapControllerTest using Java 17.0.10 with PID 96263 (started by jenkins in /home/alejandro/TFM/simswap)
+03-04-2024 20:51:03.713 [main] INFO  c.t.s.c.SimswapControllerTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+03-04-2024 20:51:04.947 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+03-04-2024 20:51:04.948 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+03-04-2024 20:51:04.950 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 1 ms
+03-04-2024 20:51:04.965 [main] INFO  c.t.s.c.SimswapControllerTest.logStarted - Started SimswapControllerTest in 1.476 seconds (process running for 2.108)
+03-04-2024 20:51:05.085 [main] INFO  c.t.s.controller.SimswapController.retrieveData - No se ha encontrado el cliente con MSISDN, no se puede devolver timestamp: +34623456789
+03-04-2024 20:51:05.154 [main] INFO  c.t.s.controller.SimswapController.checkData - El msisdn  no cumple con las reglas definidas
+03-04-2024 20:51:05.172 [main] INFO  c.t.s.controller.SimswapController.retrieveData - Se devuelve el timestamp del cliente con MSISDN: +34623456789
+03-04-2024 20:51:05.185 [main] INFO  c.t.s.controller.SimswapController.checkData - El parametro2401 no está entre 1 y 2400
+03-04-2024 20:51:05.192 [main] INFO  c.t.s.controller.SimswapController.checkData - El parametro-2 no está entre 1 y 2400
+03-04-2024 20:51:05.211 [main] INFO  c.t.s.controller.SimswapController.checkData - El msisdn +3462345678h no cumple con las reglas definidas
+03-04-2024 20:51:05.222 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils.detectDefaultConfigurationClasses - Could not detect default configuration classes for test class [com.tfm.simswap.service.SimswapServiceTest]: SimswapServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+03-04-2024 20:51:05.234 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper.getOrFindConfigurationClasses - Found @SpringBootConfiguration com.tfm.simswap.SimswapApplication for test class com.tfm.simswap.service.SimswapServiceTest
+03-04-2024 20:51:05.257 [main] INFO  c.t.s.service.SimswapServiceTest.logStarting - Starting SimswapServiceTest using Java 17.0.10 with PID 96263 (started by jenkins in /home/alejandro/TFM/simswap)
+03-04-2024 20:51:05.258 [main] INFO  c.t.s.service.SimswapServiceTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+03-04-2024 20:51:05.465 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+03-04-2024 20:51:05.466 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+03-04-2024 20:51:05.466 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 0 ms
+03-04-2024 20:51:05.471 [main] INFO  c.t.s.service.SimswapServiceTest.logStarted - Started SimswapServiceTest in 0.235 seconds (process running for 2.614)
+03-04-2024 20:51:05.477 [main] INFO  c.tfm.simswap.service.SimswapService.checkSwap - No se ha encontrado el cliente con MSISDN, no se puede devolver el swapped: +34658763452
+03-04-2024 21:08:22.887 [background-preinit] INFO  o.h.validator.internal.util.Version.<clinit> - HV000001: Hibernate Validator 8.0.1.Final
+03-04-2024 21:08:22.903 [main] INFO  c.t.s.c.SimswapControllerTest.logStarting - Starting SimswapControllerTest using Java 17.0.10 with PID 114773 (started by jenkins in /home/alejandro/TFM/simswap)
+03-04-2024 21:08:22.904 [main] INFO  c.t.s.c.SimswapControllerTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+03-04-2024 21:08:24.044 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+03-04-2024 21:08:24.045 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+03-04-2024 21:08:24.048 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 1 ms
+03-04-2024 21:08:24.064 [main] INFO  c.t.s.c.SimswapControllerTest.logStarted - Started SimswapControllerTest in 1.405 seconds (process running for 2.016)
+03-04-2024 21:08:24.180 [main] INFO  c.t.s.controller.SimswapController.retrieveData - No se ha encontrado el cliente con MSISDN, no se puede devolver timestamp: +34623456789
+03-04-2024 21:08:24.246 [main] INFO  c.t.s.controller.SimswapController.checkData - El msisdn  no cumple con las reglas definidas
+03-04-2024 21:08:24.262 [main] INFO  c.t.s.controller.SimswapController.retrieveData - Se devuelve el timestamp del cliente con MSISDN: +34623456789
+03-04-2024 21:08:24.274 [main] INFO  c.t.s.controller.SimswapController.checkData - El parametro2401 no está entre 1 y 2400
+03-04-2024 21:08:24.280 [main] INFO  c.t.s.controller.SimswapController.checkData - El parametro-2 no está entre 1 y 2400
+03-04-2024 21:08:24.298 [main] INFO  c.t.s.controller.SimswapController.checkData - El msisdn +3462345678h no cumple con las reglas definidas
+03-04-2024 21:08:24.307 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils.detectDefaultConfigurationClasses - Could not detect default configuration classes for test class [com.tfm.simswap.service.SimswapServiceTest]: SimswapServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+03-04-2024 21:08:24.318 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper.getOrFindConfigurationClasses - Found @SpringBootConfiguration com.tfm.simswap.SimswapApplication for test class com.tfm.simswap.service.SimswapServiceTest
+03-04-2024 21:08:24.341 [main] INFO  c.t.s.service.SimswapServiceTest.logStarting - Starting SimswapServiceTest using Java 17.0.10 with PID 114773 (started by jenkins in /home/alejandro/TFM/simswap)
+03-04-2024 21:08:24.341 [main] INFO  c.t.s.service.SimswapServiceTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+03-04-2024 21:08:24.544 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+03-04-2024 21:08:24.544 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+03-04-2024 21:08:24.545 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 1 ms
+03-04-2024 21:08:24.552 [main] INFO  c.t.s.service.SimswapServiceTest.logStarted - Started SimswapServiceTest in 0.232 seconds (process running for 2.504)
+03-04-2024 21:08:24.557 [main] INFO  c.tfm.simswap.service.SimswapService.checkSwap - No se ha encontrado el cliente con MSISDN, no se puede devolver el swapped: +34658763452
+03-04-2024 21:09:14.801 [background-preinit] INFO  o.h.validator.internal.util.Version.<clinit> - HV000001: Hibernate Validator 8.0.1.Final
+03-04-2024 21:09:14.818 [main] INFO  c.t.s.c.SimswapControllerTest.logStarting - Starting SimswapControllerTest using Java 17.0.10 with PID 115730 (started by jenkins in /home/alejandro/TFM/simswap)
+03-04-2024 21:09:14.819 [main] INFO  c.t.s.c.SimswapControllerTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+03-04-2024 21:09:16.002 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+03-04-2024 21:09:16.003 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+03-04-2024 21:09:16.005 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 1 ms
+03-04-2024 21:09:16.021 [main] INFO  c.t.s.c.SimswapControllerTest.logStarted - Started SimswapControllerTest in 1.414 seconds (process running for 2.04)
+03-04-2024 21:09:16.138 [main] INFO  c.t.s.controller.SimswapController.retrieveData - No se ha encontrado el cliente con MSISDN, no se puede devolver timestamp: +34623456789
+03-04-2024 21:09:16.205 [main] INFO  c.t.s.controller.SimswapController.checkData - El msisdn  no cumple con las reglas definidas
+03-04-2024 21:09:16.223 [main] INFO  c.t.s.controller.SimswapController.retrieveData - Se devuelve el timestamp del cliente con MSISDN: +34623456789
+03-04-2024 21:09:16.236 [main] INFO  c.t.s.controller.SimswapController.checkData - El parametro2401 no está entre 1 y 2400
+03-04-2024 21:09:16.242 [main] INFO  c.t.s.controller.SimswapController.checkData - El parametro-2 no está entre 1 y 2400
+03-04-2024 21:09:16.263 [main] INFO  c.t.s.controller.SimswapController.checkData - El msisdn +3462345678h no cumple con las reglas definidas
+03-04-2024 21:09:16.277 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils.detectDefaultConfigurationClasses - Could not detect default configuration classes for test class [com.tfm.simswap.service.SimswapServiceTest]: SimswapServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+03-04-2024 21:09:16.291 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper.getOrFindConfigurationClasses - Found @SpringBootConfiguration com.tfm.simswap.SimswapApplication for test class com.tfm.simswap.service.SimswapServiceTest
+03-04-2024 21:09:16.319 [main] INFO  c.t.s.service.SimswapServiceTest.logStarting - Starting SimswapServiceTest using Java 17.0.10 with PID 115730 (started by jenkins in /home/alejandro/TFM/simswap)
+03-04-2024 21:09:16.319 [main] INFO  c.t.s.service.SimswapServiceTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+03-04-2024 21:09:16.537 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+03-04-2024 21:09:16.538 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+03-04-2024 21:09:16.539 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 0 ms
+03-04-2024 21:09:16.544 [main] INFO  c.t.s.service.SimswapServiceTest.logStarted - Started SimswapServiceTest in 0.25 seconds (process running for 2.563)
+03-04-2024 21:09:16.550 [main] INFO  c.tfm.simswap.service.SimswapService.checkSwap - No se ha encontrado el cliente con MSISDN, no se puede devolver el swapped: +34658763452
+03-04-2024 21:18:04.983 [background-preinit] INFO  o.h.validator.internal.util.Version.<clinit> - HV000001: Hibernate Validator 8.0.1.Final
+03-04-2024 21:18:04.999 [main] INFO  c.t.s.c.SimswapControllerTest.logStarting - Starting SimswapControllerTest using Java 17.0.10 with PID 131447 (started by jenkins in /home/alejandro/TFM/simswap)
+03-04-2024 21:18:05.000 [main] INFO  c.t.s.c.SimswapControllerTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+03-04-2024 21:18:06.252 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+03-04-2024 21:18:06.253 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+03-04-2024 21:18:06.256 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 0 ms
+03-04-2024 21:18:06.270 [main] INFO  c.t.s.c.SimswapControllerTest.logStarted - Started SimswapControllerTest in 1.505 seconds (process running for 2.176)
+03-04-2024 21:18:06.388 [main] INFO  c.t.s.controller.SimswapController.retrieveData - No se ha encontrado el cliente con MSISDN, no se puede devolver timestamp: +34623456789
+03-04-2024 21:18:06.444 [main] INFO  c.t.s.controller.SimswapController.checkData - El msisdn  no cumple con las reglas definidas
+03-04-2024 21:18:06.469 [main] INFO  c.t.s.controller.SimswapController.retrieveData - Se devuelve el timestamp del cliente con MSISDN: +34623456789
+03-04-2024 21:18:06.488 [main] INFO  c.t.s.controller.SimswapController.checkData - El parametro2401 no está entre 1 y 2400
+03-04-2024 21:18:06.494 [main] INFO  c.t.s.controller.SimswapController.checkData - El parametro-2 no está entre 1 y 2400
+03-04-2024 21:18:06.518 [main] INFO  c.t.s.controller.SimswapController.checkData - El msisdn +3462345678h no cumple con las reglas definidas
+03-04-2024 21:18:06.525 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils.detectDefaultConfigurationClasses - Could not detect default configuration classes for test class [com.tfm.simswap.service.SimswapServiceTest]: SimswapServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+03-04-2024 21:18:06.537 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper.getOrFindConfigurationClasses - Found @SpringBootConfiguration com.tfm.simswap.SimswapApplication for test class com.tfm.simswap.service.SimswapServiceTest
+03-04-2024 21:18:06.560 [main] INFO  c.t.s.service.SimswapServiceTest.logStarting - Starting SimswapServiceTest using Java 17.0.10 with PID 131447 (started by jenkins in /home/alejandro/TFM/simswap)
+03-04-2024 21:18:06.560 [main] INFO  c.t.s.service.SimswapServiceTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+03-04-2024 21:18:06.791 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+03-04-2024 21:18:06.791 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+03-04-2024 21:18:06.791 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 0 ms
+03-04-2024 21:18:06.797 [main] INFO  c.t.s.service.SimswapServiceTest.logStarted - Started SimswapServiceTest in 0.258 seconds (process running for 2.703)
+03-04-2024 21:18:06.802 [main] INFO  c.tfm.simswap.service.SimswapService.checkSwap - No se ha encontrado el cliente con MSISDN, no se puede devolver el swapped: +34658763452
+03-04-2024 22:51:54.493 [background-preinit] INFO  o.h.validator.internal.util.Version.<clinit> - HV000001: Hibernate Validator 8.0.1.Final
+03-04-2024 22:51:54.511 [main] INFO  c.t.s.c.SimswapControllerTest.logStarting - Starting SimswapControllerTest using Java 17.0.10 with PID 181207 (started by jenkins in /home/alejandro/TFM/simswap)
+03-04-2024 22:51:54.512 [main] INFO  c.t.s.c.SimswapControllerTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+03-04-2024 22:51:55.690 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+03-04-2024 22:51:55.691 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+03-04-2024 22:51:55.693 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 1 ms
+03-04-2024 22:51:55.710 [main] INFO  c.t.s.c.SimswapControllerTest.logStarted - Started SimswapControllerTest in 1.399 seconds (process running for 1.989)
+03-04-2024 22:51:55.826 [main] INFO  c.t.s.controller.SimswapController.retrieveData - No se ha encontrado el cliente con MSISDN, no se puede devolver timestamp: +34623456789
+03-04-2024 22:51:55.881 [main] INFO  c.t.s.controller.SimswapController.checkData - El msisdn  no cumple con las reglas definidas
+03-04-2024 22:51:55.911 [main] INFO  c.t.s.controller.SimswapController.retrieveData - Se devuelve el timestamp del cliente con MSISDN: +34623456789
+03-04-2024 22:51:55.928 [main] INFO  c.t.s.controller.SimswapController.checkData - El parametro2401 no está entre 1 y 2400
+03-04-2024 22:51:55.939 [main] INFO  c.t.s.controller.SimswapController.checkData - El parametro-2 no está entre 1 y 2400
+03-04-2024 22:51:55.965 [main] INFO  c.t.s.controller.SimswapController.checkData - El msisdn +3462345678h no cumple con las reglas definidas
+03-04-2024 22:51:55.990 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils.detectDefaultConfigurationClasses - Could not detect default configuration classes for test class [com.tfm.simswap.service.SimswapServiceTest]: SimswapServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+03-04-2024 22:51:56.002 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper.getOrFindConfigurationClasses - Found @SpringBootConfiguration com.tfm.simswap.SimswapApplication for test class com.tfm.simswap.service.SimswapServiceTest
+03-04-2024 22:51:56.029 [main] INFO  c.t.s.service.SimswapServiceTest.logStarting - Starting SimswapServiceTest using Java 17.0.10 with PID 181207 (started by jenkins in /home/alejandro/TFM/simswap)
+03-04-2024 22:51:56.030 [main] INFO  c.t.s.service.SimswapServiceTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+03-04-2024 22:51:56.273 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+03-04-2024 22:51:56.274 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+03-04-2024 22:51:56.275 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 1 ms
+03-04-2024 22:51:56.279 [main] INFO  c.t.s.service.SimswapServiceTest.logStarted - Started SimswapServiceTest in 0.274 seconds (process running for 2.558)
+03-04-2024 22:51:56.287 [main] INFO  c.tfm.simswap.service.SimswapService.checkSwap - No se ha encontrado el cliente con MSISDN, no se puede devolver el swapped: +34658763452
+05-04-2024 17:46:58.632 [background-preinit] INFO  o.h.validator.internal.util.Version.<clinit> - HV000001: Hibernate Validator 8.0.1.Final
+05-04-2024 17:46:58.653 [main] INFO  c.t.s.c.SimswapControllerTest.logStarting - Starting SimswapControllerTest using Java 17.0.10 with PID 593810 (started by jenkins in /home/alejandro/TFM/simswap)
+05-04-2024 17:46:58.654 [main] INFO  c.t.s.c.SimswapControllerTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+05-04-2024 17:47:00.168 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+05-04-2024 17:47:00.169 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+05-04-2024 17:47:00.172 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 1 ms
+05-04-2024 17:47:00.189 [main] INFO  c.t.s.c.SimswapControllerTest.logStarted - Started SimswapControllerTest in 1.819 seconds (process running for 2.641)
+05-04-2024 17:47:00.316 [main] INFO  c.t.s.controller.SimswapController.retrieveData - No se ha encontrado el cliente con MSISDN, no se puede devolver timestamp: +34623456789
+05-04-2024 17:47:00.387 [main] INFO  c.t.s.controller.SimswapController.checkData - El msisdn  no cumple con las reglas definidas
+05-04-2024 17:47:00.416 [main] INFO  c.t.s.controller.SimswapController.retrieveData - Se devuelve el timestamp del cliente con MSISDN: +34623456789
+05-04-2024 17:47:00.432 [main] INFO  c.t.s.controller.SimswapController.checkData - El parametro2401 no está entre 1 y 2400
+05-04-2024 17:47:00.440 [main] INFO  c.t.s.controller.SimswapController.checkData - El parametro-2 no está entre 1 y 2400
+05-04-2024 17:47:00.477 [main] INFO  c.t.s.controller.SimswapController.checkData - El msisdn +3462345678h no cumple con las reglas definidas
+05-04-2024 17:47:00.489 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils.detectDefaultConfigurationClasses - Could not detect default configuration classes for test class [com.tfm.simswap.service.SimswapServiceTest]: SimswapServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+05-04-2024 17:47:00.501 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper.getOrFindConfigurationClasses - Found @SpringBootConfiguration com.tfm.simswap.SimswapApplication for test class com.tfm.simswap.service.SimswapServiceTest
+05-04-2024 17:47:00.529 [main] INFO  c.t.s.service.SimswapServiceTest.logStarting - Starting SimswapServiceTest using Java 17.0.10 with PID 593810 (started by jenkins in /home/alejandro/TFM/simswap)
+05-04-2024 17:47:00.529 [main] INFO  c.t.s.service.SimswapServiceTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+05-04-2024 17:47:00.805 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+05-04-2024 17:47:00.805 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+05-04-2024 17:47:00.806 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 1 ms
+05-04-2024 17:47:00.811 [main] INFO  c.t.s.service.SimswapServiceTest.logStarted - Started SimswapServiceTest in 0.308 seconds (process running for 3.262)
+05-04-2024 17:47:00.817 [main] INFO  c.tfm.simswap.service.SimswapService.checkSwap - No se ha encontrado el cliente con MSISDN, no se puede devolver el swapped: +34658763452
+05-04-2024 18:01:53.001 [background-preinit] INFO  o.h.validator.internal.util.Version.<clinit> - HV000001: Hibernate Validator 8.0.1.Final
+05-04-2024 18:01:53.029 [main] INFO  c.t.s.c.SimswapControllerTest.logStarting - Starting SimswapControllerTest using Java 17.0.10 with PID 608065 (started by jenkins in /home/alejandro/TFM/simswap)
+05-04-2024 18:01:53.030 [main] INFO  c.t.s.c.SimswapControllerTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+05-04-2024 18:01:55.907 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+05-04-2024 18:01:55.920 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+05-04-2024 18:01:55.949 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 25 ms
+05-04-2024 18:01:56.069 [main] INFO  c.t.s.c.SimswapControllerTest.logStarted - Started SimswapControllerTest in 3.529 seconds (process running for 4.982)
+05-04-2024 18:01:56.806 [main] INFO  c.t.s.controller.SimswapController.retrieveData - No se ha encontrado el cliente con MSISDN, no se puede devolver timestamp: +34623456789
+05-04-2024 18:01:57.152 [main] INFO  c.t.s.controller.SimswapController.checkData - El msisdn  no cumple con las reglas definidas
+05-04-2024 18:01:57.235 [main] INFO  c.t.s.controller.SimswapController.retrieveData - Se devuelve el timestamp del cliente con MSISDN: +34623456789
+05-04-2024 18:01:57.295 [main] INFO  c.t.s.controller.SimswapController.checkData - El parametro2401 no está entre 1 y 2400
+05-04-2024 18:01:57.337 [main] INFO  c.t.s.controller.SimswapController.checkData - El parametro-2 no está entre 1 y 2400
+05-04-2024 18:01:57.482 [main] INFO  c.t.s.controller.SimswapController.checkData - El msisdn +3462345678h no cumple con las reglas definidas
+05-04-2024 18:01:57.536 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils.detectDefaultConfigurationClasses - Could not detect default configuration classes for test class [com.tfm.simswap.service.SimswapServiceTest]: SimswapServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+05-04-2024 18:01:57.547 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper.getOrFindConfigurationClasses - Found @SpringBootConfiguration com.tfm.simswap.SimswapApplication for test class com.tfm.simswap.service.SimswapServiceTest
+05-04-2024 18:01:57.603 [main] INFO  c.t.s.service.SimswapServiceTest.logStarting - Starting SimswapServiceTest using Java 17.0.10 with PID 608065 (started by jenkins in /home/alejandro/TFM/simswap)
+05-04-2024 18:01:57.604 [main] INFO  c.t.s.service.SimswapServiceTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+05-04-2024 18:01:58.126 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+05-04-2024 18:01:58.127 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+05-04-2024 18:01:58.135 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 7 ms
+05-04-2024 18:01:58.141 [main] INFO  c.t.s.service.SimswapServiceTest.logStarted - Started SimswapServiceTest in 0.592 seconds (process running for 7.054)
+05-04-2024 18:01:58.150 [main] INFO  c.tfm.simswap.service.SimswapService.checkSwap - No se ha encontrado el cliente con MSISDN, no se puede devolver el swapped: +34658763452
+05-04-2024 18:05:55.781 [background-preinit] INFO  o.h.validator.internal.util.Version.<clinit> - HV000001: Hibernate Validator 8.0.1.Final
+05-04-2024 18:05:55.805 [main] INFO  c.t.s.c.SimswapControllerTest.logStarting - Starting SimswapControllerTest using Java 17.0.10 with PID 612376 (started by jenkins in /home/alejandro/TFM/simswap)
+05-04-2024 18:05:55.806 [main] INFO  c.t.s.c.SimswapControllerTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+05-04-2024 18:05:58.469 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+05-04-2024 18:05:58.471 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+05-04-2024 18:05:58.479 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 3 ms
+05-04-2024 18:05:58.571 [main] INFO  c.t.s.c.SimswapControllerTest.logStarted - Started SimswapControllerTest in 3.166 seconds (process running for 4.671)
+05-04-2024 18:05:58.838 [main] INFO  c.t.s.controller.SimswapController.retrieveData - No se ha encontrado el cliente con MSISDN, no se puede devolver timestamp: +34623456789
+05-04-2024 18:05:59.073 [main] INFO  c.t.s.controller.SimswapController.checkData - El msisdn  no cumple con las reglas definidas
+05-04-2024 18:05:59.143 [main] INFO  c.t.s.controller.SimswapController.retrieveData - Se devuelve el timestamp del cliente con MSISDN: +34623456789
+05-04-2024 18:05:59.194 [main] INFO  c.t.s.controller.SimswapController.checkData - El parametro2401 no está entre 1 y 2400
+05-04-2024 18:05:59.228 [main] INFO  c.t.s.controller.SimswapController.checkData - El parametro-2 no está entre 1 y 2400
+05-04-2024 18:05:59.310 [main] INFO  c.t.s.controller.SimswapController.checkData - El msisdn +3462345678h no cumple con las reglas definidas
+05-04-2024 18:05:59.373 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils.detectDefaultConfigurationClasses - Could not detect default configuration classes for test class [com.tfm.simswap.service.SimswapServiceTest]: SimswapServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+05-04-2024 18:05:59.384 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper.getOrFindConfigurationClasses - Found @SpringBootConfiguration com.tfm.simswap.SimswapApplication for test class com.tfm.simswap.service.SimswapServiceTest
+05-04-2024 18:05:59.522 [main] INFO  c.t.s.service.SimswapServiceTest.logStarting - Starting SimswapServiceTest using Java 17.0.10 with PID 612376 (started by jenkins in /home/alejandro/TFM/simswap)
+05-04-2024 18:05:59.522 [main] INFO  c.t.s.service.SimswapServiceTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+05-04-2024 18:06:00.489 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+05-04-2024 18:06:00.489 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+05-04-2024 18:06:00.490 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 1 ms
+05-04-2024 18:06:00.495 [main] INFO  c.t.s.service.SimswapServiceTest.logStarted - Started SimswapServiceTest in 1.109 seconds (process running for 6.594)
+05-04-2024 18:06:00.500 [main] INFO  c.tfm.simswap.service.SimswapService.checkSwap - No se ha encontrado el cliente con MSISDN, no se puede devolver el swapped: +34658763452
+05-04-2024 18:15:39.118 [background-preinit] INFO  o.h.validator.internal.util.Version.<clinit> - HV000001: Hibernate Validator 8.0.1.Final
+05-04-2024 18:15:39.154 [main] INFO  c.t.s.c.SimswapControllerTest.logStarting - Starting SimswapControllerTest using Java 17.0.10 with PID 622358 (started by jenkins in /home/alejandro/TFM/simswap)
+05-04-2024 18:15:39.155 [main] INFO  c.t.s.c.SimswapControllerTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+05-04-2024 18:15:42.611 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+05-04-2024 18:15:42.612 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+05-04-2024 18:15:42.615 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 1 ms
+05-04-2024 18:15:42.703 [main] INFO  c.t.s.c.SimswapControllerTest.logStarted - Started SimswapControllerTest in 4.047 seconds (process running for 5.532)
+05-04-2024 18:15:43.128 [main] INFO  c.t.s.controller.SimswapController.retrieveData - No se ha encontrado el cliente con MSISDN, no se puede devolver timestamp: +34623456789
+05-04-2024 18:15:43.376 [main] INFO  c.t.s.controller.SimswapController.checkData - El msisdn  no cumple con las reglas definidas
+05-04-2024 18:15:43.424 [main] INFO  c.t.s.controller.SimswapController.retrieveData - Se devuelve el timestamp del cliente con MSISDN: +34623456789
+05-04-2024 18:15:43.477 [main] INFO  c.t.s.controller.SimswapController.checkData - El parametro2401 no está entre 1 y 2400
+05-04-2024 18:15:43.483 [main] INFO  c.t.s.controller.SimswapController.checkData - El parametro-2 no está entre 1 y 2400
+05-04-2024 18:15:43.501 [main] INFO  c.t.s.controller.SimswapController.checkData - El msisdn +3462345678h no cumple con las reglas definidas
+05-04-2024 18:15:43.509 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils.detectDefaultConfigurationClasses - Could not detect default configuration classes for test class [com.tfm.simswap.service.SimswapServiceTest]: SimswapServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+05-04-2024 18:15:43.521 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper.getOrFindConfigurationClasses - Found @SpringBootConfiguration com.tfm.simswap.SimswapApplication for test class com.tfm.simswap.service.SimswapServiceTest
+05-04-2024 18:15:43.572 [main] INFO  c.t.s.service.SimswapServiceTest.logStarting - Starting SimswapServiceTest using Java 17.0.10 with PID 622358 (started by jenkins in /home/alejandro/TFM/simswap)
+05-04-2024 18:15:43.573 [main] INFO  c.t.s.service.SimswapServiceTest.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+05-04-2024 18:15:44.231 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext.log - Initializing Spring TestDispatcherServlet ''
+05-04-2024 18:15:44.231 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Initializing Servlet ''
+05-04-2024 18:15:44.232 [main] INFO  o.s.t.w.s.TestDispatcherServlet.initServletBean - Completed initialization in 1 ms
+05-04-2024 18:15:44.238 [main] INFO  c.t.s.service.SimswapServiceTest.logStarted - Started SimswapServiceTest in 0.686 seconds (process running for 7.068)
+05-04-2024 18:15:44.244 [main] INFO  c.tfm.simswap.service.SimswapService.checkSwap - No se ha encontrado el cliente con MSISDN, no se puede devolver el swapped: +34658763452

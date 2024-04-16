@@ -1,0 +1,87 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    margin-top: 60px; /* Ajusta este valor según la altura de tu menú */
+}
+
+.form-container {
+    flex-basis: 50%;
+}
+
+.response-container {
+    flex-basis: 45%;
+    background-color: #f0f0f0;
+    padding: 20px;
+    height: 80%; /* Ajusta según necesidad */
+    overflow-y: auto; /* Permite desplazamiento vertical si el contenido excede la altura */
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+input {
+    margin: 10px 0;
+    display: block;
+}
+
+label {
+    font-weight: bold;
+}
+
+text {
+    font-size: 12 ;
+}
+
+
+
+.home-button {
+    position: fixed;
+    top: 30px; /* Espacio desde la parte superior */
+    right: 30px; /* Espacio desde la parte derecha */
+    display: flex; /* Usamos flex para centrar el ícono dentro del botón */
+    justify-content: center;
+    align-items: center;
+    width: 45px; /* Tamaño del botón */
+    height: 45px;
+    background-color: #0066ff; /* Color de fondo */
+    color: white; /* Color del ícono */
+    border-radius: 50%; /* Hace el botón circular */
+    text-decoration: none; /* Elimina el subrayado del enlace */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Sombra para el botón */
+}
+
+.home-button i {
+    font-size: 24px; /* Tamaño del ícono de FontAwesome */
+     display: inline-block;
+}
+
+.buttons-container {
+    position: fixed; /* Hace que el contenedor de botones sea fijo */
+    top: 0;
+    left: 0;
+    width: 100%; /* Asegura que el contenedor se extienda a lo ancho de la pantalla */
+    background-color: #0066ff; /* Puedes ajustar el color de fondo si es necesario */
+    color: white;
+    text-align: center;
+    padding: 10px 0; /* Ajusta este valor según la altura de tus botones */
+    z-index: 1000; /* Asegura que el contenedor se quede por encima de otros contenidos al desplazar */
+}
+
+.action-button {
+    margin: 0 10px; /* Espacio entre botones */
+    background-color: #0066ff; /* Color de fondo */
+    color: white; /* Color del texto */
+    padding: 10px 20px; /* Espacio interno del botón */
+    text-decoration: none; /* Elimina el subrayado del enlace */
+    border-radius: 5px; /* Bordes redondeados */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Sombra para el botón */
+    transition: background-color 0.3s; /* Transición suave para el color de fondo */
+    font-weight: bold; /* Texto en negrita */
+     display: inline-block;
+}
+
+.action-button:hover {
+    background-color: #0056e8; /* Color de fondo al pasar el mouse */
+}

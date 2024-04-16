@@ -1,0 +1,66 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.31.2 (a92241f79)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: devicestatus
+  name: devicestatus
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: devicestatus
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.31.2 (a92241f79)
+      creationTimestamp: null
+      labels:
+        io.kompose.network/docker-default: "true"
+        io.kompose.service: devicestatus
+    spec:
+      containers:
+        - image: docker.io/alejandropalmier/devicestatus:latest
+          name: devicestatus
+          ports:
+            - containerPort: 8084
+              # hostPort: 8084
+              protocol: TCP
+          resources: {}
+
+          volumeMounts:
+            - mountPath: /app/logs
+              name: devicestatus-claim0
+
+        - image: elastic/filebeat:7.16.3
+          name: filebeat
+          args:
+            - -c
+            - /etc/filebeat/conf.yaml
+            - -e
+          volumeMounts:
+            - name: filebeat-config
+              mountPath: /etc/filebeat
+              
+            - mountPath: /app/logs
+              name: devicestatus-claim0
+
+      restartPolicy: Always
+      # volumes:
+      #   - name: devicestatus-claim0
+      #     persistentVolumeClaim:
+      #       claimName: devicestatus-claim0
+      volumes:
+        - name: devicestatus-claim0
+          emptyDir: {}
+
+        - name: filebeat-config
+          configMap:
+            name: filebeat-config
+status: {}

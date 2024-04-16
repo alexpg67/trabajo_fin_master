@@ -1,0 +1,17 @@
+{
+	"ulid": "01HTQCWC282DNKDQ47BH7XW7BY",
+	"minTime": 1712265339461,
+	"maxTime": 1712268000000,
+	"stats": {
+		"numSamples": 3777,
+		"numSeries": 23,
+		"numChunks": 24
+	},
+	"compaction": {
+		"level": 1,
+		"sources": [
+			"01HTQCWC282DNKDQ47BH7XW7BY"
+		]
+	},
+	"version": 1
+}

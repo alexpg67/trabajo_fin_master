@@ -1,0 +1,68 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.31.2 (a92241f79)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: provision
+  name: provision
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: provision
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.31.2 (a92241f79)
+      creationTimestamp: null
+      labels:
+        io.kompose.network/docker-default: "true"
+        io.kompose.service: provision
+    spec:
+      containers:
+        # - image: docker.io/alejandropalmier/provision:4.0
+        - image: docker.io/alejandropalmier/provision:latest
+          name: provision
+          ports:
+            - containerPort: 8082
+              hostPort: 8082
+              protocol: TCP
+          resources: {}
+
+          volumeMounts:
+            - mountPath: /app/logs
+              name: provision-claim0
+
+        - image: elastic/filebeat:7.16.3
+          name: filebeat
+          args:
+            - -c
+            - /etc/filebeat/conf.yaml
+            - -e
+          volumeMounts:
+            - name: filebeat-config
+              mountPath: /etc/filebeat
+              
+            - mountPath: /app/logs
+              name: provision-claim0
+
+      restartPolicy: Always
+      # volumes:
+      #   - name: provision-claim0
+      #     persistentVolumeClaim:
+      #       claimName: provision-claim0
+
+      volumes:
+        - name: provision-claim0
+          emptyDir: {}
+
+        - name: filebeat-config
+          configMap:
+            name: filebeat-config
+status: {}

@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.31.2 (a92241f79)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: konga
+  name: konga
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: konga
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.31.2 (a92241f79)
+      creationTimestamp: null
+      labels:
+        io.kompose.network/docker-default: "true"
+        io.kompose.service: konga
+    spec:
+      containers:
+        - env:
+            - name: DB_ADAPTER
+              value: postgres
+            - name: DB_DATABASE
+              value: konga
+            - name: DB_HOST
+              value: konga-database
+            - name: DB_PASSWORD
+              value: konga
+            - name: DB_PORT
+              value: "5432"
+            - name: DB_USER
+              value: konga
+            - name: NODE_ENV
+              value: production
+          image: pantsel/konga:0.14.9
+          name: konga
+          ports:
+            - containerPort: 1337
+              # hostPort: 1337
+              protocol: TCP
+          resources: {}
+      restartPolicy: Always
+status: {}
+

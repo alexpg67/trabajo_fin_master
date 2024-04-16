@@ -1,27 +1,30 @@
+# Los puertos expuestos solo deben ser las UI propias del administrador y a ser posible, exponerlo a través de Kong. El admin debe poder acceder a grafana, kibana, keycloak, konga y la web (a través de kong)
+#Comentar/Descomentar puertos. para generar los Services de K8 se necesita que todos tengan puertos que exponer.
 services:
   prometheus:
     image: bitnami/prometheus:2.50.1
     container_name: prometheus
-    # ports:
-    #   - 9090:9090
-    restart: unless-stopped
+    ports:
+      - 9090:9090
+    restart: always
     volumes:
       - ./prometheus/prometheus.yml:/opt/bitnami/prometheus/conf/prometheus.yml
       - ./prometheus/prometheus-persistence:/opt/bitnami/prometheus/data
     # networks:
     #   - prometheus_network
   grafana:
-    image: grafana/grafana
+    # image: grafana/grafana:10.3.3
+    image: alejandropalmier/grafana:1.0
     container_name: grafana
     ports:
       - 3000:3000
-    restart: unless-stopped
+    restart: always
     environment:
       - GF_SECURITY_ADMIN_USER=admin
       - GF_SECURITY_ADMIN_PASSWORD=grafana
-    volumes:
-      - ./grafana/datasource.yml:/etc/grafana/provisioning/datasources/datasource.yml
-      - ./grafana/grafana-storage:/var/lib/grafana
+    # volumes:
+    #   - ./grafana/datasource.yml:/etc/grafana/provisioning/datasources/datasource.yml
+    #   - ./grafana/grafana-storage:/var/lib/grafana
 
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:8.12.2
@@ -32,9 +35,9 @@ services:
           ELASTIC_PASSWORD: "changeme"
           xpack.security.enabled: "false"
           xpack.security.enrollment.enabled: "false" # Desactiva el modo de inscripción p
-    # ports:
-    #   - 9200:9200
-    #   - 9300:9300
+    ports:
+      - 9200:9200
+      - 9300:9300
     volumes:
       - ./elasticsearch/data:/usr/share/elasticsearch/data
 
@@ -42,8 +45,8 @@ services:
   logstash:
     image: docker.elastic.co/logstash/logstash:8.12.2
     container_name: logstash
-    # ports:
-    #   - 5000:5000
+    ports:
+      - 5000:5000
     volumes:
       # - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml
       - ./logstash/pipeline:/usr/share/logstash/pipeline
@@ -71,18 +74,19 @@ services:
     container_name: redis
     # command: ["redis-server", "--bind", "0.0.0.0"]
     # command: ["redis", "--bind", "0.0.0.0", "--port", "6379"]
-    # ports:
-    #   - "6379:6379" 
+    ports:
+      - "6379:6379" 
 
-  postgresql_keycloak:
-    image: postgres:16.2
-    container_name: postgresql_keycloak
+  postgresql-keycloak:
+    # image: postgres:16.2
+    image: alejandropalmier/keycloak-database:2.0
+    container_name: postgresql-keycloak
     restart: always
-    volumes: 
-      - ./postgresql:/var/lib/postgresql/data
+    # volumes: 
+    #   - ./postgresql:/var/lib/postgresql/data
 
-    # ports:
-    #   - "5432:5432"
+    ports:
+      - "5432:5432"
     environment:
       POSTGRES_DB:       keycloak
       POSTGRES_USER:     keycloak
@@ -94,11 +98,11 @@ services:
     container_name: keycloak
     restart: always
     ports:
-      - 8080:8080
+      - 9080:8080
     environment:
       KEYCLOAK_ADMIN_USER: Alex
       KEYCLOAK_ADMIN_PASSWORD: admin
-      KEYCLOAK_DATABASE_HOST: postgresql_keycloak
+      KEYCLOAK_DATABASE_HOST: postgresql-keycloak
       KEYCLOAK_DATABASE_PORT: 5432
       KEYCLOAK_DATABASE_NAME: keycloak
       KEYCLOAK_DATABASE_USER: keycloak
@@ -109,16 +113,17 @@ services:
 
 
   kong-database:
-    image: postgres:16.2
+    # image: postgres:16.2
+    image: alejandropalmier/kong-database:2.0
     container_name: kong-database
     environment:
       POSTGRES_DB: kong
       POSTGRES_USER: kong
       POSTGRES_PASSWORD: kong
-    # ports:
-    #   - "5433:5432"
-    volumes:
-      - ./kongdb:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"
+    # volumes:
+    #   - ./kongdb:/var/lib/postgresql/data
     restart: always
 
 # # Solo hay que ejecutarlo una vez!!
@@ -157,19 +162,20 @@ services:
       # KONG_PLUGINS: bundled,keycloak-introspection
     ports:
       - "8100:8000"
-      # - "8443:8443"
-      # - "8101:8001"
-      # - "8444:8444"
+      - "8443:8443"
+      - "8101:8001"
+      - "8444:8444"
     restart: always
 
 
   konga-database:
-    image: postgres:11.0
+    # image: postgres:11.0
+    image: alejandropalmier/konga-database:2.0
     container_name: konga-database
-    volumes:
-      - ./kongadb:/var/lib/postgresql/data
-    # ports:
-    #   - "5434:5432"  # Asegúrate de usar un puerto diferente si 5432 ya está en uso
+    # volumes:
+    #   - ./kongadb:/var/lib/postgresql/data
+    ports:
+      - "5434:5432"  
     environment:
       POSTGRES_DB:       konga
       POSTGRES_USER:     konga
@@ -198,18 +204,19 @@ services:
     image: docker.io/alejandropalmier/mongodb-telecomclients:2.0
     # image: mongo:latest
     container_name: mongodb
-    # ports:
-    #   - "27017:27017"
+    ports:
+      - "27017:27017"
     restart: always
     volumes:
       - ./mongo/mongo-data:/data/db
       
 
   provision:
-    image: docker.io/alejandropalmier/provision:1.0
+    # image: docker.io/alejandropalmier/provision:4.0
+    image: docker.io/alejandropalmier/provision:latest
     container_name: provision
-    # ports:
-    #   - "8082:8082" 
+    ports:
+      - "8082:8082" 
     restart: always
     depends_on:
       - mongodb 
@@ -219,10 +226,10 @@ services:
 
 
   simswap:
-    image: docker.io/alejandropalmier/simswap:1.0
+    image: docker.io/alejandropalmier/simswap:latest
     container_name: simswap
-    # ports:
-    #   - "8083:8083" 
+    ports:
+      - "8083:8083" 
     restart: always
     depends_on:
       - mongodb 
@@ -231,10 +238,10 @@ services:
       - ./logstash/logs/application.log:/app/logs/application.log
 
   devicestatus:
-    image: docker.io/alejandropalmier/devicestatus:1.0
+    image: docker.io/alejandropalmier/devicestatus:latest
     container_name: devicestatus
-    # ports:
-    #   - "8084:8084" 
+    ports:
+      - "8084:8084" 
     restart: always
     depends_on:
       - mongodb 
@@ -244,10 +251,10 @@ services:
 
 
   kyc:
-    image: docker.io/alejandropalmier/kyc:1.0
+    image: docker.io/alejandropalmier/kyc:latest
     container_name: kyc
-    # ports:
-    #   - "8085:8085" 
+    ports:
+      - "8085:8085" 
     restart: always
     depends_on:
       - mongodb 
@@ -255,12 +262,13 @@ services:
     volumes:
       - ./logstash/logs/application.log:/app/logs/application.log
   web:
-    image: nginx:1.25.4-alpine
+    # image: nginx:1.25.4-alpine
+    image: alejandropalmier/web-portal:1.0
     container_name: web
-    volumes:
-      - ./web/static:/usr/share/nginx/html  
-    # ports:
-    #   - "80:80"
+    # volumes:
+    #   - ./web/static:/usr/share/nginx/html  
+    ports:
+      - "80:80"
     restart: always
 
 

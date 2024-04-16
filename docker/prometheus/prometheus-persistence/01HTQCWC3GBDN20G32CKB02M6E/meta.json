@@ -1,0 +1,17 @@
+{
+	"ulid": "01HTQCWC3GBDN20G32CKB02M6E",
+	"minTime": 1712268083912,
+	"maxTime": 1712275200000,
+	"stats": {
+		"numSamples": 73592,
+		"numSeries": 797,
+		"numChunks": 797
+	},
+	"compaction": {
+		"level": 1,
+		"sources": [
+			"01HTQCWC3GBDN20G32CKB02M6E"
+		]
+	},
+	"version": 1
+}

@@ -1,0 +1,134 @@
+{
+	"info": {
+		"_postman_id": "631a51b1-b75a-4dc8-8c98-81f220695f90",
+		"name": "Pruebas E2E Simswap",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32869911"
+	},
+	"item": [
+		{
+			"name": "retrieve-date Test",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.sendRequest({",
+							"    url: \"http://localhost:8100/realms/TFM/protocol/openid-connect/token\",",
+							"    method: 'POST',",
+							"    headers: {",
+							"        'Accept': 'application/json', // Agregado encabezado Accept",
+							"        'Content-Type': 'application/x-www-form-urlencoded'",
+							"    },",
+							"    body: {",
+							"        mode: 'urlencoded', ",
+							"        urlencoded: [",
+							"            {key: \"client_id\", value: \"opengateway\"},",
+							"            {key: \"client_secret\", value: \"1JsLTnYN3PicBWEZwcY702I8vlAaeyNs\"},",
+							"            {key: \"grant_type\", value: \"client_credentials\"}",
+							"",
+							"",
+							"        ]",
+							"    }",
+							"},",
+							"(err, res) => {",
+							"    if (err) {",
+							"        console.log(err);",
+							"    } else {",
+							"        pm.variables.set(\"access_token\", res.json().access_token);",
+							"        console.log(\"Token: \", res.json().access_token);",
+							"        console.log(\"Token: \", res.json());",
+							"        console.log(\"access_token: \", pm.variables.get(\"access_token\"))",
+							"    }",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Payload must be valid and have a body\", function () { ",
+							"     pm.response.to.be.ok; // equivalente a decir que valide que sea 200",
+							"     pm.response.to.be.withBody; // body tiene que exitir",
+							"     pm.response.to.be.json; // además que sea un JSON válido",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"phoneNumber\": \"+34651481201\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8100/sim-swap/v0/retrieve-date",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8100",
+					"path": [
+						"sim-swap",
+						"v0",
+						"retrieve-date"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "access_token",
+			"value": "\"0\"",
+			"type": "string"
+		}
+	]
+}

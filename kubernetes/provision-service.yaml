@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.31.2 (a92241f79)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: provision
+  name: provision
+spec:
+  ports:
+    - name: "8082"
+      port: 8082
+      targetPort: 8082
+  selector:
+    io.kompose.service: provision
+status:
+  loadBalancer: {}

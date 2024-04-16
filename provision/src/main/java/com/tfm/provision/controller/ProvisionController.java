@@ -159,7 +159,7 @@ public class ProvisionController {
 
 
             Client savedClient = provisionService.updateClient(updateclient);
-            log.info("Se ha modifcado el cliente con MSISDN: {}", savedClient.getMsisdn());
+            log.info("Se ha modificado el cliente con MSISDN: {}", savedClient.getMsisdn());
             return ResponseEntity.ok(savedClient);
 
     }
@@ -188,7 +188,7 @@ public class ProvisionController {
         List<Client> clientesBorrados = provisionService.deleteEmailClient(email);
         if (clientesBorrados.isEmpty()){
             log.info("No se ha encontrado el cliente con correo: {}", email);
-            throw new CustomException(HttpStatus.NOT_FOUND, "UNKNOWN_MSISDN", "Can't be deleted because the email is unknown");
+            throw new CustomException(HttpStatus.NOT_FOUND, "UNKNOWN_EMAIL", "Can't be deleted because the email is unknown");
         }else{
             log.info("Se ha eliminado el cliente con correo: {}", email);
             return clientesBorrados;
@@ -206,7 +206,7 @@ public class ProvisionController {
         List<Client> clientesBorrados = provisionService.deleteDniClient(dni);
         if (clientesBorrados.isEmpty()){
             log.info("No se ha encontrado el cliente con DNI: {}", dni);
-            throw new CustomException(HttpStatus.NOT_FOUND, "UNKNOWN_MSISDN", "Can't be deleted because the dni is unknown");
+            throw new CustomException(HttpStatus.NOT_FOUND, "UNKNOWN_DNI", "Can't be deleted because the dni is unknown");
         }else{
             log.info("Se ha eliminado el cliente con DNI: {}", dni);
             return clientesBorrados;

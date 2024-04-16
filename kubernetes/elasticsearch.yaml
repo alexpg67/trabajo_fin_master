@@ -1,0 +1,60 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: elasticsearch
+  labels:
+    component: elasticsearch
+spec:
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      component: elasticsearch
+  template:
+    metadata:
+      labels:
+        component: elasticsearch
+    spec:
+      containers:
+        - name: elasticsearch
+          image: elasticsearch:8.12.2
+          ports:
+            - containerPort: 9200
+              name: client
+            - containerPort: 9300
+              name: nodes
+          env:
+            - name: ELASTIC_PASSWORD
+              value: admin
+            - name: ES_JAVA_OPTS
+              value: -Xms1000m -Xmx1000m
+            - name: discovery.type
+              value: single-node
+            - name: xpack.security.enabled
+              value: "false"
+            - name: xpack.security.enrollment.enabled
+              value: "false"
+
+
+          # resources:
+          #   requests:
+          #     memory: 500Mi
+          #     cpu: 0.5
+          #   limits:
+          #     memory: 500Mi
+          #     cpu: 0.5
+
+          volumeMounts:
+            - mountPath: /usr/share/elasticsearch/data
+              name: elasticsearch-claim0
+
+      restartPolicy: Always
+      volumes:
+        - name: elasticsearch-claim0
+          persistentVolumeClaim:
+            claimName: elasticsearch-claim0
+      # - name: elasticsearch-data
+      #   hostPath:
+      #     path: /mnt/elasticsearch
+      #     # El path debe ser absoluto.
+      #     type: DirectoryOrCreate
