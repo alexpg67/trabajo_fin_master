@@ -374,3 +374,62 @@ spring.redis.host=localhost
 spring.redis.port=16379
 
 Efectivamente, ese era el problema (Solucionado!!)
+
+Una vez hemos terminado el despliegue con docker compose, vamos a ir a por kubernetes. Vamos a usar por el momento minikube. Para instalarlo seguimos los pasos de la web oficial:
+
+https://minikube.sigs.k8s.io/docs/start/
+
+Al arrancarlo con minikube start me daba error:
+
+minikube start
+😄  minikube v1.32.0 en Ubuntu 22.04 (vbox/amd64)
+👎  Unable to pick a default driver. Here is what was considered, in preference order:
+    ▪ docker: Not healthy: "docker version --format {{.Server.Os}}-{{.Server.Version}}:{{.Server.Platform.Name}}" exit status 1: permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get "http://%2Fvar%2Frun%2Fdocker.sock/v1.24/version": dial unix /var/run/docker.sock: connect: permission denied
+    ▪ docker: Sugerencia: Add your user to the 'docker' group: 'sudo usermod -aG docker $USER && newgrp docker' <https://docs.docker.com/engine/install/linux-postinstall/>
+💡  Alternativamente, puede installar uno de estos drivers:
+    ▪ kvm2: Not installed: exec: "virsh": executable file not found in $PATH
+    ▪ podman: Not installed: exec: "podman": executable file not found in $PATH
+    ▪ qemu2: Not installed: exec: "qemu-system-x86_64": executable file not found in $PATH
+    ▪ virtualbox: Not installed: unable to find VBoxManage in $PATH
+
+Para solucionarlo:
+
+Minikube intenta usar Docker como el controlador (driver) por defecto. El mensaje de error sugiere que tu usuario actual no tiene los permisos adecuados para comunicarse con el demonio de Docker. Para resolver esto, puedes agregar tu usuario al grupo docker con el siguiente comando:
+
+sudo usermod -aG docker $USER
+
+newgrp docker
+
+Tenemos que instalar también kubectl, siguiendo tambien los pasos de la web oficial
+
+https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
+
+Las versiones que estoy usando es 
+
+v1.28.3 Kubernetes
+v1.29.3 Kubectl
+
+
+Vale, para el despliegue en kubernetes es muy importante el tema de persisistir los datos en volumenes sobre todo para Elastic, Prometheus/Grafana, Kong (Postgres), Konga (Postgres) y Keycloak (Postgres). Si no somos capaces de persisitir la información, cada vez que se arranque el escenario hay que configurar todo (dashboards, índices, rutas, servicios, clientes, usuarios, realms, etc). Con kompose, lo que se generan son PVCs por cada volumen de docker. La estrategia de PVCs está muy bien en cluster de más de un nodo ya que permite que pods en diferentes máquinas compartan los datos sin depende del sistema de ficheros del host. Con minikube, cuando creas un PVC, a través del Storage Class, se crea automaticamente un PV que cumple las carácterisiticas del PVC. Sin embargo, cuando eliminas el escenario (borras los PVcs), los volumenes desaparecen por como está configurado el Storage Class:
+
+ kubectl get storageclass
+NAME                 PROVISIONER                RECLAIMPOLICY   VOLUMEBINDINGMODE   ALLOWVOLUMEEXPANSION   AGE
+standard (default)   k8s.io/minikube-hostpath   Delete          Immediate           false                  72m
+
+La ReclaimPolicy debería ser Retain. Para soplucionar esto, tenemos dos estrategias. O crear un storage class tipo Retain y asociar los PVCs a este nuevo storage class y no al por defecto de minikube. La otra opción es directamente especificar un volumen de tipo hostPath usando las configuraciones y datos que ya se han creado para docker. Realmente, la ventaja que tenía usar PVCs es que kompose los generaba automáticamente y que el escenario es más fácil de portar a un cluster real. Sin embargo, en este momento no hay idea de migración a un cluster real ya que no tenemos muchos créditos en proveedores de cloud. En caso de que finalmente se despliegue en telefónica en el cluster de open Shift, habrá que migrar esta solución de volumenes, por el momento podemos ir con hostPath que es más eficiente.
+
+Si tuviesemos un cluster, lo más fácil es crear un NFS que es básicamente un sistema de archivos compartido. Habría que instalar NFS en el nodo que va a almacenar los datos (NFS "master") crear el directorio compartido y  posteriormente, en los nodos de los pods que van a usar nfs, hay que configurar los PVCs para que apunten a esta máquina NFS (Es ideal que este todo conectyado en la misma red y usar IPs fijas para las maquinas). Dejo aquí un par de tutoriales útiles:
+
+https://www.josedomingo.org/pledin/2019/03/almacenamiento-kubernetes/
+
+https://medium.com/liveness-y-readiness-probe/kubernetes-nfs-server-3fb2c2c00c29
+
+Despues de estar un rato dandole vueltas. Voy a poner aquí algunos learnings. Minikube corre en el host como un contenedor de docker. Cuando tu usas hostPath, se esta refiriendo a la carpeta dentro del contenedor de minikube y no al sistema de archivos del host. Por lo tanto, decidí volver a PVCs configurando un StorageClass de tipo retain. Esto soluciono el problema pero no me encajo del todo ya que guarda los PVs en:
+
+/tmp/hostpath-provisioner/default/elasticsearch-claim0
+
+Por lo que al eliminar y volver a crear el escenario, se vuelven a crear los PVs y PVCs aunque eso sí, la información se ha quedado persisitida. El caso aquí es que los PVCs se crean y se destruyen y por eso se crean nuevos PVs, no se debería recrear los PVCs. La solución más bonita a esto es hacer en el host un servidor NFS y hacer al cluster de minikube el cliente de NFS. Aquí está el tutorial para hacerlo:
+
+https://mikebarkas.dev/setup-nfs-for-minikube-persistent-storage/
+
+Sin embargo, esto es mucho más complejo que simplemente usar hostPath eligiendo la carpeta a usar y cargando si queremos preeviamente los ficheros al contenedor.
