@@ -445,3 +445,8 @@ curl -X POST http://localhost:8083/sim-swap/v0/retrieve-date \
 -H "Content-Type: application/json" \
 -d '{"phoneNumber": "+34651481214"}'
 
+
+IP de la VM 192.168.56.101
+IP de host 192.168.1.1
+
+
