@@ -441,3 +441,7 @@ sudo docker compose up -d
 kubectl apply -f .
 systemctl jenkins status
 
+curl -X POST http://localhost:8083/sim-swap/v0/retrieve-date \
+-H "Content-Type: application/json" \
+-d '{"phoneNumber": "+34651481214"}'
+
