@@ -433,3 +433,11 @@ Por lo que al eliminar y volver a crear el escenario, se vuelven a crear los PVs
 https://mikebarkas.dev/setup-nfs-for-minikube-persistent-storage/
 
 Sin embargo, esto es mucho más complejo que simplemente usar hostPath eligiendo la carpeta a usar y cargando si queremos preeviamente los ficheros al contenedor.
+
+
+kubectl port-forward svc/keycloak 8081:8080
+newman run PruebasE2EDeviceStatus.postman_collection.json
+sudo docker compose up -d
+kubectl apply -f .
+systemctl jenkins status
+
