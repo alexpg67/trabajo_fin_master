@@ -453,4 +453,29 @@ curl -X POST http://192.168.56.101:8083/sim-swap/v0/retrieve-date \
 IP de la VM 192.168.56.101
 IP de host 192.168.1.1
 
+http://localhost:8085/kyc-match/v0/match
+  {
+    "phoneNumber": "+34651481210",
+    "idDocument": "08359571V",
+    "name": "Sofía Hernández",
+    "givenName": "Sofía",
+    "familyName": "Hernández",
+    "nameKanaHankaku": "",
+    "nameKanaZenkaku": "Ｆｅｄｅ",
+    "middleNames": "Sanchez",
+    "familyNameAtBirth": "YYYY",
+    "address": "Carrer De MALlorca 100",
+    "streetName": "Carrer de Mallorca",
+    "streetNumber": "100",
+    "postalCode": "08029",
+    "region": "Barcelona",
+    "locality": "Barcelona",
+    "country": "España",
+    "houseNumberExtension": "I",
+    "birthdate": "1984-07-25",
+    "email": "sofia@example.com",
+    "gender": "FEMale"
+ 
+
+      }
 
