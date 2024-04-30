@@ -479,3 +479,31 @@ http://localhost:8085/kyc-match/v0/match
 
       }
 
+        {
+    "msisdn": "+34651481230",
+    "imsi": "214071234567830",
+    "mcc": 214,
+    "mnc": "07",
+    "cell_id": 3259,
+    "titular": true,
+    "titular_data": {
+      "name": "Sofía Hernández",
+      "givenName": "Sofía",
+      "familyName": "Hernández",
+      "idDocument": "08359628B",
+      "email": "sofiahernandez@gmail.com",
+      "gender": "Femenino",
+      "birthdate": "1976-09-24",
+      "address": {
+        "streetName": "Calle de Segovia",
+        "streetNumber": "187",
+        "postalCode": "28017",
+        "region": "Madrid",
+        "locality": "Madrid",
+        "country": "España",
+        "houseNumberExtension": "3E"
+      }
+    },
+    "latestSimChange": "2024-01-07T05:43:34.000Z"
+  }
+
