@@ -507,3 +507,31 @@ http://localhost:8085/kyc-match/v0/match
     "latestSimChange": "2024-01-07T05:43:34.000Z"
   }
 
+pm.sendRequest({
+    url: "http://localhost:8100/realms/TFM/protocol/openid-connect/token",
+    method: 'POST',
+    headers: {
+        'Accept': 'application/json', // Agregado encabezado Accept
+        'Content-Type': 'application/x-www-form-urlencoded'
+    },
+    body: {
+        mode: 'urlencoded', 
+        urlencoded: [
+            {key: "client_id", value: "opengateway"},
+            {key: "client_secret", value: "1JsLTnYN3PicBWEZwcY702I8vlAaeyNs"},
+            {key: "grant_type", value: "client_credentials"}
+
+
+        ]
+    }
+},
+(err, res) => {
+    if (err) {
+        console.log(err);
+    } else {
+        pm.variables.set("access_token", res.json().access_token);
+        console.log("Token: ", res.json().access_token);
+        console.log("Token: ", res.json());
+        console.log("access_token: ", pm.variables.get("access_token"))
+    }
+});
