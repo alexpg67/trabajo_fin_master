@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:orientation="vertical"
+    android:paddingStart="20dp"
+    android:paddingEnd="20dp"
+    tools:context=".CreateAccountActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:fontFamily="@font/nunito_black"
+            android:text="Realiza una transferencia"
+            android:textColor="@color/black"
+            android:textSize="28dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="35dp"
+            android:fontFamily="@font/nunito_bold"
+            android:text="IBAN Destino"
+            android:textColor="@color/black"
+            android:textSize="18dp" />
+
+        <EditText
+            android:id="@+id/edittext_iban_destino"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="15sp"
+            android:layout_marginEnd="20dp"
+            android:layout_weight="1"
+            android:inputType="textPhonetic"
+            android:background="@drawable/edit_bg"
+            android:fontFamily="@font/nunito_semibold"
+            android:hint="Ej: ES32 1664 6678 9101 1213 "
+            android:paddingStart="25dp"
+            android:paddingTop="8dp"
+            android:maxLines="1"
+            android:textSize="15dp"
+            android:paddingEnd="25dp"
+            android:paddingBottom="8dp"
+            android:textColorHint="@color/app_color" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15sp"
+            android:layout_weight="1"
+            android:fontFamily="@font/nunito_bold"
+            android:text="Nº Teléfono destinatario"
+
+            android:textColor="@color/black"
+            android:textSize="18dp" />
+
+
+        <EditText
+            android:id="@+id/edittext_telephone"
+
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="15sp"
+            android:layout_marginEnd="20dp"
+            android:layout_weight="1"
+            android:textSize="15dp"
+            android:inputType="phone"
+
+            android:background="@drawable/edit_bg"
+            android:fontFamily="@font/nunito_semibold"
+            android:hint="Ej: +34657766234"
+            android:paddingStart="25dp"
+            android:paddingTop="8dp"
+            android:paddingEnd="25dp"
+            android:paddingBottom="8dp"
+            android:textColorHint="@color/app_color" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15sp"
+            android:layout_weight="1"
+            android:fontFamily="@font/nunito_bold"
+            android:text="Concepto de la Transferencia"
+
+            android:textColor="@color/black"
+            android:textSize="18dp" />
+
+
+        <EditText
+            android:id="@+id/edittext_cantidad_transferir"
+
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="15sp"
+            android:layout_marginEnd="20dp"
+            android:textSize="15dp"
+
+            android:layout_weight="1"
+            android:background="@drawable/edit_bg"
+            android:fontFamily="@font/nunito_semibold"
+            android:hint="Ej: Pago proveedor"
+            android:maxLines="1"
+            android:paddingStart="25dp"
+
+            android:paddingTop="8dp"
+            android:paddingEnd="25dp"
+            android:paddingBottom="8dp"
+            android:textColorHint="@color/app_color" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15sp"
+            android:layout_weight="1"
+
+            android:fontFamily="@font/nunito_bold"
+            android:text="Cantidad a Transferir"
+            android:textColor="@color/black"
+            android:textSize="18dp" />
+
+
+        <EditText
+            android:id="@+id/edittext_amount_transferir"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="15sp"
+            android:layout_marginEnd="20dp"
+            android:layout_weight="1"
+            android:background="@drawable/edit_bg"
+            android:fontFamily="@font/nunito_semibold"
+            android:hint="Ej: 200.00"
+            android:inputType="number"
+            android:textSize="15dp"
+
+            android:maxLines="1"
+            android:paddingStart="25dp"
+            android:paddingTop="8dp"
+            android:paddingEnd="25dp"
+            android:paddingBottom="8dp"
+            android:textColorHint="@color/app_color" />
+
+
+        <ImageView
+            android:id="@+id/next_button"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="end"
+            android:layout_marginTop="70dp"
+            android:layout_marginEnd="20dp"
+            android:onClick="next"
+            android:src="@drawable/next_icon" />
+    </LinearLayout>
+
+</ScrollView>
