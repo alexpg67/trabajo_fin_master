@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:orientation="vertical"
+    android:paddingStart="20dp"
+    android:paddingEnd="20dp"
+    tools:context=".CreateAccountActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp">
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/user_profile"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+
+                android:layout_below="@id/home_icon"
+                android:layout_gravity="center"
+                android:layout_marginTop="60dp"
+                android:src="@drawable/user_profile" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/user_profile"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/nunito_bold"
+                android:gravity="center"
+                android:text="Nombre de usuario"
+                android:textColor="@color/black"
+                android:textSize="22dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="35dp"
+                android:fontFamily="@font/nunito_bold"
+                android:text="IBAN "
+                android:textColor="@color/black"
+                android:textSize="18dp" />
+
+            <TextView
+                android:id="@+id/current_user_IBAN"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="15sp"
+                android:layout_marginEnd="20dp"
+                android:layout_weight="1"
+                android:inputType="text"
+                android:gravity="center_vertical"
+                android:background="@drawable/edit_bg"
+                android:fontFamily="@font/nunito_semibold"
+                android:text="Ej: ES32 1664 6678 9101 1213 "
+                android:maxLines="1"
+                android:textColor="@color/app_color"
+                android:paddingStart="25dp"
+                android:textSize="16dp"
+                android:paddingTop="8dp"
+                android:paddingEnd="25dp"
+                android:paddingBottom="8dp"
+                android:textColorHint="@color/app_color" />
+
+
+            <TextView
+                  android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15sp"
+                android:layout_weight="1"
+                android:fontFamily="@font/nunito_bold"
+                android:text="DNI"
+
+                android:textColor="@color/black"
+                android:textSize="18dp" />
+
+
+            <TextView
+                android:id="@+id/current_dni"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="15sp"
+                android:layout_marginEnd="20dp"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:gravity="center_vertical"
+                android:textColor="@color/app_color"
+                android:textSize="16dp"
+
+                android:background="@drawable/edit_bg"
+                android:fontFamily="@font/nunito_semibold"
+                android:hint="Ej: 01234567F"
+                android:paddingStart="25dp"
+                android:paddingTop="8dp"
+                android:paddingEnd="25dp"
+                android:paddingBottom="8dp"
+                android:textColorHint="@color/app_color" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15sp"
+                android:layout_weight="1"
+                android:fontFamily="@font/nunito_bold"
+                android:text="Contraseña"
+
+                android:textColor="@color/black"
+                android:textSize="18dp" />
+
+
+            <TextView
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="15sp"
+                android:layout_marginEnd="20dp"
+                android:inputType="textPassword"
+                android:layout_weight="1"
+                android:background="@drawable/edit_bg"
+                android:fontFamily="@font/nunito_semibold"
+                android:hint="Ej: contraseña123"
+                android:maxLines="1"
+                android:paddingStart="25dp"
+                android:gravity="center_vertical"
+                android:textColor="@color/app_color"
+                android:textSize="16dp"
+
+                android:paddingTop="8dp"
+                android:paddingEnd="25dp"
+                android:paddingBottom="8dp"
+                android:textColorHint="@color/app_color" />
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/outline_btn_bg"
+                android:text="Actualizar mis datos"
+                android:onClick="home"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
+
+    </ScrollView>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/nunito_bold"
+        android:text="Mi perfil"
+        android:textColor="@color/black"
+        android:textSize="28dp" />
+
+    <ImageView
+        android:id="@+id/home_icon"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentEnd="true"
+        android:layout_gravity="end"
+        android:onClick="home_"
+        android:layout_marginTop="46dp"
+        android:src="@drawable/home" />
+
+</RelativeLayout>

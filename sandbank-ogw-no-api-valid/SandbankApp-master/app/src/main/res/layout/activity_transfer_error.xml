@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".CreatingAccountErrorActvity">
+
+    <ImageView
+        android:id="@+id/error"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+
+        android:layout_gravity="center"
+        android:layout_marginTop="56dp"
+        android:src="@drawable/error" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/error"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="30dp"
+        android:background="#F5F5F5"
+        android:fontFamily="@font/nunito_bold"
+        android:paddingStart="18dp"
+        android:paddingTop="33dp"
+        android:paddingEnd="13dp"
+        android:paddingBottom="33dp"
+        android:text="Oops, no hemos podido hacer la transferencia.Parece que no cumple con los requisitos de seguridad.Por favor, vuelva a intentarlo más tarde."
+        android:textColor="@color/black"
+        android:textSize="18dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView1"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="30dp"
+        android:fontFamily="@font/nunito_bold"
+
+        android:text="Contacta con atención al cliente"
+        android:textSize="16dp" />
+
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignParentEnd="true"
+
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="end"
+        android:onClick="next"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="50dp"
+        android:src="@drawable/next_icon" />
+</RelativeLayout>
