@@ -1,3 +1,5 @@
+ACTUALIZAR LA APP DE OGW SIN APIS. LA DEL REPO NO FUNCIONA.
+
 # trabajo_fin_master
 
 El token de acceso es
