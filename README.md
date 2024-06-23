@@ -9,4 +9,4 @@ Open Gateway es un proyecto es un proyecto que va a permitir a las operadoras de
 
 El desarrollo cuenta no solo con las API propiamente dichas sino que también con plataformas que permiten la monitorización de métricas, centralización de logs, control de acceso y un punto único de entrada. La arquitectura de la solución es la siguiente:
 
-
+![Arquitectura implementada](implementacionarquitecturaogw.png)
