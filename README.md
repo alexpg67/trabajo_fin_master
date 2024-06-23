@@ -49,4 +49,4 @@ Además del entorno de microservicios, se ha realizado una aplicación Android l
 
 # Estructura de carpetas
 
-En esta sección se detalla que se puede encontrar en cada una de las carpetas relativas al proyecto. El código de cada una de las API se puede encontrar en los directorios que tienen el nombre de cada una de las API. En el directorio JSON se encuentra el fichero con los 100 clientes que contiene la base de datos.
+En esta sección se detalla que se puede encontrar en cada una de las carpetas relativas al proyecto. El código de cada una de las API se puede encontrar en los directorios que tienen el nombre de cada una de las API. En el directorio JSON se encuentra el fichero con los 100 clientes que contiene la base de datos. En la capreta de docker se encuenta el manifiesto para el despliegue de la arquitectura con Docker Compose y también los Dockerfile para crear las diferentes imágenes. Por otra parte, se encuentran también copias de las bases utulizadas por las distintas tecnologías. Esto se ha utilizado para crear imágenes personalizadas con los datos precargados para hacer la inicialización más eficiente. 
