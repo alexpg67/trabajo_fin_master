@@ -41,6 +41,8 @@ La solución se puede desplegar a través de Docker Compose o de Kubernetes. La 
 
 Aunque la solución se puede desplegar en cualquier entorno, en este trabajo se ha usado una VM con Minikube. Se ha creado un pipeline de Jenkins para automatizar el flujo de pruebas y despliegue de la arquitectura. Se utiliza Docker Compose como entorno de pruebas y Kubernetes como entorno productivo. El pipeline es el siguiente:
 
+![Ppeline de automatización de pruebas y despliegue](cicdpipeline.png)
+
 
 # Estructura de carpetas
 
