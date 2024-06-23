@@ -43,7 +43,10 @@ Aunque la solución se puede desplegar en cualquier entorno, en este trabajo se 
 
 ![Pipeline de automatización de pruebas y despliegue](cicdpipeline.png)
 
+# Aplicación Sandbank
+
+Además del entorno de microservicios, se ha realizado una aplicación Android llamada Sandbank. La aplicación se asemeja a una aplicación de una entidad bancaria donde el usuario puede crearse una cuenta, modificar sus datos personales y hacer transferencias. Se usarán las API de Open Gateway Sim Swap y Know Your Customer para evitar registros con datos incorrectos y transferencias fraudulentas. La aplicación bloquea los registros de los usuarios que estén introduciendo datos que no coinciden con los que devuelve el API de Know Your Customer. Por otro lado, bloquea las transferencias que superen el 90% del dinero disponible y cuyo usuario haya cambiado de Sim recientemente (En las últimas 24 horas). La aplicación tiene en cuenta que las API están desplegadas en una cierta IP, para usarla en el entorno deseado se debe modificar la IP a la que apunta la aplicación.
 
 # Estructura de carpetas
 
-El código de cada una de las API se puede encontrar en los directorios 
+En esta sección se detalla que se puede encontrar en cada una de las carpetas relativas al proyecto. El código de cada una de las API se puede encontrar en los directorios que tienen el nombre de cada una de las API. 
