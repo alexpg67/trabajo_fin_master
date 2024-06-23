@@ -39,6 +39,9 @@ La solución se puede desplegar a través de Docker Compose o de Kubernetes. La 
 | Prometheus   | 9090   | Herramienta para el almacenamiento de las métricas de las API.                                          |
 | Grafana      | 3000   | Herramienta para la visualización de las métricas de las API.                                           |
 
+Aunque la solución se puede desplegar en cualquier entorno, en este trabajo se ha usado una VM con Minikube. Se ha creado un pipeline de Jenkins para automatizar el flujo de pruebas y despliegue de la arquitectura. Se utiliza Docker Compose como entorno de pruebas y Kubernetes como entorno productivo. El pipeline es el siguiente:
+
+
 # Estructura de carpetas
 
 El código de cada una de las API se puede encontrar en los directorios 
