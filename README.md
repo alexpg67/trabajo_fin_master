@@ -5,11 +5,40 @@ En este repositorio se encuentran todos los códigos realizados durante el Traba
 
 Open Gateway es un proyecto es un proyecto que va a permitir a las operadoras de telecomunicaciones, exponer sus capacidades de forma estandarizada a terceros a través de APIs. Durante este trabajo, se van a desarrollar tres de las API de Open Gateway. Concretamente, Sim Swap (v 0.4.0), Device Status (v 0.4.1) y Know Your Customer (v 0.1.0). Las definiciones de estas API se pueden encontrar en el repositorio oficial de CAMARA.
 
-# Arquitectura de la solución
+# Arquitectura de la solución de API Open Gateway
 
 El desarrollo cuenta no solo con las API propiamente dichas sino que también con plataformas que permiten la monitorización de métricas, centralización de logs, control de acceso y un punto único de entrada mediante un API GW. Esto va aEl objetivo es conocer quién accede a los servicios, cuál es el comportamiento y el rendimiento de los mismos y mejorar la gestión de las API. La arquitectura de la solución es la siguiente:
 
 ![Arquitectura implementada](implementacionarquitecturaogw.png)
 
 
-Como se puede ver, se despliega una base de clientes de Mongo que contiene toda la información necesaria para exponer las API de Open Gateway. Se supone que la información de esta base es actualizada desde una operadora de telecomunicaciones. La base cuenta con una información inicial de 100 clientes ficticios. Las API se han desarrollado con Spring Boot y la montirozación de métricas se implementa con Grafana y Prometheus. Para la centralización de los logs de todos los microservicios se ha utilizado ELK y para el servidor de autorización keycloak. En cuanto al API GW se usa Kong y Konga para gestionarlo. Se implementa también una web para la gestión de la base de clientes y para tener un enotrno gráfico de pruebas de las API. 
+Como se puede ver, se despliega una base de clientes de Mongo que contiene toda la información necesaria para exponer las API de Open Gateway. Se supone que la información de esta base es actualizada desde una operadora de telecomunicaciones. La base cuenta con una información inicial de 100 clientes ficticios. Las API se han desarrollado con Spring Boot y la montirozación de métricas se implementa con Grafana y Prometheus. Para la centralización de los logs de todos los microservicios se ha utilizado ELK y para el servidor de autorización keycloak. En cuanto al API GW se usa Kong y Konga para gestionarlo. Se implementa también una web para la gestión de la base de clientes y para tener un entorno gráfico de pruebas de las API. 
+
+# Despliegue de la solución de API Open Gateway
+
+La solución se puede desplegar a través de Docker Compose o de Kubernetes. La siguiente tabla muestra un resumen de los pods desplegados y de los puertos que exponen:
+
+| Pod          | Puerto | Descripción                                                                                             |
+|--------------|--------|---------------------------------------------------------------------------------------------------------|
+| Provisión    | 8082   | El Pod incluye el API de provisión y Filebeat para el streaming de logs.                                |
+| Sim Swap     | 8083   | El Pod incluye el API de Sim Swap y Filebeat para el streaming de logs.                                 |
+| Device Status| 8084   | El Pod incluye el API de Device Status y Filebeat para el streaming de logs.                            |
+| KYC          | 8085   | El Pod incluye el API de KYC y Filebeat para el streaming de logs.                                      |
+| Web          | 80     | Portal web para administración de clientes y pruebas de API.                                            |
+| Mongodb      | 27017  | Base de datos con la información de clientes para Open Gateway. Si el cuerpo esta vacío no hay modificación. |
+| Kong         | 8100   | API GW como punto de acceso único a las API.                                                            |
+| Kong-db      | 5432   | Base de Postgresql que usa Kong para almacenar la información.                                          |
+| Konga        | 1337   | Portal Web para la gestión del API GW.                                                                  |
+| Konga-db     | 5432   | Base de Postgresql que usa Konga para almacenar la información.                                         |
+| Keycloak     | 8080   | Servidor de autorización para habilitar la entrada a las API mediante token de acceso.                  |
+| Keycloak-db  | 5432   | Base de Postgresql que usa Konga para almacenar la información.                                         |
+| Redis        | 6379   | Base de datos para almacenar la información de MCC y el país asociado.                                  |
+| Logstash     | 5000   | Herramienta para la centralización y formateo de los logs de las API.                                   |
+| Elasticsearch| 9200   | Herramienta para el almacenamiento de las API.                                                          |
+| Kibana       | 5601   | Herramienta para la visualización de los logs de las API.                                               |
+| Prometheus   | 9090   | Herramienta para el almacenamiento de las métricas de las API.                                          |
+| Grafana      | 3000   | Herramienta para la visualización de las métricas de las API.                                           |
+
+# Estructura de carpetas
+
+El código de cada una de las API se puede encontrar en los directorios 
