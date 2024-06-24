@@ -3,7 +3,7 @@ En este repositorio se encuentran todos los códigos realizados durante el Traba
 
 # Open Gateway
 
-Open Gateway es un proyecto que va a permitir a las operadoras de telecomunicaciones, exponer sus capacidades de forma estandarizada a terceros a través de APIs. Durante este trabajo, se van a desarrollar tres de las APIs de Open Gateway. Concretamente, Sim Swap (v 0.4.0), Device Status (v 0.4.1) y Know Your Customer (v 0.1.0). Las definiciones de estas APIs se pueden encontrar en el repositorio oficial de CAMARA.
+Open Gateway es un proyecto que va a permitir a las operadoras de telecomunicaciones, exponer sus capacidades de forma estandarizada a terceros a través de APIs. Durante este trabajo, se van a desarrollar tres de las APIs de Open Gateway. Concretamente, Sim Swap (v 0.4.0), Device Status (v 0.4.0) y Know Your Customer (v 0.1.0). Las definiciones de estas APIs se pueden encontrar en el repositorio oficial de CAMARA.
 
 # Arquitectura de la solución de API Open Gateway
 
